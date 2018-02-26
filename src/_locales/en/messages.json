@@ -1,0 +1,78 @@
+{
+  "extensionName": {
+    "message": "Toolbar Weather",
+    "description": "Toolbar Weather"
+  },
+  "extensionDescription": {
+    "message": "This extension shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city.",
+    "description": "This extension shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city."
+  },
+  "clearSky":{
+    "message": "Clear sky",
+    "description": "Clear sky"
+  },
+  "fewClouds":{
+    "message": "Few clouds",
+    "description": "Few clouds"
+  },
+  "scatteredClouds":{
+    "message": "Scattered clouds",
+    "description": "Scattered clouds"
+  },
+  "brokenClouds":{
+    "message": "Broken clouds",
+    "description": "Broken clouds"
+  },
+  "showerRain":{
+    "message": "Shower rain",
+    "description": "Shower rain"
+  },
+  "rain":{
+    "message": "Rain",
+    "description": "Rain"
+  },
+  "thunderstorm":{
+    "message": "Thunderstorm",
+    "description": "Thunderstorm"
+  },
+  "snow":{
+    "message": "Snow",
+    "description": "Snow"
+  },
+  "mist":{
+    "message": "Mist",
+    "description": "Mist"
+  },
+  "description": {
+    "message": "Description ",
+    "description": "Description "
+  },
+  "city": {
+    "message": "City ",
+    "description": "City "
+  },
+  "temperature": {
+    "message": "Temperature ",
+    "description": "Temperature "
+  },
+  "humidity": {
+    "message": "Humidity ",
+    "description": "Humidity "
+  },
+  "wind": {
+    "message": "Wind ",
+    "description": "Wind "
+  },
+  "gust": {
+    "message": "Gust ",
+    "description": "Gust "
+  },
+  "temperatureMin": {
+    "message": "Temperature Min ",
+    "description": "Temperature Min "
+  },
+  "temperatureMax": {
+    "message": "Temperature Max ",
+    "description": "Temperature Max "
+  }
+}

@@ -1,0 +1,64 @@
+html, body {
+	background-color: #FFFFFF;
+	min-width: 270px;
+}
+.panel {
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+.default {
+	cursor: default;
+	color: #00000F;
+}
+.panel-section-header .text-section-header {
+	color: #00000F;
+}
+.panel-section-body {
+	text-decoration: none;
+	display: flex;
+	margin-left: 0px;
+}
+.panel-section-separator {
+	padding: 5px;
+	background: #E1EBF2;
+}
+.panel-section-distance {
+	padding: 5px;
+}
+.imageWeather {
+	margin-left: 95px;
+	margin-bottom: 20px;
+}
+.city {
+	position: absolute;
+	right: 10px;
+}
+.temperature {
+	position: absolute;
+	right: 10px;
+	font-family: sans-serif;
+}
+.description {
+	position: absolute;
+	right: 10px;
+}
+.descriptionWeather {
+	margin-left: 10px;
+	color: #0C0C0D;
+	font-style: oblique;
+}
+.humidity {
+	position: absolute;
+	right: 10px;
+}
+.wind {
+	position: absolute;
+	right: 10px;
+}
+.gust {
+	position: absolute;
+	right: 10px;
+}
+.panel-list-item {
+	margin-top: 5px;
+}

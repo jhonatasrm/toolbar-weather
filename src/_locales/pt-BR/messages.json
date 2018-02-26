@@ -1,0 +1,78 @@
+{
+  "extensionName": {
+    "message": "Toolbar Weather",
+    "description": "Toolbar Weather"
+  },
+  "extensionDescription": {
+    "message": "Esta extensão mostra na barra de ferramentas do seu navegador o tempo atual e os graus em Celsius, ao clicar nele é possível ver mais detalhes sobre o tempo em sua cidade.",
+    "description": "This extension shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city."
+  },
+  "clearSky":{
+    "message": "Céu limpo",
+    "description": "Clear sky"
+  },
+  "fewClouds":{
+    "message": "Poucas nuvens",
+    "description": "Few clouds"
+  },
+  "scatteredClouds":{
+    "message": "Nuvens dispersas",
+    "description": "Scattered clouds"
+  },
+  "brokenClouds":{
+    "message": "Nublado",
+    "description": "Broken clouds"
+  },
+  "showerRain":{
+    "message": "Chuva",
+    "description": "Shower rain"
+  },
+  "rain":{
+    "message": "Chuva",
+    "description": "Rain"
+  },
+  "thunderstorm":{
+    "message": "Tempestade",
+    "description": "Thunderstorm"
+  },
+  "snow":{
+    "message": "Neve",
+    "description": "Snow"
+  },
+  "mist":{
+    "message": "Névoa",
+    "description": "Mist"
+  },
+  "description": {
+    "message": "Descrição ",
+    "description": "Description "
+  },
+  "city": {
+    "message": "Cidade ",
+    "description": "City "
+  },
+  "temperature": {
+    "message": "Temperatura ",
+    "description": "Temperature "
+  },
+  "humidity":{
+    "message": "Umidade ",
+    "description": "Humidity "
+  },
+  "wind": {
+    "message": "Vento ",
+    "description": "Wind: "
+  },
+  "gust": {
+    "message": "Rajadas ",
+    "description": "Gust "
+  },
+  "temperatureMin": {
+    "message": "Temperatura Min ",
+    "description": "Temperature Min "
+  },
+  "temperatureMax": {
+    "message": "Temperatura Max ",
+    "description": "Temperature Max "
+  }
+}
