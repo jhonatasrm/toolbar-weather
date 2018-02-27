@@ -3,7 +3,9 @@
 [<img align="right" src="https://img.shields.io/github/release/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/release/jhonatasrm/toolbar-weather.svg)
 
 
-# Toolbar Weather
+
+# Toolbar Weather [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/toolbar-weather/)
+
 This extension shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city. Easier than looking out the window !
 
 ![Toolbar Weather Screenshot](toolbar-weather.gif)
