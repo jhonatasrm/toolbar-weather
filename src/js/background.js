@@ -1,6 +1,3 @@
-var requestAPI = "";
-var request = new XMLHttpRequest();
-
 // geolocation
 var optionsAccuracy = {
   enableHighAccuracy: true,
@@ -19,6 +16,8 @@ function callback(position) {
 function error(){
   console.warn(`ERROR(${err.code}): ${err.message}`);
 }
+var requestAPI = "";
+var request = new XMLHttpRequest();
 
 // notifications update
 var updateNotification;

@@ -6,6 +6,8 @@
 # Toolbar Weather
 This extension shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city. Easier than looking out the window !
 
+![Toolbar Weather Screenshot](toolbar-weather.gif)
+
 ## Requirements
 * Firefox 57.0 or later
 
@@ -19,7 +21,7 @@ This extension shows in your toolbar the current weather and the degree in Celsi
 * Speed wind (km/h)
 * Gust (km/h)
 
-## How to test this webextension
+## How to test this extension
 
 1. Clone this repository git clone ```https://github.com/jhonatasrm/toolbar-weather.git```
 
