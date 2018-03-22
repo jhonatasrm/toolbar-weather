@@ -74,5 +74,21 @@
   "temperatureMax": {
     "message": "Temperature Max ",
     "description": "Temperature Max "
+  },
+  "speed": {
+    "message": "Speed",
+    "description": "Speed"
+  },
+  "preferences": {
+    "message": "Preferences",
+    "description": "Preferences"
+  },
+  "save": {
+    "message": "Save",
+    "description": "Save"
+  },
+  "success": {
+    "message": "Saved successfully!",
+    "description": "Saved successfully!"
   }
 }
