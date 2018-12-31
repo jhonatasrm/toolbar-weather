@@ -6,61 +6,80 @@
   <link rel="stylesheet" href="../css/popup.css"/>
 </head>
 <body>
-  <div class="main-panel" id="mainPanel">
-    <div class="panel-section-body">
-      <img id="imageWeather" class="imageWeather"> <img id="preferences" class="preferences" src="../res/icons/preferences/preferences.png">
-    </div> 
-    <div class="panel-section-distance">
-      <label class="description-weather" data-i18n="description"></label>
-      <label id="description" class="description"></label><br>
+<div class="main-panel" id="mainPanel">
+  <div class="panel-section-body" style="width:100%">
+    <img id="imageWeather" class="imageWeather">
+    <img id="preferences" class="preferences" src="../res/icons/preferences/preferences.png">
+  </div>
+  <div class="panel-section-distance">
+    <label class="description-weather" data-i18n="description"></label>
+    <label id="description" class="description"></label><br>
+  </div>
+  <div class="panel-section-separator" id="separator1">
+    <label class= "description-weather" data-i18n="city"></label><label id="city" class="city"></label><br>
+  </div>
+  <div class="panel-section-distance">
+    <label class="description-weather" data-i18n="temperature"></label><label id="temperature" class="temperature"></label><br>
+  </div>
+  <div class="panel-section-separator" id="separator2">
+    <label class="description-weather" data-i18n="temperatureMin"></label><label id="temperatureMin" class="temperature"></label><br>
+  </div>
+  <div class="panel-section-distance">
+    <label class="description-weather" data-i18n="temperatureMax"></label><label id="temperatureMax" class="temperature"></label><br>
+  </div>
+  <div class="panel-section-separator" id="separator3">
+    <label class="description-weather" data-i18n="humidity"></label><label id="humidity" class="humidity"></label><br>
+  </div>
+  <div class="panel-section-distance">
+    <label class="description-weather" data-i18n="wind"></label><label id="wind" class="wind"></label><br>
+  </div>
+  <div class="panel-section-separator" id="separator4">
+    <label class="description-weather" data-i18n="gust"></label><label id="gust" class="gust"></label>
+  </div>
+  <img id="forecastWeather" class="imageWeather"> <img id="forecast" class="forecast down-arrow" src="../res/icons/preferences/arrow_down-32.png"><img id="upArrow" class="up-arrow" src="../res/icons/preferences/arrow_up-32.png"><br>
+  <div class="forecast-panel" id='forecastPanel'>
+    <div class="" id="separator5">
+        <br><label class="description-forecast-weather" id="tomorrow" data-i18n="tomorrow"></label><br>
+        <img class="forecast-weather-img" id="imageWeatherTomorrow"><br>
+        <label class="weather-data-forecast" id="weatherTomorrow"></label><br>
+        <label class="weather-data" id="tempMinTomorrow"></label> - <label class="weather-data-pos" id="tempMaxTomorrow"></label>
     </div>
-    <div class="panel-section-separator" id="separator1">
-      <label class= "description-weather" data-i18n="city"></label><label id="city" class="city"></label><br>
-    </div>
-    <div class="panel-section-distance">
-      <label class="description-weather" data-i18n="temperature"></label><label id="temperature" class="temperature"></label><br>
-    </div>
-    <div class="panel-section-separator" id="separator2">
-      <label class="description-weather" data-i18n="temperatureMin"></label><label id="temperatureMin" class="temperature"></label><br>
-    </div>
-    <div class="panel-section-distance">
-      <label class="description-weather" data-i18n="temperatureMax"></label><label id="temperatureMax" class="temperature"></label><br>
-    </div>
-    <div class="panel-section-separator" id="separator3">
-      <label class="description-weather" data-i18n="humidity"></label><label id="humidity" class="humidity"></label><br>
-    </div>
-    <div class="panel-section-distance">
-      <label class="description-weather" data-i18n="wind"></label><label id="wind" class="wind"></label><br>
-    </div>
-    <div class="panel-section-separator" id="separator4">
-      <label class="description-weather" data-i18n="gust"></label><label id="gust" class="gust"></label>
+    <div class="panel-section-distance"></div><br>
+    <div class="" id="separator6">
+        <br><label  class="description-forecast-weather" id="afterTomorrow"></label><br>
+        <img class="forecast-weather-img" id="imageWeatherAfterTomorrow"><br>
+        <label class="weather-data-forecast" id="weatherAfterTomorrow"></label><br>
+        <label class="weather-data" id="tempMinAfterTomorrow"></label> - <label class="weather-data-pos" id="tempMaxAfterTomorrow"></label><br>
     </div>
   </div>
-  <div class="preferences-panel" id='preferencesPanel'>
-      <img id="outPreferences" class="out-preferences" src="../res/icons/preferences/arrowhead_left-32.png"><label class="preferences-title" data-i18n="preferences"></label>
-      <div class="panel-section-separator-gray"></div>
-      <div class="alert alert-success" id="resultSuccess">
-        <label class="result-message" data-i18n="success"></label>
+  </div>
+</div>
+<div class="preferences-panel" id='preferencesPanel'>
+  <img id="outPreferences" class="out-preferences" src="../res/icons/preferences/arrowhead_left-32.png"><label class="preferences-title" data-i18n="preferences"></label>
+  <div class="panel-section-separator-gray"></div>
+  <div class="alert alert-success" id="resultSuccess">
+    <label class="result-message" data-i18n="success"></label>
+  </div>
+  <div class="panel-section-distance">
+    <label class="preferences-temperature" data-i18n="temperature"></label>
+    <label class="switcher-temperature">
+      <input type="checkbox"  id="checkboxTemperature">
+      <div class="inner">
       </div>
-      <div class="panel-section-distance">
-        <label class="preferences-temperature" data-i18n="temperature"></label>
-        <label class="switcher-temperature" >
-          <input type="checkbox"  id="checkboxTemperature">
-            <div class="inner">
-          </div>
-        </label>
+    </label>
+  </div>
+  <div class="panel-section-distance">
+    <label class="preferences-speed" data-i18n="speed"></label>
+    <label class="switcher-speed">
+      <input type="checkbox" id="checkboxSpeed">
+      <div class="inner">
       </div>
-      <div class="panel-section-distance">
-        <label class="preferences-speed" data-i18n="speed"></label>
-        <label class="switcher-speed">
-          <input type="checkbox" id="checkboxSpeed">
-            <div class="inner">
-          </div>
-        </label>
-      </div>
-      <button type="button" class="btn btn-primary" data-i18n="save" id="save"></button>
-    </div>
-  <script src="../js/background.js"></script>
-  <script src="../js/language.js"></script>
+    </label>
+  </div>
+  <button type="button" class="btn btn-primary save" data-i18n="save" id="save"></button>
+</div>
+</div>
+<script src="../js/background.js"></script>
+<script src="../js/language.js"></script>
 </body>
 </html>

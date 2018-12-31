@@ -90,5 +90,37 @@
   "success": {
     "message": "Alterações salvas!",
     "description": "Saved successfully!"
+  },
+  "tomorrow": {
+    "message": "Amanhã",
+    "description": "Tomorrow"
+  },
+    "monday": {
+    "message": "Segunda-Feira",
+    "description": "Monday"
+  },
+    "tuesday": {
+    "message": "Terça-Feira",
+    "description": "Tuesday"
+  },
+    "wednesday": {
+    "message": "Quarta-Feira",
+    "description": "Wednesday"
+  },
+    "thursday": {
+    "message": "Quinta-Feira",
+    "description": "Thursday"
+  },
+    "friday": {
+    "message": "Sexta-Feira",
+    "description": "Friday"
+  },
+    "saturday": {
+    "message": "Sábado",
+    "description": "Saturday"
+  },
+    "sunday": {
+    "message": "Domingo",
+    "description": "Sunday"
   }
 }
