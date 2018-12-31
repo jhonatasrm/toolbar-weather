@@ -90,5 +90,37 @@
   "success": {
     "message": "Saved successfully!",
     "description": "Saved successfully!"
+  },
+  "tomorrow": {
+    "message": "Tomorrow",
+    "description": "Tomorrow"
+  },
+    "monday": {
+    "message": "Monday",
+    "description": "Monday"
+  },
+    "tuesday": {
+    "message": "Tuesday",
+    "description": "Tuesday"
+  },
+    "wednesday": {
+    "message": "Wednesday",
+    "description": "Wednesday"
+  },
+    "thursday": {
+    "message": "Thursday",
+    "description": "Thursday"
+  },
+    "friday": {
+    "message": "Friday",
+    "description": "Friday"
+  },
+    "saturday": {
+    "message": "Saturday",
+    "description": "Saturday"
+  },
+    "sunday": {
+    "message": "Sunday",
+    "description": "Sunday"
   }
 }

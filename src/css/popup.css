@@ -1,7 +1,7 @@
 html, body {
 	background-color: #FFFFFF;
-	min-width: 270px;
-	max-height: 318px;
+	width: 270px;
+	max-height:599px;
 }
 .main-panel {
 	margin-top: 7px;
@@ -11,7 +11,7 @@ html, body {
 	display: none;
 	margin-top: 7px;
 	margin-bottom: 7px;
-	min-height: 310px;
+	min-height: 324px;
 	max-width: 270px;
 }
 .default {
@@ -39,7 +39,7 @@ html, body {
 	padding: 5px;
 }
 .imageWeather {
-	margin-left: 95px;
+	margin-left: 36%;
 	margin-bottom: 20px;
 }
 .city {
@@ -245,4 +245,90 @@ fieldset:disabled a.btn {
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+/* New panel forecast */
+.forecast-panel {
+	display: none;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	height: 480px;
+	width: 270px;
+}
+.forecast {
+	position: absolute;
+	right: 126px;
+	margin-top: 7px;
+	width: 12px;
+	height: 8px;
+}
+.forecast:hover {
+	transform: scale(1.2, 1.2);
+    opacity: 1;
+}
+.down-arrow {
+    display:inline;
+    position: absolute;
+	right: 48%;
+	margin-top: 7px;
+	width: 12px;
+	height: 8px;
+}
+.up-arrow {
+    display:none;
+    position: absolute;
+	right: 48%;
+	margin-top: 7px;
+	width: 12px;
+	height: 8px;
+}
+.up-arrow:hover {
+	transform: scale(1.2, 1.2);
+    opacity: 1;
+}
+.separatorDay {
+	margin-top: 5px;
+	padding: 0.5px;
+	background: gray;
+}
+.description-forecast-weather {
+	margin-left: 5px;
+	color: #0C0C0D;
+	font-weight: bold;
+}
+.forecast-weather-img {
+	position: relative;
+	width: 48px;
+	height: 48px;
+	left: 70%;
+}
+.save {
+    right:10px;
+}
+.weather-data {
+    font-size: 10px;
+    margin-left:165px;
+}
+.weather-data-pos {
+    font-size: 10px;
+    margin-left:2px;
+}
+.weather-data-forecast {
+    font-size: 11px;
+    margin-left:100px;
+    font-weight: bold;
+}
+#separator5 {
+    padding:3px;
+}
+#separator6 {
+    padding:3px;
+}
+
+/*
+Future update -> add preferences
+*/
+
+#preferences {
+    display: none;
 }
