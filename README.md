@@ -22,6 +22,7 @@ This extension shows in your toolbar the current weather and the degree in Celsi
 * Humidity (%)
 * Speed wind (km/h)
 * Gust (km/h)
+* Forecast for the next 2 days
 
 ## How to test this extension
 
