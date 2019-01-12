@@ -95,32 +95,35 @@
     "message": "Amanhã",
     "description": "Tomorrow"
   },
-    "monday": {
+  "monday": {
     "message": "Segunda-Feira",
     "description": "Monday"
   },
-    "tuesday": {
+  "tuesday": {
     "message": "Terça-Feira",
     "description": "Tuesday"
   },
-    "wednesday": {
+  "wednesday": {
     "message": "Quarta-Feira",
     "description": "Wednesday"
   },
-    "thursday": {
+  "thursday": {
     "message": "Quinta-Feira",
     "description": "Thursday"
   },
-    "friday": {
+  "friday": {
     "message": "Sexta-Feira",
     "description": "Friday"
   },
-    "saturday": {
+  "saturday": {
     "message": "Sábado",
     "description": "Saturday"
   },
-    "sunday": {
+  "sunday": {
     "message": "Domingo",
     "description": "Sunday"
+  },
+  "next48Hours": {
+    "message": "Próximas 48 horas"
   }
 }

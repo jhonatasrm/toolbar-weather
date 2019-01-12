@@ -95,32 +95,35 @@
     "message": "Tomorrow",
     "description": "Tomorrow"
   },
-    "monday": {
+  "monday": {
     "message": "Monday",
     "description": "Monday"
   },
-    "tuesday": {
+  "tuesday": {
     "message": "Tuesday",
     "description": "Tuesday"
   },
-    "wednesday": {
+  "wednesday": {
     "message": "Wednesday",
     "description": "Wednesday"
   },
-    "thursday": {
+  "thursday": {
     "message": "Thursday",
     "description": "Thursday"
   },
-    "friday": {
+  "friday": {
     "message": "Friday",
     "description": "Friday"
   },
-    "saturday": {
+  "saturday": {
     "message": "Saturday",
     "description": "Saturday"
   },
-    "sunday": {
+  "sunday": {
     "message": "Sunday",
     "description": "Sunday"
+  },
+  "next48Hours": {
+    "message": "Next 48 hours"
   }
 }
