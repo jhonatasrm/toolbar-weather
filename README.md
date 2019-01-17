@@ -17,12 +17,14 @@ This extension shows in your toolbar the current weather and the degree in Celsi
 * Geolocation
 * Degrees Celsius
 * Description of the weather
-* Current temperature (°C)
-* Temperature min and max (°C)
+* Current temperature (°C or °F)
+* Temperature min and max (°C or °F)
 * Humidity (%)
-* Speed wind (km/h)
-* Gust (km/h)
+* Speed wind (km/h or mph)
+* Gust (km/h or mph)
 * Forecast for the next 2 days
+* Page about
+* Page preferences
 
 ## How to test this extension
 

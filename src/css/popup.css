@@ -62,7 +62,7 @@ html, body {
 }
 .preferences-speed {
 	position: absolute;
-	margin-top: 10px;
+	margin-top: 45px;
 	margin-left: 3px;
 }
 .description-weather {
@@ -125,7 +125,7 @@ html, body {
   	height: 30px;
   	position: relative;
   	margin-top: 40px;
-  	margin-left: 175px;
+  	margin-left: 100px;
   	border: 0.5px solid black;
 }
 .switcher-speed {
@@ -134,37 +134,13 @@ html, body {
   	height: 30px;
   	position: relative;
   	margin-top: 5px;
-  	margin-left: 175px;
+  	margin-left: 100px;
   	border: 0.5px solid black;
 }
-.inner { 
-  	position: absolute;
-  	cursor: default;
-  	top:0;
-  	left: 0;
-  	right: 0;
-  	bottom: 0;
-  	background: #508ec7;
-  	transition: 0.2s;
-}
-.inner:before {
-  	position: absolute;
-  	content: "";
-  	height: 28px;
-  	width: 18px;
-  	background: #ffffff;
-  	transition: 0.2s;
-}
-input:checked + .inner {
-  	background: #e6e6e6;
-}
-input:checked + .inner:before {
-  	transform: translateX(60px);
-}
+
 .alert {
   position: relative;
   padding: 0.75rem 1.25rem;
-  padding-right: 19.50rem;
   border-radius: 0.25rem;
   top: 10px;
 }

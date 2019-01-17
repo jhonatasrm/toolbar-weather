@@ -125,5 +125,77 @@
   },
   "next48Hours": {
     "message": "Next 48 hours"
+  },
+  "about":{
+    "message": "About Toolbar Weather"
+  },
+  "about_title": {
+    "message": "About"
+  },
+  "note": {
+    "message": "<strong>Note:</strong> This extension is completely free! Please consider make a small <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jhonatasrm@gmail.com&lc=US&item_name=Donation+to+Toolbar+Weather&no_note=0&cn=&curency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted'>donation</a> or write an review in <a href='https://addons.mozilla.org/en-US/firefox/addon/toolbar-weather/'>addons.mozilla.org</a>. Thank you!"
+  },
+  "works": {
+    "message": "This extension shows in your toolbar the current weather and the degree in Celsius or Fahrenheit, when you click is possible see more details about the weather on your city, you can adjust the display preferences in the <a href='../html/preferences.html'> add-on preferences</a>. <br><br>This extension have the following features:"
+  },
+  "aboutItem1": {
+    "message": "1. Geolocation"
+  },
+  "aboutItem2": {
+    "message": "2. Degrees Celsius"
+  },
+  "aboutItem3": {
+    "message": "3. Description of the weather"
+  },
+  "aboutItem4": {
+    "message": "4. Current temperature (°C or °F)"
+  },
+  "aboutItem5": {
+    "message": "5. Temperature min and max (°C or °F)"
+  },
+  "aboutItem6": {
+    "message": "6. Humidity (%)"
+  },
+  "aboutItem7": {
+    "message": "7. Speed wind (km/h or mph)"
+  },
+  "aboutItem8": {
+    "message": "8. Gust (km/h or mph)"
+  },
+  "aboutItem9": {
+    "message": "9. Forecast for the next 2 days"
+  },
+  "changelog": {
+    "message": "Changelog"
+  },
+  "release0": {
+    "message": "Release"
+  },
+  "release0d": {
+    "message": "v1.0 (January 15, 2019)"
+  },
+  "release1": {
+    "message": "Added weather forecast for the next few days<br>Preparing the code to add preferences<br>Minor fixes in the code"
+  },
+  "release1d": {
+    "message": "v1.1 (January 1, 2019)"
+  },
+  "release2": {
+    "message": "Security update<br>Minor bug fixes<br>Strings improvements"
+  },
+  "release2d": {
+    "message": "v1.2 (January 12, 2019)"
+  },
+  "release3": {
+    "message": "Added page about and page preferences<br>Fixed minor bugs"
+  },
+  "release3d": {
+    "message": "v1.3 (January 17, 2019)"
+  },
+  "settings": {
+    "message": "Configurações"
+  },
+  "bugs": {
+    "message": "If you find any bugs, have any suggestions or some ideas for this add-on. Please create a new <a href='https://www.github.com/jhonatasrm/toolbar-weather/issues'>issue</a>."
   }
 }

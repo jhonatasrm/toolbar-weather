@@ -1,5 +1,15 @@
-var api = 'f6ad51f2a88b64f68794bbb7d5665c71';
+var api = '';
 var myStorage = window.localStorage;
+
+// start about.html
+function handleInstalled(details) {
+    browser.tabs.create({
+    url: "../html/about.html"
+    });
+
+}
+
+browser.runtime.onInstalled.addListener(handleInstalled);
 
 // geolocation
 var optionsAccuracy = {
@@ -22,6 +32,7 @@ function callback(position) {
 function error(){
   console.log("Error API!");
 }
+
 var requestAPI = "";
 var request = new XMLHttpRequest();
 
@@ -59,37 +70,8 @@ var mainPanel = document.getElementById('mainPanel');
 var upArrow = document.getElementById('upArrow');
 var downArrow = document.getElementById('downArrow');
 var outPreferences = document.getElementById('outPreferences');
-var checkTemperature = document.getElementById('checkboxTemperature');
 var save = document.getElementById('save');
 var resultSuccess = document.getElementById('resultSuccess');
-
-if ((checkTemperature.checked == true) || (checkTemperature.checked == 'true')){
-  myStorage.setItem("temperatureChecked", true);
-  checkTemperature.checked = true; 
-}else {
-  myStorage.setItem("temperatureChecked", false);
-  checkTemperature.checked = false;
-}
-
-// preferences 
-preferences.addEventListener('click', function(){
-  if (preferencesPanel.style.display === 'none'){
-    preferencesPanel.style.display = 'inline';
-    mainPanel.style.display = 'none';
-  }else{
-    preferencesPanel.style.display = 'none';
-  }
-}, false);
-
-outPreferences.addEventListener('click', function(){
-  if (preferencesPanel.style.display === 'inline'){
-    preferencesPanel.style.display = 'none';
-    mainPanel.style.display = 'inline';
-    resultSuccess.style.display = 'none';
-  }else{
-    preferencesPanel.style.display = 'none';
-  }
-}, false);
 
 // forecast
 forecast.addEventListener('click', function(){
@@ -140,26 +122,6 @@ dayAfterTomorrow.textContent = browser.i18n.getMessage('next48Hours');
 
 myStorage.setItem("dayTomorrow", browser.i18n.getMessage('tomorrow'));
 myStorage.setItem("dayAfterTomorrow", browser.i18n.getMessage('next48Hours'));
-
-//
-//save.addEventListener('click', function(){
-//  resultSuccess.style.display = 'inline';
-//  setTimeout(function() {
-//    resultSuccess.style.display = 'none';
-//  }, 1200);
-//
-//  if (checkTemperature.checked == true){
-//    myStorage.setItem("temperatureChecked", true);
-//    checkTemperature.checked = true;
-//  }else if (checkTemperature.checked == false){
-//    myStorage.setItem("temperatureChecked", false);
-//    checkTemperature.checked = false;
-//  }else {
-//    myStorage.setItem("temperatureChecked", true);
-//    checkTemperature.checked = true;
-//  }
-//
-//}, false);
 
 // saved values
 var savedImageWeather = myStorage.getItem("imageWeather");
@@ -229,11 +191,9 @@ if ((actualHour > 7)&&(actualHour < 19)){
 }
 
 request.onload = function() {
-//  checkTemperature.checked = myStorage.getItem("temperatureChecked");
   var toolbarWeather = request.response;
   city.textContent = toolbarWeather.city.name;
   humidity.textContent = toolbarWeather.list[0].main.humidity + " %";
-  wind.textContent = parseInt(toolbarWeather.list[0].wind.speed * 3.6) + " km/h";
   imageWeather.src = "../res/icons/weather_popup/"+toolbarWeather.list[0].weather[0].icon+".png";
   imageWeatherTomorrow.src = "../res/icons/weather_popup/"+toolbarWeather.list[8].weather[0].icon+".png";
   imageWeatherAfterTomorrow.src = "../res/icons/weather_popup/"+toolbarWeather.list[16].weather[0].icon+".png";
@@ -242,16 +202,41 @@ request.onload = function() {
   tempMinAfterTomorrow.textContent = toolbarWeather.list[16].main.temp_min + "°C";
   tempMaxAfterTomorrow.textContent = toolbarWeather.list[16].main.temp_max + "°C";
 
-//  if (checkTemperature.checked == "true"){
+  if(localStorage.getItem("speedRadio") == "mph"){
+    wind.textContent = (toolbarWeather.list[0].wind.speed).toFixed(2) + " mph";
+  }else{
+    wind.textContent = (toolbarWeather.list[0].wind.speed * 1.60934).toFixed(2) + " km/h";
+  }
+
+  if (myStorage.getItem("temperatureRadio") == "F"){
+    updateNotification = parseInt((toolbarWeather.list[0].main.temp * 9)/5 + 32) + "°F";
+    temperature.textContent = parseInt((toolbarWeather.list[0].main.temp * 9)/5 + 32) + "°F";
+    tempMin.textContent = ((toolbarWeather.list[0].main.temp_min * 9)/5 + 32).toFixed(1)  + "°F";
+    tempMax.textContent = ((toolbarWeather.list[0].main.temp_max * 9)/5 + 32 ).toFixed(1) + "°F";
+    tempMinTomorrow.textContent = ((toolbarWeather.list[8].main.temp_min * 9)/5 + 32).toFixed(1)  + "°F"; // min tomorrow
+    tempMaxTomorrow.textContent = ((toolbarWeather.list[8].main.temp_max * 9)/5 + 32).toFixed(1)  + "°F"; // min tomorrow
+    tempMinAfterTomorrow.textContent = ((toolbarWeather.list[16].main.temp_min * 9)/5 + 32).toFixed(1)  + "°F"; // min tomorrow
+    tempMaxAfterTomorrow.textContent = ((toolbarWeather.list[16].main.temp_max * 9)/5 + 32).toFixed(1)  + "°F"; // min tomorrow
+
+    // save
+    myStorage.setItem("tempMinTomorrow", ((toolbarWeather.list[8].main.temp_min * 9)/5 + 32).toFixed(1)  + "°F"); // min tomorrow
+    myStorage.setItem("tempMinAfterTomorrow", ((toolbarWeather.list[16].main.temp_min * 9)/5 + 32).toFixed(1)  + "°F"); // min tomorrow
+    myStorage.setItem("tempMaxTomorrow", ((toolbarWeather.list[8].main.temp_max * 9)/5 + 32).toFixed(1)  + "°F"); // min tomorrow
+    myStorage.setItem("tempMaxAfterTomorrow", ((toolbarWeather.list[16].main.temp_max * 9)/5 + 32).toFixed(1)  + "°F"); // min tomorrow
+
+    myStorage.setItem("temperature", parseInt((toolbarWeather.list[0].main.temp * 9)/5 + 32) + "°F");
+    myStorage.setItem("temperatureMin", ((toolbarWeather.list[0].main.temp_min * 9)/5 + 32).toFixed(1)  + "°F");
+    myStorage.setItem("temperatureMax", ((toolbarWeather.list[0].main.temp_max * 9)/5 + 32 ).toFixed(1) + "°F");
+  }else{
     updateNotification = parseInt(toolbarWeather.list[0].main.temp)+ "°C";
     temperature.textContent = parseInt(toolbarWeather.list[0].main.temp) + "°C";
     tempMin.textContent = toolbarWeather.list[0].main.temp_min + "°C";
     tempMax.textContent = toolbarWeather.list[0].main.temp_max + "°C";
-//    tempMinTomorrow.textContent = toolbarWeather.main.temp_min + "°C";       // min tomorrow C
-//    tempMinAfterTomorrow.textContent = toolbarWeather.main.temp_min + "°C";  // min after tomorrow c
-//    tempMaxTomorrow.textContent = toolbarWeather.main.temp_max + "°C";       // max tomorrow C
-//    tempMaxAfterTomorrow.textContent = toolbarWeather.main.temp_max + "°C"; // max after tomorrow C
-//
+    tempMinTomorrow.textContent = toolbarWeather.list[8].main.temp_min + "°C";       // min tomorrow C
+    tempMinAfterTomorrow.textContent = toolbarWeather.list[16].main.temp_min + "°C";  // min after tomorrow c
+    tempMaxTomorrow.textContent = toolbarWeather.list[8].main.temp_max + "°C";       // max tomorrow C
+    tempMaxAfterTomorrow.textContent = toolbarWeather.list[16].main.temp_max + "°C"; // max after tomorrow C
+
     // save
     myStorage.setItem("tempMinTomorrow", toolbarWeather.list[8].main.temp_min + "°C");
     myStorage.setItem("tempMinAfterTomorrow", toolbarWeather.list[16].main.temp_min + "°C");
@@ -261,32 +246,24 @@ request.onload = function() {
     myStorage.setItem("temperature", parseInt(toolbarWeather.list[0].main.temp) + "°C");
     myStorage.setItem("temperatureMin", toolbarWeather.list[0].main.temp_min + "°C");
     myStorage.setItem("temperatureMax", toolbarWeather.list[0].main.temp_max + "°C");
-//  }else{
-//    updateNotification = parseInt((toolbarWeather.main.temp * 9)/5 + 32)+"°F";
-//    temperature.textContent = parseInt((toolbarWeather.main.temp * 9)/5 + 32) + "°F";
-//    tempMin.textContent = ((toolbarWeather.main.temp_min * 9)/5 + 32).toFixed(1)  + "°F";
-//    tempMax.textContent = ((toolbarWeather.main.temp_max * 9)/5 + 32 ).toFixed(1) + "°F";
-//    tempMinTomorrow.textContent = ((toolbarWeather.main.temp_min * 9)/5 + 32).toFixed(1)  + "°F"; // min tomorrow
-//    tempMaxTomorrow.textContent = ((toolbarWeather.main.temp_max * 9)/5 + 32).toFixed(1)  + "°F"; // min tomorrow
-//    tempMinAfterTomorrow.textContent = ((toolbarWeather.main.temp_min * 9)/5 + 32).toFixed(1)  + "°F"; // min tomorrow
-//    tempMaxAfterTomorrow.textContent = ((toolbarWeather.main.temp_max * 9)/5 + 32).toFixed(1)  + "°F"; // min tomorrow
-    // save
-//    myStorage.setItem("tempMinTomorrow", ((toolbarWeather.main.temp_min * 9)/5 + 32).toFixed(1)  + "°F"); // min tomorrow
-//    myStorage.setItem("tempMinAfterTomorrow", ((toolbarWeather.main.temp_min * 9)/5 + 32).toFixed(1)  + "°F"); // min tomorrow
-//    myStorage.setItem("tempMaxTomorrow", ((toolbarWeather.main.temp_max * 9)/5 + 32).toFixed(1)  + "°F"); // min tomorrow
-//    myStorage.setItem("tempMaxAfterTomorrow", ((toolbarWeather.main.temp_max * 9)/5 + 32).toFixed(1)  + "°F"); // min tomorrow
-//
-//    myStorage.setItem("temperature", parseInt((toolbarWeather.main.temp * 9)/5 + 32) + "°F");
-//    myStorage.setItem("temperatureMin", ((toolbarWeather.main.temp_min * 9)/5 + 32).toFixed(1)  + "°F");
-//    myStorage.setItem("temperatureMax", ((toolbarWeather.main.temp_max * 9)/5 + 32 ).toFixed(1) + "°F");
-//  }
+  }
 
   if (toolbarWeather.list[0].wind.speed == null){
-    gust.textContent = "0 km/h";
-    var currentGust = "0 km/h";
+    if(localStorage.getItem("speedRadio") == "mph"){
+        gust.textContent = "0 mph";
+        var currentGust = "0 mph";
+    }else{
+        gust.textContent = "0 km/h";
+        var currentGust = "0 km/h";
+    }
   }else{
-    gust.textContent = parseInt(toolbarWeather.list[0].wind.speed * 3.6) + " km/h";
-    var currentGust = parseInt(toolbarWeather.list[0].wind.speed * 3.6) + " km/h";
+    if(localStorage.getItem("speedRadio") == "mph"){
+       gust.textContent = (toolbarWeather.list[0].wind.speed).toFixed(2) + " mph";
+       var currentGust = (toolbarWeather.list[0].wind.speed).toFixed(2) + " mph";
+    }else{
+       gust.textContent = (toolbarWeather.list[0].wind.speed * 1.60934).toFixed(2) + " km/h";
+       var currentGust = (toolbarWeather.list[0].wind.speed * 1.60934).toFixed(2) + " km/h";
+    }
   }
 
   browser.browserAction.setIcon({path: "../res/icons/weather/"+toolbarWeather.list[0].weather[0].icon+".png"});
@@ -410,7 +387,11 @@ request.onload = function() {
   myStorage.setItem("weatherAfterTomorrow", currentWeatherAfterTomorrow);
   myStorage.setItem("city", toolbarWeather.city.name);
   myStorage.setItem("humidity", toolbarWeather.list[0].main.humidity + " %");
-  myStorage.setItem("wind", parseInt(toolbarWeather.list[0].wind.speed * 3.6) + " km/h");
+  if(localStorage.getItem("speedRadio") == "mph"){
+    myStorage.setItem("wind", (toolbarWeather.list[0].wind.speed).toFixed(2) + " mph");
+  }else{
+    myStorage.setItem("wind", (toolbarWeather.list[0].wind.speed * 1.60934).toFixed(2) + " km/h");
+  }
   myStorage.setItem("gust", currentGust);
 
   browser.browserAction.setBadgeText({text: updateNotification.toString()});
