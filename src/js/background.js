@@ -197,10 +197,6 @@ request.onload = function() {
   imageWeather.src = "../res/icons/weather_popup/"+toolbarWeather.list[0].weather[0].icon+".png";
   imageWeatherTomorrow.src = "../res/icons/weather_popup/"+toolbarWeather.list[8].weather[0].icon+".png";
   imageWeatherAfterTomorrow.src = "../res/icons/weather_popup/"+toolbarWeather.list[16].weather[0].icon+".png";
-  tempMinTomorrow.textContent = toolbarWeather.list[8].main.temp_min + "°C";
-  tempMaxTomorrow.textContent = toolbarWeather.list[8].main.temp_max + "°C";
-  tempMinAfterTomorrow.textContent = toolbarWeather.list[16].main.temp_min + "°C";
-  tempMaxAfterTomorrow.textContent = toolbarWeather.list[16].main.temp_max + "°C";
 
   if(localStorage.getItem("speedRadio") == "mph"){
     wind.textContent = (toolbarWeather.list[0].wind.speed).toFixed(2) + " mph";

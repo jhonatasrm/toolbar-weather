@@ -192,6 +192,12 @@
   "release3d": {
     "message": "v1.3 (17 de Janeiro de 2019)"
   },
+  "release4": {
+    "message": "Atualização de segurança"
+  },
+  "release4d": {
+    "message": "v1.4 (18 de Janeiro de 2019)"
+  },
   "settings": {
     "message": "Configurações"
   },
