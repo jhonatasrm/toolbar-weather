@@ -198,6 +198,12 @@
   "release4d": {
     "message": "v1.4 (18 de Janeiro de 2019)"
   },
+  "release5": {
+    "message": "Atualização de segurança<br>Correção de strings"
+  },
+  "release5d": {
+    "message": "v1.5 (20 de Janeiro de 2019)"
+  },
   "settings": {
     "message": "Configurações"
   },

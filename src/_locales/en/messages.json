@@ -133,7 +133,7 @@
     "message": "About"
   },
   "note": {
-    "message": "<strong>Note:</strong> This extension is completely free! Please consider make a small <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jhonatasrm@gmail.com&lc=US&item_name=Donation+to+Toolbar+Weather&no_note=0&cn=&curency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted'>donation</a> or write an review in <a href='https://addons.mozilla.org/en-US/firefox/addon/toolbar-weather/'>addons.mozilla.org</a>. Thank you!"
+    "message": "<strong>Note:</strong> This extension is completely free! Please consider making a small <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jhonatasrm@gmail.com&lc=US&item_name=Donation+to+Toolbar+Weather&no_note=0&cn=&curency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted'>donation</a> or write an review at <a href='https://addons.mozilla.org/en-US/firefox/addon/toolbar-weather/'>addons.mozilla.org</a>. Thank you!"
   },
   "works": {
     "message": "This extension shows in your toolbar the current weather and the degree in Celsius or Fahrenheit, when you click is possible see more details about the weather on your city, you can adjust the display preferences in the <a href='../html/preferences.html'> add-on preferences</a>. <br><br>This extension have the following features:"
@@ -157,7 +157,7 @@
     "message": "6. Humidity (%)"
   },
   "aboutItem7": {
-    "message": "7. Speed wind (km/h or mph)"
+    "message": "7. Wind speed (km/h or mph)"
   },
   "aboutItem8": {
     "message": "8. Gust (km/h or mph)"
@@ -198,10 +198,16 @@
   "release4d": {
     "message": "v1.4 (January 18, 2019)"
   },
+  "release5": {
+    "message": "Security update<br>Strings fixes"
+  },
+  "release5d": {
+    "message": "v1.5 (January 20, 2019)"
+  },
   "settings": {
-    "message": "Configurações"
+    "message": "Settings"
   },
   "bugs": {
-    "message": "If you find any bugs, have any suggestions or some ideas for this add-on. Please create a new <a href='https://www.github.com/jhonatasrm/toolbar-weather/issues'>issue</a>."
+    "message": "If you find any bugs, have any suggestions or some ideas for this add-on: Please create a new <a href='https://www.github.com/jhonatasrm/toolbar-weather/issues'>issue</a>."
   }
 }
