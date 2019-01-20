@@ -133,10 +133,10 @@
     "message": "Sobre"
   },
   "note": {
-    "message": "<strong>Nota:</strong> Esta extensão é totalmente gratuita! Por favor, considere fazer uma pequena <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jhonatasrm@gmail.com&lc=US&item_name=Donation+to+Toolbar+Weather&no_note=0&cn=&curency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted'>doação</a> ou análise em <a href='https://addons.mozilla.org/en-US/firefox/addon/toolbar-weather/'>addons.mozilla.org</a>. Obrigado! "
+    "message": "Nota: Esta extensão é totalmente gratuita! Por favor, considere fazer uma pequena doação ou análise em addons.mozilla.org. Obrigado!"
   },
   "works": {
-    "message": "Esta extensão mostra na barra de ferramentas do seu navegador o tempo atual e os graus em Celsius ou Fahrenheit, ao clicar nele é possível ver mais detalhes sobre o tempo em sua cidade, sendo possível ajustar as preferências de exibição nas <a href='../html/preferences.html'> preferências da extensão</a>. <br><br>Esta extensão apresenta os seguintes recursos:"
+    "message": "Esta extensão mostra na barra de ferramentas do seu navegador o tempo atual e os graus em Celsius ou Fahrenheit, ao clicar nele é possível ver mais detalhes sobre o tempo em sua cidade, sendo possível ajustar as preferências de exibição nas preferências da extensão (about:addons). Esta extensão apresenta os seguintes recursos:"
   },
   "aboutItem1": {
     "message": "1. Geolocalização"
@@ -175,19 +175,19 @@
     "message": "v1.0 (27 de Fevereiro de 2018)"
   },
   "release1": {
-    "message": "Adicionado previsão do tempo para os próximos dias<br>Preparando o código para adicionar preferências<br>Correções menores no código"
+    "message": "Adicionado previsão do tempo para os próximos dias + Correções menores no código"
   },
   "release1d": {
     "message": "v1.1 (1 de Janeiro de 2019)"
   },
   "release2": {
-    "message": "Atualização de segurança<br>Correção de bugs<br>Melhoria de Strings"
+    "message": "Atualização de segurança + Correção de bugs + Melhoria de Strings"
   },
   "release2d": {
     "message": "v1.2 (12 de Janeiro de 2019)"
   },
   "release3": {
-    "message": "Adicionado página sobre e página preferências<br>Correção de bugs menores"
+    "message": "Adicionado página sobre e página preferências + Correção de bugs menores"
   },
   "release3d": {
     "message": "v1.3 (17 de Janeiro de 2019)"
@@ -199,15 +199,21 @@
     "message": "v1.4 (18 de Janeiro de 2019)"
   },
   "release5": {
-    "message": "Atualização de segurança<br>Correção de strings"
+    "message": "Atualização de segurança + Correção de strings"
   },
   "release5d": {
     "message": "v1.5 (20 de Janeiro de 2019)"
+  },
+  "release6": {
+    "message": "Atualização de segurança"
+  },
+  "release6d": {
+    "message": "v1.6 (20 de Janeiro de 2019)"
   },
   "settings": {
     "message": "Configurações"
   },
   "bugs": {
-    "message": "Se você encontrar algum bug, tiver sugestões ou algumas idéias para esta extensão. Por favor, crie uma nova <a href='https://www.github.com/jhonatasrm/toolbar-weather/issues'>issue</a>."
+    "message": "Se você encontrar algum bug, tiver sugestões ou algumas idéias para esta extensão. Por favor, crie uma nova issue."
   }
 }

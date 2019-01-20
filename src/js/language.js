@@ -6,5 +6,5 @@ for (let element of textElements) {
 textElements = document.querySelectorAll('[data-i18n]');
 
 for (let element of textElements) {
-   element.innerHTML = browser.i18n.getMessage(element.dataset.i18n);
+   element.textContent = browser.i18n.getMessage(element.dataset.i18n);
 }
