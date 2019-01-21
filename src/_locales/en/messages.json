@@ -136,7 +136,7 @@
     "message": "Note: This extension is completely free! Please consider making a small donation or write an review at addons.mozilla.org. Thank you!"
   },
   "works": {
-    "message": "This extension shows in your toolbar the current weather and the degree in Celsius or Fahrenheit, when you click is possible see more details about the weather on your city, you can adjust the display preferences in the add-on preferences (about:addons). This extension have the following features:"
+    "message": "This extension shows in your toolbar the current weather and the degree in Celsius or Fahrenheit, when you click is possible see more details about the weather on your city, you can adjust the display preferences in the add-on preferences (about:addons). \n\nThis extension have the following features:"
   },
   "aboutItem1": {
     "message": "1. Geolocation"
@@ -175,19 +175,19 @@
     "message": "v1.0 (January 15, 2019)"
   },
   "release1": {
-    "message": "Added weather forecast for the next few days + Minor fixes in the code"
+    "message": "Added weather forecast for the next few days \nMinor fixes in the code"
   },
   "release1d": {
     "message": "v1.1 (January 1, 2019)"
   },
   "release2": {
-    "message": "Security update + Minor bug fixes + Strings improvements"
+    "message": "Security update \nMinor bug fixes \nStrings improvements"
   },
   "release2d": {
     "message": "v1.2 (January 12, 2019)"
   },
   "release3": {
-    "message": "Added page about and page preferences + Fixed minor bugs"
+    "message": "Added page about and page preferences \nFixed minor bugs"
   },
   "release3d": {
     "message": "v1.3 (January 17, 2019)"
@@ -199,7 +199,7 @@
     "message": "v1.4 (January 18, 2019)"
   },
   "release5": {
-    "message": "Security update + Strings fixes"
+    "message": "Security update \nStrings fixes"
   },
   "release5d": {
     "message": "v1.5 (January 20, 2019)"
@@ -210,10 +210,19 @@
   "release6d": {
     "message": "v1.6 (January 20, 2019)"
   },
+  "release7": {
+    "message": "Update appearance of pages about and preferences \nUpdate strings"
+  },
+  "release7d": {
+    "message": "v1.7 (January 21, 2019)"
+  },
   "settings": {
     "message": "Settings"
   },
   "bugs": {
     "message": "If you find any bugs, have any suggestions or some ideas for this add-on: Please create a new issue."
+  },
+  "version": {
+    "message":"Toolbar Weather (v1.7)"
   }
 }
