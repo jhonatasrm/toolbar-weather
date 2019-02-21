@@ -165,6 +165,9 @@
   "aboutItem9": {
     "message": "9. Previsão para os próximos 2 dias"
   },
+  "aboutItem10": {
+    "message": "10. Menu de contexto"
+  },
   "changelog": {
     "message": "Alterações"
   },
@@ -216,13 +219,25 @@
   "release7d": {
     "message": "v1.7 (21 de Janeiro de 2019)"
   },
+  "release8": {
+    "message": "Adicionado Menu de contexto \nCorreções menores"
+  },
+  "release8d": {
+    "message": "v1.8 (21 de Fevereiro de 2019)"
+  },
   "settings": {
     "message": "Configurações"
   },
   "bugs": {
     "message": "Se você encontrar algum bug, tiver sugestões ou algumas idéias para esta extensão. Por favor, crie uma nova issue."
   },
+  "contextMenu": {
+    "message": "Menu de contexto"
+  },
+  "degree": {
+    "message": "Graus"
+  },
   "version": {
-    "message":"Toolbar Weather (v1.7)"
+    "message":"Toolbar Weather (v1.8)"
   }
 }

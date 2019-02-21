@@ -30,3 +30,18 @@ $('input[name="speed"]').on('change', function(){
     backgroundPage.request.onload();
    });
 });
+
+// context menu
+$(document).ready(function(){
+  var radios = document.getElementsByName("contextMenu");
+  var val = localStorage.getItem('contextMenu');
+  for(var i=0;i<radios.length;i++){
+    if(radios[i].value == val){
+      radios[i].checked = true;
+    }
+  }
+$('input[name="contextMenu"]').on('change', function(){
+    localStorage.setItem('contextMenu', $(this).val());
+    backgroundPage.contextMenuFunction();
+  });
+});

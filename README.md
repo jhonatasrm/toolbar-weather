@@ -25,6 +25,7 @@ This extension shows in your toolbar the current weather and the degree in Celsi
 * Forecast for the next 2 days
 * Page about
 * Page preferences
+* Context Menu
 
 ## How to test this extension
 

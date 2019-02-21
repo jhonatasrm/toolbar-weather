@@ -165,6 +165,9 @@
   "aboutItem9": {
     "message": "9. Forecast for the next 2 days"
   },
+  "aboutItem10": {
+    "message": "10. Context menu"
+  },
   "changelog": {
     "message": "Changelog"
   },
@@ -216,13 +219,25 @@
   "release7d": {
     "message": "v1.7 (January 21, 2019)"
   },
+  "release8": {
+    "message": "Added Context menu \nMinor fixes"
+  },
+  "release8d": {
+    "message": "v1.8 (February 21, 2019)"
+  },
   "settings": {
     "message": "Settings"
   },
   "bugs": {
     "message": "If you find any bugs, have any suggestions or some ideas for this add-on: Please create a new issue."
   },
+  "contextMenu": {
+    "message": "Context Menu"
+  },
+  "degree": {
+    "message": "Degree"
+  },
   "version": {
-    "message":"Toolbar Weather (v1.7)"
+    "message":"Toolbar Weather (v1.8)"
   }
 }

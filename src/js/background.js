@@ -398,3 +398,142 @@ request.onload = function() {
     browser.browserAction.setBadgeBackgroundColor({'color': '#722C80'});
   }
 }
+
+function onCreated() {
+  if (browser.runtime.lastError) {
+    console.log(`Error: ${browser.runtime.lastError}`);
+  } else {
+    console.log("Context Menu created successfully");
+  }
+}
+
+function contextMenuFunction(){
+ if(localStorage.getItem('contextMenu') == 'True'){
+        browser.menus.create({
+            id: "toolbar-weather",
+            title: "Toolbar Weather",
+            contexts: ["selection"]
+        }, onCreated);
+
+        browser.menus.create({
+            id: "degree",
+            title: browser.i18n.getMessage("degree"),
+            contexts: ["all"]
+        }, onCreated);
+
+        if (localStorage.getItem('temperatureRadio') == 'F'){
+            browser.menus.create({
+                id: "C",
+                type: "radio",
+                title: "°C",
+                contexts: ["all"],
+                checked: false,
+            }, onCreated);
+
+            browser.menus.create({
+                id: "F",
+                type: "radio",
+                title: "°F",
+                contexts: ["all"],
+                checked: true,
+            }, onCreated);
+        }else{
+            browser.menus.create({
+                id: "C",
+                type: "radio",
+                title: "°C",
+                contexts: ["all"],
+                checked: true,
+            }, onCreated);
+
+            browser.menus.create({
+                id: "F",
+                type: "radio",
+                title: "°F",
+                contexts: ["all"],
+                checked: false,
+            }, onCreated);
+        }
+
+        browser.menus.create({
+            id: "separator-1",
+            type: "separator",
+            contexts: ["all"]
+        }, onCreated);
+
+        browser.menus.create({
+            id: "speed",
+            title: browser.i18n.getMessage("speed"),
+            contexts: ["all"]
+        }, onCreated);
+
+        if(localStorage.getItem('speedRadio') == 'mph'){
+            browser.menus.create({
+                id: "mph",
+                type: "radio",
+                title: "mph",
+                contexts: ["all"],
+                checked: true,
+            }, onCreated);
+
+            browser.menus.create({
+                id: "kmh",
+                type: "radio",
+                title: "km/h",
+                contexts: ["all"],
+                checked: false,
+            }, onCreated);
+        }else{
+            browser.menus.create({
+                id: "mph",
+                type: "radio",
+                title: "mph",
+                contexts: ["all"],
+                checked: false,
+            }, onCreated);
+
+            browser.menus.create({
+                id: "kmh",
+                type: "radio",
+                title: "km/h",
+                contexts: ["all"],
+                checked: true,
+            }, onCreated);
+
+        }
+
+    }else{
+        browser.menus.remove("toolbar-weather");
+        browser.menus.remove("degree");
+        browser.menus.remove("C");
+        browser.menus.remove("F");
+        browser.menus.remove("separator-1");
+        browser.menus.remove("speed");
+        browser.menus.remove("mph");
+        browser.menus.remove("kmh");
+    }
+}
+
+browser.menus.onClicked.addListener((info, tab) => {
+  switch (info.menuItemId) {
+    case "toolbar-weather":
+          contextMenuFunction();
+    break;
+    case "C":
+          localStorage.setItem('temperatureRadio', 'C');
+          request.onload();
+    break;
+    case "F":
+          localStorage.setItem('temperatureRadio', 'F');
+          request.onload();
+    break;
+    case "mph":
+         localStorage.setItem('speedRadio', 'mph');
+         request.onload();
+    break;
+    case "kmh":
+         localStorage.setItem('speedRadio', 'km');
+         request.onload();
+    break;
+  }
+});

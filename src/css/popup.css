@@ -1,5 +1,5 @@
 html, body {
-	background-color: #FFFFFF;
+	background-color: #FFFFFF;  /*dark color theme 	#4B4A50*/
 	width: 270px;
 	max-height:599px;
 }
@@ -36,7 +36,7 @@ html, body {
 	background: #d7d7db;
 }
 .panel-section-distance {
-	padding: 5px;
+	padding: 3px;
 }
 .imageWeather {
 	margin-left: 36%;
@@ -246,7 +246,7 @@ fieldset:disabled a.btn {
     display:inline;
     position: absolute;
 	right: 48%;
-	margin-top: 7px;
+	margin-top: 12px;
 	width: 12px;
 	height: 8px;
 }
@@ -274,9 +274,9 @@ fieldset:disabled a.btn {
 }
 .forecast-weather-img {
 	position: relative;
-	width: 48px;
-	height: 48px;
-	left: 70%;
+	width: 36px;
+	height: 36px;
+	left: 75%;
 }
 .save {
     right:10px;
