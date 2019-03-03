@@ -225,6 +225,12 @@
   "release8d": {
     "message": "v1.8 (February 21, 2019)"
   },
+  "release9": {
+    "message": "Minor fixes"
+  },
+  "release9d": {
+    "message": "v1.9 (March 3, 2019)"
+  },
   "settings": {
     "message": "Settings"
   },
@@ -238,6 +244,6 @@
     "message": "Degree"
   },
   "version": {
-    "message":"Toolbar Weather (v1.8)"
+    "message":"Toolbar Weather (v1.9)"
   }
 }

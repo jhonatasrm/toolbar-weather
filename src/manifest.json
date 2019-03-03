@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "__MSG_extensionName__",
 	"description": "__MSG_extensionDescription__",
-	"version": "1.8",
+	"version": "1.9",
 	"homepage_url": "https://github.com/jhonatasrm/toolbar-weather",
 	"default_locale": "en",
 	"author": "Jhonatas Rodrigues",

@@ -61,7 +61,7 @@ input[type='radio'] {
 }
 
 input[type='radio']:hover {
-  box-shadow:0 0 5px 0px #5387E8 inset;
+  box-shadow:0 0 5px 0px #722C80 inset;
 }
 
 input[type='radio']:before {
@@ -71,5 +71,5 @@ input[type='radio']:before {
   height:100%;
 }
 input[type='radio']:checked:before {
-  background: #5387E8;
+  background: #722C80;
 }

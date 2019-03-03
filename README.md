@@ -2,7 +2,7 @@
 [<img align="right" src="https://img.shields.io/github/license/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/license/jhonatasrm/toolbar-weather.svg)
 [<img align="right" src="https://img.shields.io/github/release/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/release/jhonatasrm/toolbar-weather.svg)
 
-
+![Toolbar Weather Icon](/src/res/icons/icon@2x.png)
 
 # Toolbar Weather [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/toolbar-weather/)
 
