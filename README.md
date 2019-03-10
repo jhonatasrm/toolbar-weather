@@ -1,5 +1,7 @@
 [<img align="right" src="https://img.shields.io/github/issues/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/issues/jhonatasrm/toolbar-weather.svg)
 [<img align="right" src="https://img.shields.io/github/license/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/license/jhonatasrm/toolbar-weather.svg)
+[<img align="right" src="https://img.shields.io/github/forks/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/forks/jhonatasrm/toolbar-weather.svg)
+[<img align="right" src="https://img.shields.io/github/stars/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/stars/jhonatasrm/toolbar-weather.svg)
 [<img align="right" src="https://img.shields.io/github/release/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/release/jhonatasrm/toolbar-weather.svg)
 
 ![Toolbar Weather Icon](/src/res/icons/icon@2x.png)
