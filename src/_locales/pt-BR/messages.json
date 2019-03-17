@@ -136,7 +136,7 @@
     "message": "Nota: Esta extensão é totalmente gratuita! Por favor, considere fazer uma pequena doação ou análise em addons.mozilla.org. Obrigado!"
   },
   "works": {
-    "message": "Esta extensão mostra na barra de ferramentas do seu navegador o tempo atual e os graus em Celsius ou Fahrenheit, ao clicar nele é possível ver mais detalhes sobre o tempo em sua cidade, sendo possível ajustar as preferências de exibição nas preferências da extensão (about:addons). \n\nEsta extensão apresenta os seguintes recursos:"
+    "message": "Esta extensão mostra na barra de ferramentas do seu navegador o tempo atual e os graus em Celsius ou Fahrenheit, ao clicar nele é possível ver mais detalhes sobre o tempo em sua cidade, sendo possível ajustar as preferências de exibição. Você pode editar suas preferências diretamente no Popup, mas para mais opções vá para as preferências da extensão em about:addons. \n\nA extensão possui atualmente os seguintes recursos:"
   },
   "aboutItem1": {
     "message": "1. Geolocalização"
@@ -168,68 +168,8 @@
   "aboutItem10": {
     "message": "10. Menu de contexto"
   },
-  "changelog": {
-    "message": "Alterações"
-  },
-  "release0": {
-    "message": "Lançamento"
-  },
-  "release0d": {
-    "message": "v1.0 (27 de Fevereiro de 2018)"
-  },
-  "release1": {
-    "message": "Adicionado previsão do tempo para os próximos dias \nCorreções menores no código"
-  },
-  "release1d": {
-    "message": "v1.1 (1 de Janeiro de 2019)"
-  },
-  "release2": {
-    "message": "Atualização de segurança \nCorreção de bugs \nMelhoria de Strings"
-  },
-  "release2d": {
-    "message": "v1.2 (12 de Janeiro de 2019)"
-  },
-  "release3": {
-    "message": "Adicionado página sobre e página preferências \nCorreção de bugs menores"
-  },
-  "release3d": {
-    "message": "v1.3 (17 de Janeiro de 2019)"
-  },
-  "release4": {
-    "message": "Atualização de segurança"
-  },
-  "release4d": {
-    "message": "v1.4 (18 de Janeiro de 2019)"
-  },
-  "release5": {
-    "message": "Atualização de segurança \nCorreção de strings"
-  },
-  "release5d": {
-    "message": "v1.5 (20 de Janeiro de 2019)"
-  },
-  "release6": {
-    "message": "Atualização de segurança"
-  },
-  "release6d": {
-    "message": "v1.6 (20 de Janeiro de 2019)"
-  },
-  "release7": {
-    "message": "Atualização aparência da página sobre e preferências \nAtualização de strings"
-  },
-  "release7d": {
-    "message": "v1.7 (21 de Janeiro de 2019)"
-  },
-  "release8": {
-    "message": "Adicionado Menu de contexto \nCorreções menores"
-  },
-  "release8d": {
-    "message": "v1.8 (21 de Fevereiro de 2019)"
-  },
-  "release9": {
-    "message": "Correções menores"
-  },
-  "release9d": {
-    "message": "v1.9 (3 de Março de 2019)"
+  "aboutItem11": {
+    "message": "11. Preferências no Popup"
   },
   "settings": {
     "message": "Configurações"
@@ -244,6 +184,6 @@
     "message": "Graus"
   },
   "version": {
-    "message":"Toolbar Weather (v1.9)"
+    "message":"Toolbar Weather (v2.0)"
   }
 }

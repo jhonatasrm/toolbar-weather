@@ -1,7 +1,7 @@
 html, body {
 	background-color: #FFFFFF;  /*dark color theme 	#4B4A50*/
-	width: 270px;
-	max-height:599px;
+	min-width: 270px;
+	max-height:800px;
 }
 .main-panel {
 	margin-top: 7px;
@@ -237,9 +237,11 @@ fieldset:disabled a.btn {
 	margin-top: 7px;
 	width: 12px;
 	height: 8px;
+	display: none;
 }
 .forecast:hover {
-	transform: scale(1.2, 1.2);
+    display:block;
+	transform: scale(1.5, 1.5);
     opacity: 1;
 }
 .down-arrow {
@@ -259,7 +261,8 @@ fieldset:disabled a.btn {
 	height: 8px;
 }
 .up-arrow:hover {
-	transform: scale(1.2, 1.2);
+    display:block;
+	transform: scale(1.5, 1.5);
     opacity: 1;
 }
 .separatorDay {

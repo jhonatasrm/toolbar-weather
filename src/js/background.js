@@ -73,9 +73,14 @@ var outPreferences = document.getElementById('outPreferences');
 var save = document.getElementById('save');
 var resultSuccess = document.getElementById('resultSuccess');
 
+// start style display
+forecastPanel.style.display = 'none';
+mainPanel.style.display = 'inline';
+upArrow.style.display = 'none';
+
 // forecast
 forecast.addEventListener('click', function(){
-  if (forecastPanel.style.display === 'none'){
+  if (forecastPanel.style.display == 'none'){
     forecastPanel.style.display = 'inline';
     mainPanel.style.display = 'inline';
     upArrow.style.display = 'inline';
@@ -86,8 +91,8 @@ forecast.addEventListener('click', function(){
 }, false);
 
 forecastPanel.addEventListener('click', function(){
-  if (forecastPanel.style.display === 'inline'){
-    forecastPanel.style.display = 'inline';
+  if (forecastPanel.style.display == 'inline'){
+    forecastPanel.style.display = 'none';
     upArrow.style.display = 'inline';
     forecast.style.display = 'none';
 
@@ -99,7 +104,7 @@ forecastPanel.addEventListener('click', function(){
 }, false);
 
 upArrow.addEventListener('click', function(){
-  if (forecastPanel.style.display === 'none'){
+  if (forecastPanel.style.display == 'none'){
     forecastPanel.style.display = 'none';
     mainPanel.style.display = 'none';
     downArrow.style.display = 'inline';
@@ -179,15 +184,15 @@ if ((actualHour > 7)&&(actualHour < 19)){
   document.getElementById('separator2').style.background = "#E1EBF2";
   document.getElementById('separator3').style.background = "#E1EBF2";
   document.getElementById('separator4').style.background = "#E1EBF2";
-  document.getElementById('separator5').style.background = "#F9FBFC";
-  document.getElementById('separator6').style.background = "#F9FBFC";
+  document.getElementById('separator5').style.background = "#E1EBF2";
+  document.getElementById('separator6').style.background = "#E1EBF2";
 }else {
   document.getElementById('separator1').style.background = "#DCD5F2";
   document.getElementById('separator2').style.background = "#DCD5F2";
   document.getElementById('separator3').style.background = "#DCD5F2";
   document.getElementById('separator4').style.background = "#DCD5F2";
-  document.getElementById('separator5').style.background = "#EAE5F7";
-  document.getElementById('separator6').style.background = "#EAE5F7";
+  document.getElementById('separator5').style.background = "#DCD5F2";
+  document.getElementById('separator6').style.background = "#DCD5F2";
 }
 
 request.onload = function() {
