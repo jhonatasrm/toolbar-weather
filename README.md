@@ -1,5 +1,7 @@
 [<img align="right" src="https://img.shields.io/github/issues/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/issues/jhonatasrm/toolbar-weather.svg)
 [<img align="right" src="https://img.shields.io/github/license/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/license/jhonatasrm/toolbar-weather.svg)
+[<img align="right" src="https://img.shields.io/github/forks/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/forks/jhonatasrm/toolbar-weather.svg)
+[<img align="right" src="https://img.shields.io/github/stars/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/stars/jhonatasrm/toolbar-weather.svg)
 [<img align="right" src="https://img.shields.io/github/release/jhonatasrm/toolbar-weather.svg">](https://img.shields.io/github/release/jhonatasrm/toolbar-weather.svg)
 
 ![Toolbar Weather Icon](/src/res/icons/icon@2x.png)
@@ -49,7 +51,7 @@ I would be very happy if you can contribute, any value will surely be of great h
 
 Thank you so much for helping me continue developing this and other add-ons! <3
 
-You can donate via Paypal <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jhonatasrm@gmail.com&lc=US&item_name=Donation+to+Toolbar+Weather&no_note=0&cn=&curency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted">here</a>. Thanks again! 
+You can donate via PayPal <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jhonatasrm@gmail.com&lc=US&item_name=Donation+to+Toolbar+Weather&no_note=0&cn=&curency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted">here</a>. Thanks again! 
 
 ## Learn More
 To learn more about webextensions development, see this [Mozilla developer Network documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
