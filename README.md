@@ -6,7 +6,7 @@
 
 ![Toolbar Weather Icon](/src/res/icons/icon@2x.png)
 
-# Toolbar Weather [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/toolbar-weather/)
+# Toolbar Weather <a href='https://ko-fi.com/S6S5S3WU' target='_blank'><img align="right" height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com'/></a>[<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/toolbar-weather/)
 
 This extension shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city. Easier than looking out the window !
 
@@ -28,6 +28,7 @@ This extension shows in your toolbar the current weather and the degree in Celsi
 * Page about
 * Page preferences
 * Context Menu
+* Preferences in the Popup
 
 ## How to test this extension
 
@@ -42,16 +43,6 @@ This extension shows in your toolbar the current weather and the degree in Celsi
 ## How Contribute
 
 Have a suggestion, doubt or encountered an error? Please open a new [issue](https://github.com/jhonatasrm/toolbar-weather/issues).
-
-### Donate
-
-Would you like to contribute to the development of this and other add-ons that can be found <a href="https://addons.mozilla.org/en-US/firefox/user/13670188/">here</a> ? 
-
-I would be very happy if you can contribute, any value will surely be of great help.
-
-Thank you so much for helping me continue developing this and other add-ons! <3
-
-You can donate via PayPal <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=jhonatasrm@gmail.com&lc=US&item_name=Donation+to+Toolbar+Weather&no_note=0&cn=&curency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted">here</a>. Thanks again! 
 
 ## Learn More
 To learn more about webextensions development, see this [Mozilla developer Network documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
