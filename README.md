@@ -48,4 +48,4 @@ Have a suggestion, doubt or encountered an error? Please open a new [issue](http
 To learn more about webextensions development, see this [Mozilla developer Network documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
 
 ### License
-This repository is available under the [Mozilla Public License, version 2.0](https://github.com/jhonatasrm/toolbar-weather/blob/master/LICENSE)
+This repository is available under the [Mozilla Public License, version 2.0](https://github.com/jhonatasrm/toolbar-weather/blob/master/LICENSE).
