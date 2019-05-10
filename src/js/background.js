@@ -179,20 +179,20 @@ var d = new Date();
 var actualHour = d.getHours();
 
 //color of separator in popup
-if ((actualHour > 7)&&(actualHour < 19)){
-  document.getElementById('separator1').style.background = "#E1EBF2";
-  document.getElementById('separator2').style.background = "#E1EBF2";
-  document.getElementById('separator3').style.background = "#E1EBF2";
-  document.getElementById('separator4').style.background = "#E1EBF2";
-  document.getElementById('separator5').style.background = "#E1EBF2";
-  document.getElementById('separator6').style.background = "#E1EBF2";
+if ((actualHour + 3 > 7)&&(actualHour < 19 - 3)){
+    document.getElementById('separator1').style.background = "#E1EBF2";
+    document.getElementById('separator2').style.background = "#E1EBF2";
+    document.getElementById('separator3').style.background = "#E1EBF2";
+    document.getElementById('separator4').style.background = "#E1EBF2";
+    document.getElementById('separator5').style.background = "#E1EBF2";
+    document.getElementById('separator6').style.background = "#E1EBF2";
 }else {
-  document.getElementById('separator1').style.background = "#DCD5F2";
-  document.getElementById('separator2').style.background = "#DCD5F2";
-  document.getElementById('separator3').style.background = "#DCD5F2";
-  document.getElementById('separator4').style.background = "#DCD5F2";
-  document.getElementById('separator5').style.background = "#DCD5F2";
-  document.getElementById('separator6').style.background = "#DCD5F2";
+    document.getElementById('separator1').style.background = "#DCD5F2";
+    document.getElementById('separator2').style.background = "#DCD5F2";
+    document.getElementById('separator3').style.background = "#DCD5F2";
+    document.getElementById('separator4').style.background = "#DCD5F2";
+    document.getElementById('separator5').style.background = "#DCD5F2";
+    document.getElementById('separator6').style.background = "#DCD5F2";
 }
 
 request.onload = function() {
@@ -388,6 +388,7 @@ request.onload = function() {
   myStorage.setItem("weatherAfterTomorrow", currentWeatherAfterTomorrow);
   myStorage.setItem("city", toolbarWeather.city.name);
   myStorage.setItem("humidity", toolbarWeather.list[0].main.humidity + " %");
+
   if(localStorage.getItem("speedRadio") == "mph"){
     myStorage.setItem("wind", (toolbarWeather.list[0].wind.speed).toFixed(2) + " mph");
   }else{
@@ -397,10 +398,36 @@ request.onload = function() {
 
   browser.browserAction.setBadgeText({text: updateNotification.toString()});
 
-  if ((actualHour > 7)&&(actualHour < 19)){
-     browser.browserAction.setBadgeBackgroundColor({'color': '#5387E8'});
+  if ((actualHour + 3 > 7)&&(actualHour < 19 - 3)){
+    // set background notification color day
+    if(localStorage.getItem('pickerBackgroundNotificationDay') == null){
+         browser.browserAction.setBadgeBackgroundColor({'color': '#5387E8'});
+    }else{
+        var val = localStorage.getItem('pickerBackgroundNotificationDay');
+        browser.browserAction.setBadgeBackgroundColor({'color': '#'+val})
+    }
+    // set text color font day
+    if(localStorage.getItem("pickerFontNotificationDay") == null){
+        browser.browserAction.setBadgeTextColor({color: "#FFFFFF"});
+    }else{
+        var val = localStorage.getItem("pickerFontNotificationDay");
+        browser.browserAction.setBadgeTextColor({color: "#"+val});
+    }
   } else {
-    browser.browserAction.setBadgeBackgroundColor({'color': '#722C80'});
+    // set background notification color night
+    if(localStorage.getItem('pickerBackgroundNotificationNight') == null){
+        browser.browserAction.setBadgeBackgroundColor({'color': '#722C80'});
+    }else{
+        var val = localStorage.getItem('pickerBackgroundNotificationNight');
+        browser.browserAction.setBadgeBackgroundColor({'color': '#'+val});
+    }
+    // set text color font night
+    if(localStorage.getItem("pickerFontNotificationNight") == null){
+        browser.browserAction.setBadgeTextColor({color: "#FFFFFF"});
+    }else{
+        var val = localStorage.getItem("pickerFontNotificationNight");
+        browser.browserAction.setBadgeTextColor({color: "#"+val});
+    }
   }
 }
 

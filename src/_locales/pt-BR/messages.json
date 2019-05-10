@@ -171,6 +171,9 @@
   "aboutItem11": {
     "message": "11. Preferências no Popup"
   },
+  "aboutItem12": {
+    "message": "12. Seletor de cor para alterar o plano de fundo e fonte de notificação"
+  },
   "settings": {
     "message": "Configurações"
   },
@@ -183,7 +186,22 @@
   "degree": {
     "message": "Graus"
   },
+  "colors": {
+    "message": "Cores"
+  },
+  "day": {
+    "message": "Dia"
+  },
+  "night": {
+    "message": "Noite"
+  },
+  "background_notification": {
+    "message": "Cor de fundo notificação"
+  },
+  "color_font_notification": {
+    "message": "Cor da fonte da notificação"
+  },
   "version": {
-    "message":"Toolbar Weather (v2.0)"
+    "message":"Toolbar Weather (v2.0.1)"
   }
 }

@@ -171,6 +171,9 @@
   "aboutItem11": {
     "message": "11. Preferences in the Popup"
   },
+  "aboutItem12": {
+    "message": "12. Picker color to change background and font of notification"
+  },
   "settings": {
     "message": "Settings"
   },
@@ -183,7 +186,22 @@
   "degree": {
     "message": "Degree"
   },
+  "colors": {
+    "message": "Colors"
+  },
+  "day": {
+    "message": "Day"
+  },
+  "night": {
+    "message": "Night"
+  },
+  "background_notification": {
+    "message": "Background notification"
+  },
+  "color_font_notification": {
+    "message": "Color font notification"
+  },
   "version": {
-    "message":"Toolbar Weather (v2.0)"
+    "message":"Toolbar Weather (v2.0.1)"
   }
 }
