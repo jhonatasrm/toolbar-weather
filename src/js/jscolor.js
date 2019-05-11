@@ -60,7 +60,8 @@ var jsc = {
 				var opts = {};
 				if (optsStr) {
 					try {
-						opts = (new Function ('return (' + optsStr + ')'))();
+//					    var x = new Function ('return (' + optsStr + ')');
+//						opts = x;
 					} catch(eParseError) {
 						jsc.warn('Error parsing jscolor options: ' + eParseError + ':\n' + optsStr);
 					}
@@ -1101,7 +1102,7 @@ var jsc = {
 				if (jsc.isElementType(this.valueElement, 'input')) {
 					this.valueElement.value = value;
 				} else {
-					this.valueElement.innerHTML = value;
+					this.valueElement.innerText = value;
 				}
 			}
 			if (!(flags & jsc.leaveStyle)) {
@@ -1621,7 +1622,7 @@ var jsc = {
 				THIS.hide();
 			};
 			p.btnT.style.lineHeight = THIS.buttonHeight + 'px';
-			p.btnT.innerHTML = '';
+			p.btnT.innerText = '';
 			p.btnT.appendChild(document.createTextNode(THIS.closeText));
 
 			// place pointers

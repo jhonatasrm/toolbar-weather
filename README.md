@@ -13,7 +13,7 @@ The Add-on shows in your toolbar the current weather and the degree in Celsius o
 ![Toolbar Weather Screenshot](toolbar-weather.gif)
 
 ## Requirements
-* Firefox 57.0 or later
+* Firefox 63.0 or later
 
 ## Features
 * Geolocation
