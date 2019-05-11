@@ -174,26 +174,43 @@ tempMaxAfterTomorrow.textContent = savedTempMaxAfterTomorrow;
 dayTomorrow.textContent = savedDayTomorrow;
 dayAfterTomorrow.textContent = savedDayAfterTomorrow;
 
-//get hour
-var d = new Date();
-var actualHour = d.getHours();
+var date = new Date();
+var actualHourDate = date.getHours();
 
 //color of separator in popup
-if ((actualHour > 7)&&(actualHour < 19)){
-  document.getElementById('separator1').style.background = "#E1EBF2";
-  document.getElementById('separator2').style.background = "#E1EBF2";
-  document.getElementById('separator3').style.background = "#E1EBF2";
-  document.getElementById('separator4').style.background = "#E1EBF2";
-  document.getElementById('separator5').style.background = "#E1EBF2";
-  document.getElementById('separator6').style.background = "#E1EBF2";
+if(localStorage.getItem('saveActualHour') == null){
+    if((actualHourDate > 2)&&(actualHourDate < 17)){
+        document.getElementById('separator1').style.background = "#E1EBF2";
+        document.getElementById('separator2').style.background = "#E1EBF2";
+        document.getElementById('separator3').style.background = "#E1EBF2";
+        document.getElementById('separator4').style.background = "#E1EBF2";
+        document.getElementById('separator5').style.background = "#E1EBF2";
+        document.getElementById('separator6').style.background = "#E1EBF2";
+    }else {
+        document.getElementById('separator1').style.background = "#DCD5F2";
+        document.getElementById('separator2').style.background = "#DCD5F2";
+        document.getElementById('separator3').style.background = "#DCD5F2";
+        document.getElementById('separator4').style.background = "#DCD5F2";
+        document.getElementById('separator5').style.background = "#DCD5F2";
+        document.getElementById('separator6').style.background = "#DCD5F2";
+    }
 }else {
-  document.getElementById('separator1').style.background = "#DCD5F2";
-  document.getElementById('separator2').style.background = "#DCD5F2";
-  document.getElementById('separator3').style.background = "#DCD5F2";
-  document.getElementById('separator4').style.background = "#DCD5F2";
-  document.getElementById('separator5').style.background = "#DCD5F2";
-  document.getElementById('separator6').style.background = "#DCD5F2";
-}
+  if ((localStorage.getItem('saveActualHour') > 2)&&(localStorage.getItem('saveActualHour') < 17)){
+    document.getElementById('separator1').style.background = "#E1EBF2";
+    document.getElementById('separator2').style.background = "#E1EBF2";
+    document.getElementById('separator3').style.background = "#E1EBF2";
+    document.getElementById('separator4').style.background = "#E1EBF2";
+    document.getElementById('separator5').style.background = "#E1EBF2";
+    document.getElementById('separator6').style.background = "#E1EBF2";
+  }else {
+    document.getElementById('separator1').style.background = "#DCD5F2";
+    document.getElementById('separator2').style.background = "#DCD5F2";
+    document.getElementById('separator3').style.background = "#DCD5F2";
+    document.getElementById('separator4').style.background = "#DCD5F2";
+    document.getElementById('separator5').style.background = "#DCD5F2";
+    document.getElementById('separator6').style.background = "#DCD5F2";
+     }
+  }
 
 request.onload = function() {
   var toolbarWeather = request.response;
@@ -388,6 +405,7 @@ request.onload = function() {
   myStorage.setItem("weatherAfterTomorrow", currentWeatherAfterTomorrow);
   myStorage.setItem("city", toolbarWeather.city.name);
   myStorage.setItem("humidity", toolbarWeather.list[0].main.humidity + " %");
+
   if(localStorage.getItem("speedRadio") == "mph"){
     myStorage.setItem("wind", (toolbarWeather.list[0].wind.speed).toFixed(2) + " mph");
   }else{
@@ -395,12 +413,60 @@ request.onload = function() {
   }
   myStorage.setItem("gust", currentGust);
 
+  //get hour
+  var d = new Date(toolbarWeather.list[0].dt * 1000);
+  var actualHour = d.getHours();
+  localStorage.setItem('saveActualHour', actualHour);
+
+  //color of separator in popup
+  if ((actualHour > 2)&&(actualHour < 17)){
+    document.getElementById('separator1').style.background = "#E1EBF2";
+    document.getElementById('separator2').style.background = "#E1EBF2";
+    document.getElementById('separator3').style.background = "#E1EBF2";
+    document.getElementById('separator4').style.background = "#E1EBF2";
+    document.getElementById('separator5').style.background = "#E1EBF2";
+    document.getElementById('separator6').style.background = "#E1EBF2";
+  }else {
+    document.getElementById('separator1').style.background = "#DCD5F2";
+    document.getElementById('separator2').style.background = "#DCD5F2";
+    document.getElementById('separator3').style.background = "#DCD5F2";
+    document.getElementById('separator4').style.background = "#DCD5F2";
+    document.getElementById('separator5').style.background = "#DCD5F2";
+    document.getElementById('separator6').style.background = "#DCD5F2";
+  }
+
   browser.browserAction.setBadgeText({text: updateNotification.toString()});
 
-  if ((actualHour > 7)&&(actualHour < 19)){
-     browser.browserAction.setBadgeBackgroundColor({'color': '#5387E8'});
+  if ((actualHour > 2)&&(actualHour < 17)){
+    // set background notification color day
+    if(localStorage.getItem('pickerBackgroundNotificationDay') == null){
+         browser.browserAction.setBadgeBackgroundColor({'color': '#5387E8'});
+    }else{
+        var val = localStorage.getItem('pickerBackgroundNotificationDay');
+        browser.browserAction.setBadgeBackgroundColor({'color': '#'+val})
+    }
+    // set text color font day
+    if(localStorage.getItem("pickerFontNotificationDay") == null){
+        browser.browserAction.setBadgeTextColor({color: "#FFFFFF"});
+    }else{
+        var val = localStorage.getItem("pickerFontNotificationDay");
+        browser.browserAction.setBadgeTextColor({color: "#"+val});
+    }
   } else {
-    browser.browserAction.setBadgeBackgroundColor({'color': '#722C80'});
+    // set background notification color night
+    if(localStorage.getItem('pickerBackgroundNotificationNight') == null){
+        browser.browserAction.setBadgeBackgroundColor({'color': '#722C80'});
+    }else{
+        var val = localStorage.getItem('pickerBackgroundNotificationNight');
+        browser.browserAction.setBadgeBackgroundColor({'color': '#'+val});
+    }
+    // set text color font night
+    if(localStorage.getItem("pickerFontNotificationNight") == null){
+        browser.browserAction.setBadgeTextColor({color: "#FFFFFF"});
+    }else{
+        var val = localStorage.getItem("pickerFontNotificationNight");
+        browser.browserAction.setBadgeTextColor({color: "#"+val});
+    }
   }
 }
 

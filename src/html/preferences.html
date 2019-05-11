@@ -10,6 +10,7 @@
   <link href="../css/style.css" rel="stylesheet"/>
   <script src="../js/jquery-3.3.1.js"></script>
   <script src="../js/background.js"></script>
+  <script src="../js/jscolor.js"></script>
 </head>
 
 <body style="background-color:white;" class="col-md-12">
@@ -30,8 +31,8 @@
     <fieldset class="col-md-12">
       <div>
         <h4><strong id="settings" data-i18n="settings"></strong>
-          <a href="../html/about.html" title="About" ><img src="../res/icons/about.png" style="float:right;"></a></h4>
-      </div><br>
+          <a href="../html/about.html" title="About" ><img src="../res/icons/about.png" style="float:right; margin-bottom:5px;"></a></h4>
+      </div>
       <div class="col-md-12 col-sm-12">
         <label class="preferences-temperature" data-i18n="temperature"></label>
         <label class="btn btn-outline-primary " style="width:150px;float:right;">
@@ -41,14 +42,12 @@
       </div>
       <div class="col-md-12 col-sm-12"><br>
         <label class="preferences-speed" data-i18n="speed"></label>
-        <label class="btn btn-outline-primary " style="width:150px;float:right;text">
+        <label class="btn btn-outline-primary " style="width:150px;float:right;">
           <input type="radio" name="speed" value="km" checked="checked"> km/h</label>
         <label class="btn btn-outline-primary " style="width:150px;float:right;">
           <input type="radio" name="speed" value="mph"> mph</label>
-      </div>
-    </fieldset>
-  <fieldset class="col-md-12">
-      <div class="col-md-12 col-sm-12" style="margin-top:10px;">
+      </div></br>
+      <div class="col-md-12 col-sm-12">
         <label data-i18n="contextMenu"></label>
         <label class="btn btn-outline-primary " style="width:150px;float:right;">
           <input type="radio" name="contextMenu" value="False" checked="checked">Off</label>
@@ -56,8 +55,24 @@
           <input type="radio" name="contextMenu" value="True">On</label>
       </div>
   </fieldset>
+  <fieldset class="col-md-12">
+    <div>
+        <h4><strong data-i18n="colors" style="margin-bottom:5px;"></strong>
+        </h4>
+    </div>
+      <div class="col-md-12 col-sm-12">
+         <h5><strong data-i18n="day"></strong></h5>
+        <label data-i18n="background_notification"></label><input name="background_notification_day" id="background_notification_day" class="jscolor btn btn-outline-primary" value="5387E8" style="width:150px;height:30px;float:right;"><br>
+        <label data-i18n="color_font_notification"></label><input name="color_font_notification_day" id="color_font_notification_day" class="jscolor btn btn-outline-primary" value="FFFFFF" style="width:150px;height:30px;float:right;">
+      </div>
+        <div class="col-md-12 col-sm-12">
+        <h5><strong data-i18n="night"></strong></h5>
+        <label data-i18n="background_notification"></label><input id="background_notification_night" name="background_notification_night" class="jscolor btn btn-outline-primary" value="722C80" style="width:150px;height:30px;float:right;"><br>
+        <label data-i18n="color_font_notification"></label><input id="color_font_notification_night" name="color_font_notification_night" class="jscolor btn btn-outline-primary" value="FFFFFF" style="width:150px;height:30px;float:right;">
+      </div>
+  </fieldset>
 </main>
-<script src="../js/preferences.js"></script>
 <script src="../js/language.js"></script>
+<script src="../js/preferences.js"></script>
 </body>
 </html>

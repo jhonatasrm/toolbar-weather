@@ -29,6 +29,7 @@ The Add-on shows in your toolbar the current weather and the degree in Celsius o
 * Page preferences
 * Context Menu
 * Preferences in the Popup
+* Picker color to change background and font of notification
 
 ## How to test this extension
 
