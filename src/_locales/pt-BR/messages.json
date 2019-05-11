@@ -201,6 +201,9 @@
   "color_font_notification": {
     "message": "Cor da fonte da notificação"
   },
+  "more": {
+    "message": "Mais..."
+  },
   "version": {
     "message":"Toolbar Weather (v2.0.1)"
   }

@@ -174,26 +174,43 @@ tempMaxAfterTomorrow.textContent = savedTempMaxAfterTomorrow;
 dayTomorrow.textContent = savedDayTomorrow;
 dayAfterTomorrow.textContent = savedDayAfterTomorrow;
 
-//get hour
-var d = new Date();
-var actualHour = d.getHours();
+var date = new Date();
+var actualHourDate = date.getHours();
 
 //color of separator in popup
-if ((actualHour + 3 > 7)&&(actualHour < 19 - 3)){
+if(localStorage.getItem('saveActualHour') == null){
+    if((actualHourDate > 2)&&(actualHourDate < 17)){
+        document.getElementById('separator1').style.background = "#E1EBF2";
+        document.getElementById('separator2').style.background = "#E1EBF2";
+        document.getElementById('separator3').style.background = "#E1EBF2";
+        document.getElementById('separator4').style.background = "#E1EBF2";
+        document.getElementById('separator5').style.background = "#E1EBF2";
+        document.getElementById('separator6').style.background = "#E1EBF2";
+    }else {
+        document.getElementById('separator1').style.background = "#DCD5F2";
+        document.getElementById('separator2').style.background = "#DCD5F2";
+        document.getElementById('separator3').style.background = "#DCD5F2";
+        document.getElementById('separator4').style.background = "#DCD5F2";
+        document.getElementById('separator5').style.background = "#DCD5F2";
+        document.getElementById('separator6').style.background = "#DCD5F2";
+    }
+}else {
+  if ((localStorage.getItem('saveActualHour') > 2)&&(localStorage.getItem('saveActualHour') < 17)){
     document.getElementById('separator1').style.background = "#E1EBF2";
     document.getElementById('separator2').style.background = "#E1EBF2";
     document.getElementById('separator3').style.background = "#E1EBF2";
     document.getElementById('separator4').style.background = "#E1EBF2";
     document.getElementById('separator5').style.background = "#E1EBF2";
     document.getElementById('separator6').style.background = "#E1EBF2";
-}else {
+  }else {
     document.getElementById('separator1').style.background = "#DCD5F2";
     document.getElementById('separator2').style.background = "#DCD5F2";
     document.getElementById('separator3').style.background = "#DCD5F2";
     document.getElementById('separator4').style.background = "#DCD5F2";
     document.getElementById('separator5').style.background = "#DCD5F2";
     document.getElementById('separator6').style.background = "#DCD5F2";
-}
+     }
+  }
 
 request.onload = function() {
   var toolbarWeather = request.response;
@@ -396,9 +413,31 @@ request.onload = function() {
   }
   myStorage.setItem("gust", currentGust);
 
+  //get hour
+  var d = new Date(toolbarWeather.list[0].dt * 1000);
+  var actualHour = d.getHours();
+  localStorage.setItem('saveActualHour', actualHour);
+
+  //color of separator in popup
+  if ((actualHour > 2)&&(actualHour < 17)){
+    document.getElementById('separator1').style.background = "#E1EBF2";
+    document.getElementById('separator2').style.background = "#E1EBF2";
+    document.getElementById('separator3').style.background = "#E1EBF2";
+    document.getElementById('separator4').style.background = "#E1EBF2";
+    document.getElementById('separator5').style.background = "#E1EBF2";
+    document.getElementById('separator6').style.background = "#E1EBF2";
+  }else {
+    document.getElementById('separator1').style.background = "#DCD5F2";
+    document.getElementById('separator2').style.background = "#DCD5F2";
+    document.getElementById('separator3').style.background = "#DCD5F2";
+    document.getElementById('separator4').style.background = "#DCD5F2";
+    document.getElementById('separator5').style.background = "#DCD5F2";
+    document.getElementById('separator6').style.background = "#DCD5F2";
+  }
+
   browser.browserAction.setBadgeText({text: updateNotification.toString()});
 
-  if ((actualHour + 3 > 7)&&(actualHour < 19 - 3)){
+  if ((actualHour > 2)&&(actualHour < 17)){
     // set background notification color day
     if(localStorage.getItem('pickerBackgroundNotificationDay') == null){
          browser.browserAction.setBadgeBackgroundColor({'color': '#5387E8'});
