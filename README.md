@@ -45,6 +45,8 @@ The Add-on shows in your toolbar the current weather and the degree in Celsius o
 
 Have a suggestion, doubt or encountered an error? Please open a new [issue](https://github.com/jhonatasrm/toolbar-weather/issues)
 
+Contributions are welcome, feel free to submit a pull :)
+
 ## Learn More
 To learn more about webextensions development, see this [Mozilla developer Network documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions)
 
