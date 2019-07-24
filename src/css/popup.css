@@ -1,6 +1,6 @@
 html, body {
 	background-color: #FFFFFF;  /*dark color theme 	#4B4A50*/
-	min-width: 270px;
+	min-width: 310px;
 	max-height:800px;
 }
 .main-panel {
@@ -245,12 +245,13 @@ fieldset:disabled a.btn {
     opacity: 1;
 }
 .down-arrow {
-    display:inline;
+    display:block;
     position: absolute;
 	right: 48%;
-	margin-top: 12px;
+	margin-top: -10px;
 	width: 12px;
 	height: 8px;
+	cursor:pointer
 }
 .up-arrow {
     display:none;
@@ -259,6 +260,7 @@ fieldset:disabled a.btn {
 	margin-top: 7px;
 	width: 12px;
 	height: 8px;
+	cursor:pointer
 }
 .up-arrow:hover {
     display:block;
