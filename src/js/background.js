@@ -1,16 +1,6 @@
 var api = '';
 var myStorage = window.localStorage;
 
-// start about.html
-function handleInstalled(details) {
-    browser.tabs.create({
-    url: "../html/about.html"
-    });
-
-}
-
-browser.runtime.onInstalled.addListener(handleInstalled);
-
 // geolocation
 var optionsAccuracy = {
   enableHighAccuracy: true,
@@ -112,7 +102,7 @@ upArrow.addEventListener('click', function(){
   }else{
     forecastPanel.style.display = 'none';
     upArrow.style.display = 'none';
-    forecast.style.display = 'inline';
+    forecast.style.display = 'block';
   }
 }, false);
 
