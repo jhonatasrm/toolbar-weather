@@ -1,6 +1,10 @@
 // temperature radio
 var backgroundPage = browser.extension.getBackgroundPage();
 
+// version
+var version = document.getElementById("version");
+version.textContent = browser.runtime.getManifest().name + " (v"+ browser.runtime.getManifest().version + ")";
+
 $(document).ready(function(){
   var radios = document.getElementsByName("temperature");
   var val = localStorage.getItem('temperatureRadio');
