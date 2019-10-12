@@ -217,7 +217,6 @@ request.onload = function() {
   }
 
   if (myStorage.getItem("temperatureRadio") == "F"){
-    updateNotification = parseInt((toolbarWeather.list[0].main.temp * 9)/5 + 32) + "°F";
     temperature.textContent = parseInt((toolbarWeather.list[0].main.temp * 9)/5 + 32) + "°F";
     tempMin.textContent = ((toolbarWeather.list[0].main.temp_min * 9)/5 + 32).toFixed(1)  + "°F";
     tempMax.textContent = ((toolbarWeather.list[0].main.temp_max * 9)/5 + 32 ).toFixed(1) + "°F";
@@ -236,7 +235,6 @@ request.onload = function() {
     myStorage.setItem("temperatureMin", ((toolbarWeather.list[0].main.temp_min * 9)/5 + 32).toFixed(1)  + "°F");
     myStorage.setItem("temperatureMax", ((toolbarWeather.list[0].main.temp_max * 9)/5 + 32 ).toFixed(1) + "°F");
   }else{
-    updateNotification = parseInt(toolbarWeather.list[0].main.temp)+ "°C";
     temperature.textContent = parseInt(toolbarWeather.list[0].main.temp) + "°C";
     tempMin.textContent = toolbarWeather.list[0].main.temp_min + "°C";
     tempMax.textContent = toolbarWeather.list[0].main.temp_max + "°C";
@@ -273,8 +271,6 @@ request.onload = function() {
        var currentGust = (toolbarWeather.list[0].wind.speed * 1.60934).toFixed(2) + " km/h";
     }
   }
-
-  browser.browserAction.setIcon({path: "../res/icons/weather/"+toolbarWeather.list[0].weather[0].icon+".png"});
 
   if (toolbarWeather.list[0].weather[0].id == 800){
     description.textContent = browser.i18n.getMessage("clearSky");
@@ -425,8 +421,6 @@ request.onload = function() {
     document.getElementById('separator6').style.background = "#DCD5F2";
   }
 
-  browser.browserAction.setBadgeText({text: updateNotification.toString()});
-
   if ((actualHour > 2)&&(actualHour < 17)){
     // set background notification color day
     if(localStorage.getItem('pickerBackgroundNotificationDay') == null){
@@ -458,6 +452,8 @@ request.onload = function() {
         browser.browserAction.setBadgeTextColor({color: "#"+val});
     }
   }
+  showNotificationWeather();
+  showWeatherIcon("../res/icons/weather_popup/"+toolbarWeather.list[0].weather[0].icon+".png");
 }
 
 function onCreated() {
@@ -598,3 +594,29 @@ browser.menus.onClicked.addListener((info, tab) => {
     break;
   }
 });
+
+function showNotificationWeather(){
+
+ if(localStorage.getItem("showTemperature") == null){
+        updateNotification = myStorage.getItem("temperature");
+    }else if (localStorage.getItem("showTemperature") == 'True'){
+        updateNotification = myStorage.getItem("temperature");
+    }else if (localStorage.getItem("showTemperature") == 'undefined'){
+        updateNotification = myStorage.getItem("temperature");
+    }else {
+        updateNotification = "";
+    }
+    browser.browserAction.setBadgeText({text: updateNotification.toString()});
+}
+
+function showWeatherIcon(value){
+   if(localStorage.getItem('showWeatherIcon') == null){
+        browser.browserAction.setIcon({path:  value});
+   }else if (localStorage.getItem('showWeatherIcon') == 'True'){
+        browser.browserAction.setIcon({path: value});
+   }else if(localStorage.getItem('showWeatherIcon') == 'undefined'){
+        browser.browserAction.setIcon({path: value});
+   }else {
+        browser.browserAction.setIcon({path: "../res/icons/icon.png"});
+   }
+}

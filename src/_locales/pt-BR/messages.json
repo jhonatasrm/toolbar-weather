@@ -174,6 +174,12 @@
   "aboutItem12": {
     "message": "12. Seletor de cor para alterar o plano de fundo e fonte de notificação"
   },
+  "aboutItem13": {
+    "message": "13. Mostra a temperatura na barra de ferramentas"
+  },
+  "aboutItem14": {
+    "message": "14. Mostra o ícone de acordo com o tempo"
+  },
   "settings": {
     "message": "Configurações"
   },
@@ -191,6 +197,12 @@
   },
   "day": {
     "message": "Dia"
+  },
+  "show_temperature": {
+    "message": "Mostrar a temperatura na barra de ferramentas"
+  },
+  "show_weather_icon": {
+    "message": "Mostrar o ícone de acordo com o tempo"
   },
   "night": {
     "message": "Noite"
