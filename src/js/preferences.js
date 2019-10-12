@@ -50,6 +50,36 @@ $('input[name="contextMenu"]').on('change', function(){
   });
 });
 
+// temperature toolbar
+$(document).ready(function(){
+  var radios = document.getElementsByName("showTemperature");
+  var val = localStorage.getItem('showTemperature');
+  for(var i=0;i<radios.length;i++){
+    if(radios[i].value == val){
+      radios[i].checked = true;
+    }
+  }
+$('input[name="showTemperature"]').on('change', function(){
+    localStorage.setItem('showTemperature', $(this).val());
+    backgroundPage.request.onload();
+  });
+});
+
+// icon weather
+$(document).ready(function(){
+  var radios = document.getElementsByName("showWeatherIcon");
+  var val = localStorage.getItem('showWeatherIcon');
+  for(var i=0;i<radios.length;i++){
+    if(radios[i].value == val){
+      radios[i].checked = true;
+    }
+  }
+$('input[name="showWeatherIcon"]').on('change', function(){
+    localStorage.setItem('showWeatherIcon', $(this).val());
+    backgroundPage.request.onload();
+  });
+});
+
 // color picker day > background color
 $(document).ready(function(){
   var background_color_day = document.getElementById("background_notification_day");
