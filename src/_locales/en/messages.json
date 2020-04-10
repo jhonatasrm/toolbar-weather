@@ -180,6 +180,9 @@
   "aboutItem14": {
     "message": "14. Shows icon according to weather"
   },
+  "aboutItem15": {
+    "message": "15. Define the time to refresh the weather data"
+  },
   "settings": {
     "message": "Settings"
   },
@@ -215,5 +218,8 @@
   },
   "more": {
     "message": "More..."
+  },
+  "time_to_refresh": {
+    "message": "Time to refresh the weather data (minutes)"
   }
 }
