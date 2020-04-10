@@ -32,6 +32,7 @@ The Add-on shows in your toolbar the current weather and the degree in Celsius o
 * Picker color to change background and font of notification
 * Shows the temperature in the Toolbar
 * Shows icon according to weather
+* Time to refresh the weather data (minutes)
 
 ## How to test this extension
 
