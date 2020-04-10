@@ -180,6 +180,9 @@
   "aboutItem14": {
     "message": "14. Mostra o ícone de acordo com o tempo"
   },
+  "aboutItem15": {
+    "message": "15. Defina o tempo para atualizar os dados meteorológicos"
+  },
   "settings": {
     "message": "Configurações"
   },
@@ -215,5 +218,8 @@
   },
   "more": {
     "message": "Mais..."
+  },
+  "time_to_refresh": {
+    "message": "Tempo para atualizar os dados meteorológicos (minutos)"
   }
 }

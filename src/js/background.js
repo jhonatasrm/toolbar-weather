@@ -1,8 +1,11 @@
-var api = '';
-var myStorage = window.localStorage;
+let api = 'f6ad51f2a88b64f68794bbb7d5665c71';
+let myStorage = window.localStorage;
+let reloadMinutes;
+let saveLatitude;
+let saveLongitude;
 
 // geolocation
-var optionsAccuracy = {
+let optionsAccuracy = {
   enableHighAccuracy: true,
   timeout: 5000,
   maximumAge: 0
@@ -10,21 +13,50 @@ var optionsAccuracy = {
 
 navigator.geolocation.getCurrentPosition(callback, error, optionsAccuracy);
 
+// first weather search
 function callback(position) {
-  var latitude = position.coords.latitude;
-  var longitude = position.coords.longitude;
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+
+  // save the latitude and longitude to after
+  localStorage.setItem("latitude", latitude);
+  localStorage.setItem("longitude", longitude);
+
   requestAPI = 'https://api.openweathermap.org/data/2.5/forecast?lat='+latitude+'&lon='+longitude+'&units=metric&type=accurate&appid='+api;
   request.open('GET', requestAPI, true);
   request.responseType = 'json';
-  request.send();
+  request.send();  
 }
 
 function error(){
   console.log("Error API!");
 }
 
-var requestAPI = "";
-var request = new XMLHttpRequest();
+// time refresh and also set interval to refresh the weather
+function timeRefresh() {
+  if (localStorage.getItem("timer") == null) {
+    reloadMinutes = 15;
+    localStorage.setItem("timer", 15);
+  } else {
+    reloadMinutes = localStorage.getItem("timer");
+  } 
+  console.log(reloadMinutes);
+
+  setInterval(() => {
+    saveLatitude = localStorage.getItem("latitude");
+    saveLongitude = localStorage.getItem("longitude");
+    requestAPI = 'https://api.openweathermap.org/data/2.5/forecast?lat='+saveLatitude+'&lon='+saveLongitude+'&units=metric&type=accurate&appid='+api;
+    console.log("Refreshing the weather data after " + reloadMinutes+ " minutes.");
+    request.open('GET', requestAPI, true);
+    request.responseType = 'json';
+    request.send(); 
+  }, reloadMinutes * 60 * 1000);
+}
+
+timeRefresh();
+
+let requestAPI = "";
+let request = new XMLHttpRequest();
 
 // notifications update
 var updateNotification;
@@ -166,10 +198,10 @@ dayAfterTomorrow.textContent = savedDayAfterTomorrow;
 
 var date = new Date();
 var actualHourDate = date.getHours();
-
+console.log("Hour: "+ actualHourDate);
 //color of separator in popup
 if(localStorage.getItem('saveActualHour') == null){
-    if((actualHourDate > 2)&&(actualHourDate < 17)){
+    if((actualHourDate > 2)&&(actualHourDate < 19)){
         document.getElementById('separator1').style.background = "#E1EBF2";
         document.getElementById('separator2').style.background = "#E1EBF2";
         document.getElementById('separator3').style.background = "#E1EBF2";
@@ -185,7 +217,7 @@ if(localStorage.getItem('saveActualHour') == null){
         document.getElementById('separator6').style.background = "#DCD5F2";
     }
 }else {
-  if ((localStorage.getItem('saveActualHour') > 2)&&(localStorage.getItem('saveActualHour') < 17)){
+  if ((localStorage.getItem('saveActualHour') > 2)&&(localStorage.getItem('saveActualHour') < 19)){
     document.getElementById('separator1').style.background = "#E1EBF2";
     document.getElementById('separator2').style.background = "#E1EBF2";
     document.getElementById('separator3').style.background = "#E1EBF2";
@@ -405,7 +437,7 @@ request.onload = function() {
   localStorage.setItem('saveActualHour', actualHour);
 
   //color of separator in popup
-  if ((actualHour > 2)&&(actualHour < 17)){
+  if ((actualHour > 2)&&(actualHour < 19)){
     document.getElementById('separator1').style.background = "#E1EBF2";
     document.getElementById('separator2').style.background = "#E1EBF2";
     document.getElementById('separator3').style.background = "#E1EBF2";
@@ -421,7 +453,7 @@ request.onload = function() {
     document.getElementById('separator6').style.background = "#DCD5F2";
   }
 
-  if ((actualHour > 2)&&(actualHour < 17)){
+  if ((actualHour > 2)&&(actualHour < 19)){
     // set background notification color day
     if(localStorage.getItem('pickerBackgroundNotificationDay') == null){
          browser.browserAction.setBadgeBackgroundColor({'color': '#5387E8'});

@@ -6,6 +6,20 @@ var version = document.getElementById("version");
 version.textContent = browser.runtime.getManifest().name + " (v"+ browser.runtime.getManifest().version + ")";
 
 $(document).ready(function(){
+  var timer = document.getElementById("timer");
+  var val = localStorage.getItem('timer');
+  if (typeof val !== 'undefined' && val !== null){
+    timer.value = localStorage.getItem('timer');
+  }else{
+    timer.value = 15;
+  }
+  $('input[name="timer"]').on('change', function(){
+    localStorage.setItem('timer', $(this).val());
+    backgroundPage.timeRefresh();
+  });
+ });
+
+$(document).ready(function(){
   var radios = document.getElementsByName("temperature");
   var val = localStorage.getItem('temperatureRadio');
   for(var i=0;i<radios.length;i++){
