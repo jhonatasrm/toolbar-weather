@@ -1,0 +1,225 @@
+{
+  "extensionName": {
+    "message": "Toolbar Weather",
+    "description": "Toolbar Weather"
+  },
+  "extensionDescription": {
+    "message": "This add-on shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city.",
+    "description": "This add-on shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city."
+  },
+  "clearSky":{
+    "message": "Clear sky",
+    "description": "Clear sky"
+  },
+  "fewClouds":{
+    "message": "Few clouds",
+    "description": "Few clouds"
+  },
+  "scatteredClouds":{
+    "message": "Scattered clouds",
+    "description": "Scattered clouds"
+  },
+  "brokenClouds":{
+    "message": "Broken clouds",
+    "description": "Broken clouds"
+  },
+  "showerRain":{
+    "message": "Shower rain",
+    "description": "Shower rain"
+  },
+  "rain":{
+    "message": "Rain",
+    "description": "Rain"
+  },
+  "thunderstorm":{
+    "message": "Thunderstorm",
+    "description": "Thunderstorm"
+  },
+  "snow":{
+    "message": "Snow",
+    "description": "Snow"
+  },
+  "mist":{
+    "message": "Mist",
+    "description": "Mist"
+  },
+  "description": {
+    "message": "Description ",
+    "description": "Description "
+  },
+  "city": {
+    "message": "City ",
+    "description": "City "
+  },
+  "temperature": {
+    "message": "Temperature ",
+    "description": "Temperature "
+  },
+  "humidity": {
+    "message": "Humidity ",
+    "description": "Humidity "
+  },
+  "wind": {
+    "message": "Wind ",
+    "description": "Wind "
+  },
+  "gust": {
+    "message": "Gust ",
+    "description": "Gust "
+  },
+  "temperatureMin": {
+    "message": "Temperature Min ",
+    "description": "Temperature Min "
+  },
+  "temperatureMax": {
+    "message": "Temperature Max ",
+    "description": "Temperature Max "
+  },
+  "speed": {
+    "message": "Speed",
+    "description": "Speed"
+  },
+  "preferences": {
+    "message": "Preferences",
+    "description": "Preferences"
+  },
+  "save": {
+    "message": "Save",
+    "description": "Save"
+  },
+  "success": {
+    "message": "Saved successfully!",
+    "description": "Saved successfully!"
+  },
+  "tomorrow": {
+    "message": "Tomorrow",
+    "description": "Tomorrow"
+  },
+  "monday": {
+    "message": "Monday",
+    "description": "Monday"
+  },
+  "tuesday": {
+    "message": "Tuesday",
+    "description": "Tuesday"
+  },
+  "wednesday": {
+    "message": "Wednesday",
+    "description": "Wednesday"
+  },
+  "thursday": {
+    "message": "Thursday",
+    "description": "Thursday"
+  },
+  "friday": {
+    "message": "Friday",
+    "description": "Friday"
+  },
+  "saturday": {
+    "message": "Saturday",
+    "description": "Saturday"
+  },
+  "sunday": {
+    "message": "Sunday",
+    "description": "Sunday"
+  },
+  "next48Hours": {
+    "message": "Next 48 hours"
+  },
+  "about":{
+    "message": "About Toolbar Weather"
+  },
+  "about_title": {
+    "message": "About"
+  },
+  "note": {
+    "message": "Note: This add-on is completely free! Please consider making a small donation or write an review at addons.mozilla.org. Thank you!"
+  },
+  "works": {
+    "message": "This add-on shows in your toolbar the current weather and the degree in Celsius or Fahrenheit, when you click is possible see more details about the weather on your city, you can adjust the display preferences. You can edit your preferences directly in the Popup, but for more options go to the Add-on preferences in about:addons. \n\nThe Add-on currently has the following features:"
+  },
+  "aboutItem1": {
+    "message": "1. Geolocation"
+  },
+  "aboutItem2": {
+    "message": "2. Degrees Celsius or Fahrenheit"
+  },
+  "aboutItem3": {
+    "message": "3. Description of the weather"
+  },
+  "aboutItem4": {
+    "message": "4. Current temperature (°C or °F)"
+  },
+  "aboutItem5": {
+    "message": "5. Temperature min and max (°C or °F)"
+  },
+  "aboutItem6": {
+    "message": "6. Humidity (%)"
+  },
+  "aboutItem7": {
+    "message": "7. Wind speed (km/h or mph)"
+  },
+  "aboutItem8": {
+    "message": "8. Gust (km/h or mph)"
+  },
+  "aboutItem9": {
+    "message": "9. Forecast for the next 2 days"
+  },
+  "aboutItem10": {
+    "message": "10. Context menu"
+  },
+  "aboutItem11": {
+    "message": "11. Preferences in the Popup"
+  },
+  "aboutItem12": {
+    "message": "12. Picker color to change background and font of notification"
+  },
+  "aboutItem13": {
+    "message": "13. Shows the temperature in the Toolbar"
+  },
+  "aboutItem14": {
+    "message": "14. Shows icon according to weather"
+  },
+  "aboutItem15": {
+    "message": "15. Define the time to refresh the weather data"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "bugs": {
+    "message": "If you find any bugs, have any suggestions or some ideas for this add-on: Please create a new issue."
+  },
+  "contextMenu": {
+    "message": "Context Menu"
+  },
+  "degree": {
+    "message": "Degree"
+  },
+  "colors": {
+    "message": "Colors"
+  },
+  "day": {
+    "message": "Day"
+  },
+  "show_temperature": {
+    "message": "Show the temperature in the Toolbar"
+  },
+  "show_weather_icon": {
+    "message": "Show icon according to weather"
+  },
+  "night": {
+    "message": "Night"
+  },
+  "background_notification": {
+    "message": "Background notification"
+  },
+  "color_font_notification": {
+    "message": "Color font notification"
+  },
+  "more": {
+    "message": "More..."
+  },
+  "time_to_refresh": {
+    "message": "Time to refresh the weather data (minutes)"
+  }
+}
