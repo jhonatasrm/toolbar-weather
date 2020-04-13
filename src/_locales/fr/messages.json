@@ -1,0 +1,225 @@
+{
+  "extensionName": {
+    "message": "Toolbar Weather",
+    "description": "Toolbar Weather"
+  },
+  "extensionDescription": {
+    "message": "Cette extension montre dans votre barre d'outils la météo actuelle et les degrés en Celsius, quand vous cliquez, il est possible de voir plus de détails concernant la météo dans votre ville.",
+    "description": "This add-on shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city."
+  },
+  "clearSky":{
+    "message": "Ciel clair",
+    "description": "Clear sky"
+  },
+  "fewClouds":{
+    "message": "Quelques nuages",
+    "description": "Few clouds"
+  },
+  "scatteredClouds":{
+    "message": "Nuages épars",
+    "description": "Scattered clouds"
+  },
+  "brokenClouds":{
+    "message": "Nuages fragmentés",
+    "description": "Broken clouds"
+  },
+  "showerRain":{
+    "message": "Averses de pluie",
+    "description": "Shower rain"
+  },
+  "rain":{
+    "message": "Pluie",
+    "description": "Rain"
+  },
+  "thunderstorm":{
+    "message": "Orage",
+    "description": "Thunderstorm"
+  },
+  "snow":{
+    "message": "Neige",
+    "description": "Snow"
+  },
+  "mist":{
+    "message": "Brouillard",
+    "description": "Mist"
+  },
+  "description": {
+    "message": "Description ",
+    "description": "Description "
+  },
+  "city": {
+    "message": "Ville ",
+    "description": "City "
+  },
+  "temperature": {
+    "message": "Température ",
+    "description": "Temperature "
+  },
+  "humidity": {
+    "message": "Humidité ",
+    "description": "Humidity "
+  },
+  "wind": {
+    "message": "Vent ",
+    "description": "Wind "
+  },
+  "gust": {
+    "message": "Rafales ",
+    "description": "Gust "
+  },
+  "temperatureMin": {
+    "message": "Température Min ",
+    "description": "Temperature Min "
+  },
+  "temperatureMax": {
+    "message": "Température Max ",
+    "description": "Temperature Max "
+  },
+  "speed": {
+    "message": "Vitesse",
+    "description": "Speed"
+  },
+  "preferences": {
+    "message": "Préférences",
+    "description": "Preferences"
+  },
+  "save": {
+    "message": "Sauvegarder",
+    "description": "Save"
+  },
+  "success": {
+    "message": "Sauvegardé avec succès!",
+    "description": "Saved successfully!"
+  },
+  "tomorrow": {
+    "message": "Demain",
+    "description": "Tomorrow"
+  },
+  "monday": {
+    "message": "Lundi",
+    "description": "Monday"
+  },
+  "tuesday": {
+    "message": "Mardi",
+    "description": "Tuesday"
+  },
+  "wednesday": {
+    "message": "Mercredi",
+    "description": "Wednesday"
+  },
+  "thursday": {
+    "message": "Jeudi",
+    "description": "Thursday"
+  },
+  "friday": {
+    "message": "Vendredi",
+    "description": "Friday"
+  },
+  "saturday": {
+    "message": "Samedi",
+    "description": "Saturday"
+  },
+  "sunday": {
+    "message": "Dimanche",
+    "description": "Sunday"
+  },
+  "next48Hours": {
+    "message": "Prochaines 48 heures"
+  },
+  "about":{
+    "message": "A propos de Toolbar Weather"
+  },
+  "about_title": {
+    "message": "A propos"
+  },
+  "note": {
+    "message": "Note: Cette extension est compétement gratuite! N'hésitez pas à faire un petit don ou de rédiger un avis sur addons.mozilla.org. Merci!"
+  },
+  "works": {
+    "message": "Cette extension montre dans votre barre d'outils la météo actuelle et les degrés en Celsius ou en Fahrenheit, quand vous cliquez, il est possible de voir plus de détails concernant la météo dans votre ville, vous pouvez ajuster les préférences d'affichage. Vous pouvez éditer les préférences directement dans la Popup, mais pour plus d'options, aller dans les préférences d'extension dans about:addons. \n\nL'extension a actuellement les fonctionnalités suivantes:"
+  },
+  "aboutItem1": {
+    "message": "1. Géolocalisation"
+  },
+  "aboutItem2": {
+    "message": "2. Degrés Celsius ou Fahrenheit"
+  },
+  "aboutItem3": {
+    "message": "3. Description de la météo"
+  },
+  "aboutItem4": {
+    "message": "4. Température actuelle (°C ou °F)"
+  },
+  "aboutItem5": {
+    "message": "5. Température min et max (°C ou °F)"
+  },
+  "aboutItem6": {
+    "message": "6. Humidité (%)"
+  },
+  "aboutItem7": {
+    "message": "7. Vitesse du vent (km/h ou mph)"
+  },
+  "aboutItem8": {
+    "message": "8. Rafales (km/h ou mph)"
+  },
+  "aboutItem9": {
+    "message": "9. Prévisions pour les 2 prochains jours"
+  },
+  "aboutItem10": {
+    "message": "10. Menu contextuel"
+  },
+  "aboutItem11": {
+    "message": "11. Préférences dans la Popup"
+  },
+  "aboutItem12": {
+    "message": "12. Sélecteur de couleur pour changer l'arrière-plan et la police de la notification"
+  },
+  "aboutItem13": {
+    "message": "13. Montre la température dans la barre d'outils"
+  },
+  "aboutItem14": {
+    "message": "14. Montre une icône selon la météo"
+  },
+  "aboutItem15": {
+    "message": "15. Définir l'intervalle de rafraîchissement des données météorologiques"
+  },
+  "settings": {
+    "message": "Options"
+  },
+  "bugs": {
+    "message": "Si vous trouvez des bugs, avez des suggestions ou des idées pour cette extension: Merci de créer un nouveau ticket."
+  },
+  "contextMenu": {
+    "message": "Menu Contextuel"
+  },
+  "degree": {
+    "message": "Degré"
+  },
+  "colors": {
+    "message": "Couleurs"
+  },
+  "day": {
+    "message": "Jour"
+  },
+  "show_temperature": {
+    "message": "Montre la température dans la barre d'outils"
+  },
+  "show_weather_icon": {
+    "message": "Montre une icône selon la météo"
+  },
+  "night": {
+    "message": "Nuit"
+  },
+  "background_notification": {
+    "message": "Notification d'arrière-plan"
+  },
+  "color_font_notification": {
+    "message": "Couleur de la police de notification"
+  },
+  "more": {
+    "message": "Plus..."
+  },
+  "time_to_refresh": {
+    "message": "Intervalle de rafraîchissement des données météorologiques (minutes)"
+  }
+}
