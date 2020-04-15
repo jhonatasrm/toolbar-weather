@@ -33,6 +33,7 @@ The Add-on shows in your toolbar the current weather and the degree in Celsius o
 * Shows the temperature in the Toolbar
 * Shows icon according to weather
 * Time to refresh the weather data (minutes)
+* Translated in 3 locales including English, French and Português (do Brasil)
 
 ## How to test this extension
 
