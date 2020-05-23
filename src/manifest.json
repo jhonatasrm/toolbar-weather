@@ -5,7 +5,7 @@
 	"version": "2.1.2",
 	"homepage_url": "https://github.com/jhonatasrm/toolbar-weather",
 	"default_locale": "en",
-	"author": "Jhonatas Rodrigues",
+	"author": "Jhonatas Machado",
 	"applications": {
 		"gecko": {
 			"id": "toolbar-weather@jhonatasrm.com",
