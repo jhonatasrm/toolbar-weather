@@ -133,7 +133,7 @@
     "message": "About"
   },
   "note": {
-    "message": "Note: This add-on is completely free! Please consider making a small donation or write an review at addons.mozilla.org. Thank you!"
+    "message": "Note: This add-on is completely free! Please consider making a small donation or write a review at addons.mozilla.org. Thank you!"
   },
   "works": {
     "message": "This add-on shows in your toolbar the current weather and the degree in Celsius or Fahrenheit, when you click is possible see more details about the weather on your city, you can adjust the display preferences. You can edit your preferences directly in the Popup, but for more options go to the Add-on preferences in about:addons. \n\nThe Add-on currently has the following features:"
