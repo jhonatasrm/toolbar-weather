@@ -52,7 +52,7 @@ Have a suggestion, doubt or encountered an error? Please open a new [issue](http
 Contributions are welcome, feel free to submit a pull :)
 
 ### Bitcoin (BTC)
-[bc1qkxka7h3rxhejefyjp30agzywpyt2hw9manscyw](https://www.blockchain.com/btc/address/bc1qkxka7h3rxhejefyjp30agzywpyt2hw9manscyw)
+[15FHoQNqwz7wzAa3bgaKTJ9GknCDE7RXhH](https://www.blockchain.com/btc/address/15FHoQNqwz7wzAa3bgaKTJ9GknCDE7RXhH)
 ### Litecoin (LTC)
 LKzFPwvhxCfiXYmQbc1huu75jxsTmmEXbG
 
