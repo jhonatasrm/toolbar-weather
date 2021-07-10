@@ -1,0 +1,225 @@
+{
+  "extensionName": {
+    "message": "Toolbar Weather",
+    "description": "Toolbar Weather"
+  },
+  "extensionDescription": {
+    "message": "Ten dodatek pokazuję aktualną pogodę w Celcjuszach na twoim pasku zadań, po kliknięciu będziesz w stanie zobaczyć więcej informacji na temat pogody w twoim mieście.",
+    "description": "This add-on shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city."
+  },
+  "clearSky":{
+    "message": "Czyste niebo",
+    "description": "Clear sky"
+  },
+  "fewClouds":{
+    "message": "Lekkie zachmurzenie",
+    "description": "Few clouds"
+  },
+  "scatteredClouds":{
+    "message": "Rozproszone chmury",
+    "description": "Scattered clouds"
+  },
+  "brokenClouds":{
+    "message": "Broken clouds",
+    "description": "Broken clouds"
+  },
+  "showerRain":{
+    "message": "Lekki deszcz",
+    "description": "Shower rain"
+  },
+  "rain":{
+    "message": "Deszcz",
+    "description": "Rain"
+  },
+  "thunderstorm":{
+    "message": "Burza",
+    "description": "Thunderstorm"
+  },
+  "snow":{
+    "message": "Śnieg",
+    "description": "Snow"
+  },
+  "mist":{
+    "message": "Mgła",
+    "description": "Mist"
+  },
+  "description": {
+    "message": "Opis ",
+    "description": "Description "
+  },
+  "city": {
+    "message": "Miasto ",
+    "description": "City "
+  },
+  "temperature": {
+    "message": "Temperatura ",
+    "description": "Temperature "
+  },
+  "humidity": {
+    "message": "Wilgotność ",
+    "description": "Humidity "
+  },
+  "wind": {
+    "message": "Wiatr ",
+    "description": "Wind "
+  },
+  "gust": {
+    "message": "Podmuch wiatru ",
+    "description": "Gust "
+  },
+  "temperatureMin": {
+    "message": "Temperatura Min ",
+    "description": "Temperature Min "
+  },
+  "temperatureMax": {
+    "message": "Temperatura Max ",
+    "description": "Temperature Max "
+  },
+  "speed": {
+    "message": "Prędkość",
+    "description": "Speed"
+  },
+  "preferences": {
+    "message": "Preferencje",
+    "description": "Preferences"
+  },
+  "save": {
+    "message": "Zapisz",
+    "description": "Save"
+  },
+  "success": {
+    "message": "Zapisano pomyślnie!",
+    "description": "Saved successfully!"
+  },
+  "tomorrow": {
+    "message": "Jutro",
+    "description": "Tomorrow"
+  },
+  "monday": {
+    "message": "Poniedziałek",
+    "description": "Monday"
+  },
+  "tuesday": {
+    "message": "Wtorek",
+    "description": "Tuesday"
+  },
+  "wednesday": {
+    "message": "Środa",
+    "description": "Wednesday"
+  },
+  "thursday": {
+    "message": "Czwartek",
+    "description": "Thursday"
+  },
+  "friday": {
+    "message": "Piątek",
+    "description": "Friday"
+  },
+  "saturday": {
+    "message": "Sobota",
+    "description": "Saturday"
+  },
+  "sunday": {
+    "message": "Niedziela",
+    "description": "Sunday"
+  },
+  "next48Hours": {
+    "message": "Następne 48 godzin"
+  },
+  "about":{
+    "message": "O Toolbar Weather"
+  },
+  "about_title": {
+    "message": "O dodatku"
+  },
+  "note": {
+    "message": "Notka: To rozszerzenie jest całkowicie darmowe! Pomyśl o małej dotacji lub o napisaniu opinii na addons.mozilla.org. Dziękuję!"
+  },
+  "works": {
+    "message": "To rozszerzenie pokazuję pogodę w Celcjuszach lub Farenhaitach, po kliknięciu zobaczysz więcej informacji na temat pogody w twoim mieście, możesz też edytować twoje preferencje. Zmiany można dokonać w popup'ie, lecz żeby dokonać większego wyboru należy udać się do Add-on preferences w about:addons. Aktualnie rozszerzenie posiada takie funkcje jak:"
+  },
+  "aboutItem1": {
+    "message": "1. Geolokacja"
+  },
+  "aboutItem2": {
+    "message": "2. Temperatura w Celcjuszu lub Farenhaitach"
+  },
+  "aboutItem3": {
+    "message": "3. Opis pogody"
+  },
+  "aboutItem4": {
+    "message": "4. Teraźniejsza Temperatura (°C lub °F)"
+  },
+  "aboutItem5": {
+    "message": "5. Temperatura min i max (°C or °F)"
+  },
+  "aboutItem6": {
+    "message": "6. Wilgotność (%)"
+  },
+  "aboutItem7": {
+    "message": "7. Szybkość wiatru (km/h or mph)"
+  },
+  "aboutItem8": {
+    "message": "8. Gust (km/h or mph)"
+  },
+  "aboutItem9": {
+    "message": "9. Prognoza na następne 2 dni"
+  },
+  "aboutItem10": {
+    "message": "10. Menu kontekstu"
+  },
+  "aboutItem11": {
+    "message": "11. Preferencje w menu"
+  },
+  "aboutItem12": {
+    "message": "12. Paleta kolorów dla zmiany tła i czcionki powiadomień"
+  },
+  "aboutItem13": {
+    "message": "13. Pokazuję temperaturę w pasku zadań"
+  },
+  "aboutItem14": {
+    "message": "14. Pokazywanie ikon zgodnych z pogodą"
+  },
+  "aboutItem15": {
+    "message": "15. Zdefiniowany czas aktulizacji pogody"
+  },
+  "settings": {
+    "message": "Ustawienia"
+  },
+  "bugs": {
+    "message": "Jeżeli znajdziesz jakiś błąd, masz jakies sugestię lub pomysły dla tego rozszerzenia: Proszę utwórz nowy wniosek."
+  },
+  "contextMenu": {
+    "message": "Menu kontekstu"
+  },
+  "degree": {
+    "message": "Stopień"
+  },
+  "colors": {
+    "message": "Kolory"
+  },
+  "day": {
+    "message": "Dzień"
+  },
+  "show_temperature": {
+    "message": "Pokaż temperaturę w pasku zadań"
+  },
+  "show_weather_icon": {
+    "message": "Pokaż ikonę zgodną z pogodą"
+  },
+  "night": {
+    "message": "Noc"
+  },
+  "background_notification": {
+    "message": "Powiadomienie w tle"
+  },
+  "color_font_notification": {
+    "message": "Kolor czcionki powiadomienia"
+  },
+  "more": {
+    "message": "Więcej..."
+  },
+  "time_to_refresh": {
+    "message": "Czas na odświeżenie danych (minuty)"
+  }
+}
