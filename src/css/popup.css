@@ -1,12 +1,16 @@
 html, body {
 	background-color: #FFFFFF;  /*dark color theme 	#4B4A50*/
-	min-width: 310px;
-	max-width: 310px;
-	max-height:800px;
+	width: 310px;
+	height: 100%;
+	overflow: hidden;
+}
+.hidden-scroll {
+	overflow: hidden;
 }
 .main-panel {
 	margin-top: 7px;
 	margin-bottom: 7px;
+	overflow: hidden;
 }
 .preferences-panel {
 	display: none;
@@ -14,6 +18,7 @@ html, body {
 	margin-bottom: 7px;
 	min-height: 324px;
 	max-width: 270px;
+	overflow: hidden;
 }
 .default {
 	cursor: default;
@@ -89,13 +94,13 @@ html, body {
 .preferences {
 	position: absolute;
 	right: 10px;
-	margin-top: 3px;
 	width: 16px;
 	height: 16px;
+	float:right;
+	top:16px;
 }
 .preferences:hover {
-	transform: scale(1.2, 1.2);
-    opacity: 1;
+  opacity: 1;
 }
 .out-preferences {
 	width: 8px;
@@ -104,8 +109,7 @@ html, body {
 	margin-top: 5px;
 }
 .out-preferences:hover {
-	transform: scale(1.2, 1.2);
-    opacity: 1; 
+  opacity: 1;
 }
 .preferences-title {
 	font-weight: bold;
@@ -241,31 +245,29 @@ fieldset:disabled a.btn {
 	display: none;
 }
 .forecast:hover {
-    display:block;
-	transform: scale(1.5, 1.5);
-    opacity: 1;
+  display:block;
+  opacity: 1;
 }
 .down-arrow {
-    display:block;
-    position: absolute;
+  display:block;
+  position: absolute;
 	right: 48%;
 	margin-top: -10px;
-	width: 12px;
-	height: 8px;
+	width: 16px;
+	height: 10px;
 	cursor:pointer
 }
 .up-arrow {
-    display:none;
-    position: absolute;
+  display:none;
+  position: absolute;
 	right: 48%;
 	margin-top: 7px;
-	width: 12px;
-	height: 8px;
+	width: 16px;
+	height: 10px;
 	cursor:pointer
 }
 .up-arrow:hover {
     display:block;
-	transform: scale(1.5, 1.5);
     opacity: 1;
 }
 .separatorDay {
@@ -282,6 +284,7 @@ fieldset:disabled a.btn {
 	width: 36px;
 	height: 36px;
 	left: 75%;
+	margin-bottom: -20px;
 }
 .save {
     right:10px;
@@ -289,6 +292,7 @@ fieldset:disabled a.btn {
 .weather-data {
     font-size: 11px;
     margin-left:200px;
+		margin-top: -20px;
 }
 .weather-data-pos {
     font-size: 11px;

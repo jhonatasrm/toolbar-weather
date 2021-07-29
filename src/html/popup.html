@@ -6,10 +6,10 @@
   <link rel="stylesheet" href="../css/popup.css"/>
 </head>
 <body>
-<div class="main-panel" id="mainPanel">
+<div class="main-panel hidden-scroll" id="mainPanel">
+  <a href="../html/preferences.html" target="_blank"><img src="../res/icons/preferences.png" class="preferences" width="16" height="16"></a>
   <div class="panel-section-body" style="width:100%">
     <img id="imageWeather" class="imageWeather">
-    <!--<img id="preferences" class="preferences" src="../res/icons/preferences/preferences.png">-->
   </div>
   <div class="panel-section-distance">
     <label class="description-weather" data-i18n="description"></label>
@@ -40,7 +40,7 @@
   <div class="forecast-panel" id='forecastPanel'>
     <div class="" id="separator5">
       <br><label class="description-forecast-weather" id="tomorrow" data-i18n="tomorrow"></label><br>
-      <img class="forecast-weather-img" id="imageWeatherTomorrow"><br>
+      <img class="forecast-weather-img" id="imageWeatherTomorrow"><br>        
       <label class="weather-data-forecast" id="weatherTomorrow"></label><br>
       <label class="weather-data" id="tempMinTomorrow"></label> - <label class="weather-data-pos" id="tempMaxTomorrow"></label>
     </div>
