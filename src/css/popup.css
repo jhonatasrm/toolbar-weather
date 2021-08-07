@@ -34,7 +34,6 @@ html, body {
 }
 .panel-section-separator {
 	padding: 5px;
-	background: #E1EBF2;
 }
 .panel-section-separator-gray {
 	margin-top: 5px;
@@ -47,6 +46,7 @@ html, body {
 .imageWeather {
 	margin-left: 115px;
 	margin-bottom: 20px;
+	filter: grayscale(100%);
 }
 .city {
 	position: absolute;
