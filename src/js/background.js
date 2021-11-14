@@ -782,7 +782,8 @@ function showNotificationWeather() {
   } else {
     updateNotification = "";
   }
-  browser.browserAction.setBadgeText({ text: updateNotification.toString() });
+  // removes the C or F in the badge text notification
+  browser.browserAction.setBadgeText({ text: updateNotification.toString().replace("C", "").replace("F", "")});
 }
 
 function showWeatherIcon(value) {
