@@ -8,7 +8,7 @@
 
 # Toolbar Weather [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/toolbar-weather/)
 
-The Add-on shows in your toolbar the current weather and the degree in Celsius or Fahrenheit, when you click is possible see more details about the weather on your city, also you can be able to view the forecast for the next 24 and 48 hours and adjust the display preferences.
+The Add-on shows in your toolbar the current weather and the degree in Celsius or Fahrenheit, when you click is possible to see more details about the weather in your city, also you can be able to view the forecast for the next 24 and 48 hours and adjust the display preferences.
 
 ![Toolbar Weather Screenshot](toolbar-weather.gif)
 
