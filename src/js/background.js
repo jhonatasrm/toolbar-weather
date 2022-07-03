@@ -101,67 +101,67 @@ var imageWeatherAfterTomorrow = document.getElementById("imageWeatherAfterTomorr
 var preferences = document.getElementById("preferences");
 var forecast = document.getElementById("forecast");
 var preferencesPanel = document.getElementById("preferencesPanel");
-// var forecastPanel = document.getElementById("forecastPanel");
-// var mainPanel = document.getElementById("mainPanel");
-// var upArrow = document.getElementById("upArrow");
-// var downArrow = document.getElementById("downArrow");
+var forecastPanel = document.getElementById("forecastPanel");
+var mainPanel = document.getElementById("mainPanel");
+var minus = document.getElementById("minus");
+var plus = document.getElementsByClassName("plus");
 var outPreferences = document.getElementById("outPreferences");
 var save = document.getElementById("save");
 var resultSuccess = document.getElementById("resultSuccess");
 
 // start style display
-forecastPanel.style.display = "inline";
+forecastPanel.style.display = "none";
 mainPanel.style.display = "inline";
-// upArrow.style.display = "none";
+minus.style.display = "none";
 
 // forecast
-// forecast.addEventListener(
-//   "click",
-//   function () {
-//     if (forecastPanel.style.display == "none") {
-//       forecastPanel.style.display = "inline";
-//       mainPanel.style.display = "inline";
-//       // upArrow.style.display = "inline";
-//       forecast.style.display = "none";
-//     } else {
-//       forecastPanel.style.display = "none";
-//     }
-//   },
-//   false
-// );
+forecast.addEventListener(
+  "click",
+  function () {
+    if (forecastPanel.style.display == "none") {
+      forecastPanel.style.display = "inline";
+      mainPanel.style.display = "inline";
+      minus.style.display = "inline";
+      forecast.style.display = "none";
+    } else {
+      forecastPanel.style.display = "none";
+    }
+  },
+  false
+);
 
-// forecastPanel.addEventListener(
-//   "click",
-//   function () {
-//     if (forecastPanel.style.display == "inline") {
-//       forecastPanel.style.display = "none";
-//       upArrow.style.display = "inline";
-//       forecast.style.display = "none";
-//     } else {
-//       forecastPanel.style.display = "none";
-//       upArrow.style.display = "none";
-//       forecast.style.display = "none";
-//     }
-//   },
-//   false
-// );
+forecastPanel.addEventListener(
+  "click",
+  function () {
+    if (forecastPanel.style.display == "inline") {
+      forecastPanel.style.display = "none";
+      minus.style.display = "inline";
+      forecast.style.display = "none";
+    } else {
+      forecastPanel.style.display = "none";
+      minus.style.display = "none";
+      forecast.style.display = "none";
+    }
+  },
+  false
+);
 
-// upArrow.addEventListener(
-//   "click",
-//   function () {
-//     if (forecastPanel.style.display == "none") {
-//       forecastPanel.style.display = "none";
-//       mainPanel.style.display = "none";
-//       downArrow.style.display = "inline";
-//       upArrow.style.display = "none";
-//     } else {
-//       forecastPanel.style.display = "none";
-//       upArrow.style.display = "none";
-//       forecast.style.display = "block";
-//     }
-//   },
-//   false
-// );
+minus.addEventListener(
+  "click",
+  function () {
+    if (forecastPanel.style.display == "none") {
+      forecastPanel.style.display = "none";
+      mainPanel.style.display = "none";
+      plus.style.display = "inline";
+      minus.style.display = "none";
+    } else {
+      forecastPanel.style.display = "none";
+      minus.style.display = "none";
+      forecast.style.display = "block";
+    }
+  },
+  false
+);
 
 // get week day (In future Update)
 //

@@ -101,6 +101,21 @@ html, body {
 	float:right;
 	top:16px;
 }
+.plus,.minus {
+	position: absolute;
+	right: 10px;
+	width: 16px;
+	height: 16px;
+	float:right;
+	top:50px;
+	cursor: pointer;
+}
+.plus:hover {
+	opacity: 1;
+}
+.minus:hover {
+	opacity: 1;
+}
 .preferences:hover {
   opacity: 1;
 }
@@ -232,10 +247,10 @@ fieldset:disabled a.btn {
 
 /* New panel forecast */
 .forecast-panel {
-	display: none;
-	margin-top: 7px;
-	height: 500px;
-	width: 270px;
+  display: none;
+  margin-top: 7px;
+  height: 100%;
+  width: 270px;
 }
 .forecast {
 	position: absolute;
@@ -306,12 +321,11 @@ fieldset:disabled a.btn {
     font-weight: bold;
 }
 #separator5 {
-		padding-bottom:12px;
-		margin-top:20px;
+		padding-bottom:3px;
+		margin-top:6px;
 }
 #separator6 {
-		margin-top:4px;
-		padding-bottom:12px;
+		margin-top:3px;
 }
 
 /*
