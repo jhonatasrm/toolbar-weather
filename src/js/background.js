@@ -130,22 +130,6 @@ forecast.addEventListener(
   false
 );
 
-forecastPanel.addEventListener(
-  "click",
-  function () {
-    if (forecastPanel.style.display == "inline") {
-      forecastPanel.style.display = "none";
-      minus.style.display = "inline";
-      forecast.style.display = "none";
-    } else {
-      forecastPanel.style.display = "none";
-      minus.style.display = "none";
-      forecast.style.display = "none";
-    }
-  },
-  false
-);
-
 minus.addEventListener(
   "click",
   function () {
