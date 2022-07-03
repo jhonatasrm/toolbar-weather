@@ -9,7 +9,6 @@ html, body {
 }
 .main-panel {
 	margin-top: 7px;
-	margin-bottom: 7px;
 	overflow: hidden;
 }
 .preferences-panel {
@@ -42,6 +41,9 @@ html, body {
 }
 .panel-section-distance {
 	padding: 3px;
+}
+.panel-section-distance-days {
+	padding: 8px;
 }
 .imageWeather {
 	margin-left: 115px;
@@ -232,8 +234,7 @@ fieldset:disabled a.btn {
 .forecast-panel {
 	display: none;
 	margin-top: 7px;
-	margin-bottom: 7px;
-	height: 480px;
+	height: 500px;
 	width: 270px;
 }
 .forecast {
@@ -285,6 +286,7 @@ fieldset:disabled a.btn {
 	height: 36px;
 	left: 75%;
 	margin-bottom: -20px;
+	filter: grayscale(100%);
 }
 .save {
     right:10px;
@@ -304,10 +306,12 @@ fieldset:disabled a.btn {
     font-weight: bold;
 }
 #separator5 {
-    padding:3px;
+		padding-bottom:12px;
+		margin-top:20px;
 }
 #separator6 {
-    padding:3px;
+		margin-top:4px;
+		padding-bottom:12px;
 }
 
 /*
