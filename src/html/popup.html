@@ -8,8 +8,10 @@
 <body>
 <div class="main-panel" id="mainPanel">
   <a href="../html/preferences.html" target="_blank"><img src="../res/icons/preferences.png" class="preferences" width="16" height="16"></a>
-  <img id="forecastWeather" class="imageWeather"><img src="../res/icons/plus.png" id="forecast" class="plus" width="16" height="16">
-  <img src="../res/icons/minus.png" class="minus" id="minus" width="16" height="16">
+  <img id="forecastWeather" class="imageWeather">
+  
+  <!-- <img src="../res/icons/plus.png" id="plus" class="plus" width="16" height="16">
+  <img src="../res/icons/minus.png" class="minus" id="minus" width="16" height="16"> -->
 
   <div class="panel-section-body" style="width:100%">
     <img id="imageWeather" class="imageWeather">
@@ -39,19 +41,27 @@
   <div class="panel-section-separator" id="separator4">
     <label class="description-weather" data-i18n="gust"></label><label id="gust" class="gust"></label>
   </div>
+  <br>
   <div class="forecast-panel" id='forecastPanel'>
-    <div class="" id="separator5">
-      <br><label class="description-forecast-weather" id="tomorrow" data-i18n="tomorrow"></label><br>
-      <img class="forecast-weather-img" id="imageWeatherTomorrow"><br>
+    <div class="padding-center-weather-data" id="separator5">
+      <label class="description-forecast-weather" id="tomorrow" data-i18n="tomorrow"></label><br>
+      <div class="flex-weather-between">
       <label class="weather-data-forecast" id="weatherTomorrow"></label><br>
-      <label class="weather-data" id="tempMinTomorrow"></label> - <label class="weather-data-pos" id="tempMaxTomorrow"></label>
+      <div style="display:flex;align-items: center;">
+        <img class="forecast-weather-img" id="imageWeatherTomorrow">
+        <div class="weather-column-center"><label class="weather-data" id="tempMinTomorrow"></label> - <label class="weather-data-pos" id="tempMaxTomorrow"></label></div>
     </div>
-    <div class="panel-section-distance-days"></div>
-    <div class="" id="separator6">
-      <br><label  class="description-forecast-weather" id="afterTomorrow"></label><br>
-      <img class="forecast-weather-img" id="imageWeatherAfterTomorrow"><br>
+    </div>
+    </div>
+    <br>
+    <div class="padding-center-weather-data" id="separator6">
+      <label  class="description-forecast-weather" id="afterTomorrow"></label><br>
+      <div class="flex-weather-between">
       <label class="weather-data-forecast" id="weatherAfterTomorrow"></label><br>
-      <label class="weather-data" id="tempMinAfterTomorrow"></label> - <label class="weather-data-pos" id="tempMaxAfterTomorrow"></label>
+      <div style="display:flex;align-items: center;">
+        <img class="forecast-weather-img" id="imageWeatherAfterTomorrow"><div class="weather-column-center"><label class="weather-data" id="tempMinAfterTomorrow"></label> - <label class="weather-data-pos" id="tempMaxAfterTomorrow"></label></div>
+      </div>
+      </div>
     </div>
   </div>
 </div>

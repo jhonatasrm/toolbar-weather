@@ -1,4 +1,4 @@
-let api = "";
+let api = "f6ad51f2a88b64f68794bbb7d5665c71";
 let myStorage = window.localStorage;
 let reloadMinutes;
 let saveLatitude;
@@ -46,7 +46,6 @@ function timeRefresh() {
   } else {
     reloadMinutes = localStorage.getItem("timer");
   }
-  console.log(reloadMinutes);
 
   setInterval(() => {
     saveLatitude = localStorage.getItem("latitude");
@@ -99,53 +98,52 @@ var imageWeatherAfterTomorrow = document.getElementById("imageWeatherAfterTomorr
 
 // getting preferences elements by id
 var preferences = document.getElementById("preferences");
-var forecast = document.getElementById("forecast");
 var preferencesPanel = document.getElementById("preferencesPanel");
-var forecastPanel = document.getElementById("forecastPanel");
-var mainPanel = document.getElementById("mainPanel");
-var minus = document.getElementById("minus");
-var plus = document.getElementsByClassName("plus");
+// var forecastPanel = document.getElementById("forecastPanel");
+// var mainPanel = document.getElementById("mainPanel");
+// var plus = document.getElementById("plus");
+// var minus = document.getElementById("minus");
 var outPreferences = document.getElementById("outPreferences");
 var save = document.getElementById("save");
 var resultSuccess = document.getElementById("resultSuccess");
 
 // start style display
-forecastPanel.style.display = "none";
-mainPanel.style.display = "inline";
-minus.style.display = "none";
+// forecastPanel.style.display = "none";
+// mainPanel.style.display = "inline";
+// minus.style.display = "none";
 
 // forecast
-forecast.addEventListener(
-  "click",
-  function () {
-    if (forecastPanel.style.display == "none") {
-      forecastPanel.style.display = "inline";
-      mainPanel.style.display = "inline";
-      minus.style.display = "inline";
-      forecast.style.display = "none";
-    } else {
-      forecastPanel.style.display = "none";
-    }
-  },
-  false
-);
+// plus.addEventListener(
+//   "click",
+//   function () {
+//     if (forecastPanel.style.display == "none") {
+//       forecastPanel.style.display = "inline";
+//       mainPanel.style.display = "inline";
+//       minus.style.display = "inline";
+//       plus.style.display = "none";
+//     } else {
+//       forecastPanel.style.display = "none";
+//     }
+//   },
+//   false
+// );
 
-minus.addEventListener(
-  "click",
-  function () {
-    if (forecastPanel.style.display == "none") {
-      forecastPanel.style.display = "none";
-      mainPanel.style.display = "none";
-      plus.style.display = "inline";
-      minus.style.display = "none";
-    } else {
-      forecastPanel.style.display = "none";
-      minus.style.display = "none";
-      forecast.style.display = "block";
-    }
-  },
-  false
-);
+// minus.addEventListener(
+//   "click",
+//   function () {
+//     if (forecastPanel.style.display == "none") {
+//       forecastPanel.style.display = "none";
+//       mainPanel.style.display = "none";
+//       plus.style.display = "inline";
+//       minus.style.display = "none";
+//     } else {
+//       forecastPanel.style.display = "none";
+//       minus.style.display = "none";
+//       plus.style.display = "block";
+//     }
+//   },
+//   false
+// );
 
 // get week day (In future Update)
 //
@@ -176,9 +174,7 @@ var savedDayAfterTomorrow = myStorage.getItem("dayAfterTomorrow");
 var savedWeatherTomorrow = myStorage.getItem("weatherTomorrow");
 var savedWeatherAfterTomorrow = myStorage.getItem("weatherAfterTomorrow");
 var savedImageWeatherTomorrow = myStorage.getItem("imageWeatherTomorrow");
-var savedImageWeatherAfterTomorrow = myStorage.getItem(
-  "imageWeatherAfterTomorrow"
-);
+var savedImageWeatherAfterTomorrow = myStorage.getItem("imageWeatherAfterTomorrow");
 
 var savedTempMinTomorrow = myStorage.getItem("tempMinTomorrow");
 var savedTempMaxTomorrow = myStorage.getItem("tempMaxTomorrow");
