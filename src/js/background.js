@@ -145,8 +145,7 @@ var resultSuccess = document.getElementById("resultSuccess");
 //   false
 // );
 
-// get week day (In future Update)
-//
+//Future update -> add history
 //var weekDay = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 //var d = new Date();
 //var dayTomorrowResult = weekDay[d.getDay()+1];
