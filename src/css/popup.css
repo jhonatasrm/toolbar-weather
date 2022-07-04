@@ -1,6 +1,7 @@
 html, body {
 	background-color: #FFFFFF;  /*dark color theme 	#4B4A50*/
 	min-width: 310px;
+	min-height: 470px;
 	overflow: hidden;
 }
 .hidden-scroll {
@@ -245,7 +246,7 @@ fieldset:disabled a.btn {
 
 /* New panel forecast */
 .forecast-panel {
-  display: inline;
+  display: none;
   margin-top: 7px;
   width: 270px;
 }
@@ -313,9 +314,13 @@ fieldset:disabled a.btn {
     margin-left:10px;
     font-weight: bold;
 }
-.flex-weather-between {
+.d-flex-weather-between {
 	display: flex;
 	justify-content:space-between;
+}
+.d-flex-center {
+	display:flex;
+	align-items: center;
 }
 .padding-center-weather-data {
 	padding:8px;
@@ -332,7 +337,3 @@ fieldset:disabled a.btn {
 /*
 Future update -> add preferences
 */
-
-#preferences {
-    display: none;
-}

@@ -99,7 +99,7 @@ var imageWeatherAfterTomorrow = document.getElementById("imageWeatherAfterTomorr
 // getting preferences elements by id
 var preferences = document.getElementById("preferences");
 var preferencesPanel = document.getElementById("preferencesPanel");
-// var forecastPanel = document.getElementById("forecastPanel");
+var forecastPanel = document.getElementById("forecastPanel");
 // var mainPanel = document.getElementById("mainPanel");
 // var plus = document.getElementById("plus");
 // var minus = document.getElementById("minus");
@@ -219,6 +219,9 @@ request.onload = function () {
     document.getElementById("separator6").style.background = "#E1EBF2";
     document.getElementById("imageWeatherTomorrow").style.filter = "grayscale(0%)";
     document.getElementById("imageWeatherAfterTomorrow").style.filter = "grayscale(0%)";
+    setTimeout(function() {
+      forecastPanel.style.display = "inline";
+    },500);
   } else {
     document.getElementById("imageWeather").style.filter = "grayscale(0%)";
     document.getElementById("separator1").style.background = "#DCD5F2";
@@ -229,6 +232,9 @@ request.onload = function () {
     document.getElementById("separator6").style.background = "#DCD5F2";
     document.getElementById("imageWeatherTomorrow").style.filter = "grayscale(0%)";
     document.getElementById("imageWeatherAfterTomorrow").style.filter = "grayscale(0%)";
+    setTimeout(function() {
+      forecastPanel.style.display = "inline";
+    },500);
   }
 
   imageWeather.src =
