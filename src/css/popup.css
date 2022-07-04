@@ -1,7 +1,7 @@
 html, body {
 	background-color: #FFFFFF;  /*dark color theme 	#4B4A50*/
 	min-width: 310px;
-	min-height: 470px;
+	min-height: 478px;
 	overflow: hidden;
 }
 .hidden-scroll {
@@ -323,7 +323,7 @@ fieldset:disabled a.btn {
 	align-items: center;
 }
 .padding-center-weather-data {
-	padding:8px;
+	padding: 10px;
 	display:flex;
 	flex-direction: column;
 	align-content: center;
