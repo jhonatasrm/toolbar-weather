@@ -84,3 +84,19 @@ input[type='radio']:before {
 input[type='radio']:checked:before {
   background: #722C80;
 }
+.ko-fi{
+  border:0px;
+  height:28px;
+  margin-right:-8px
+}
+.github {
+  margin-right:8px;
+  height:28px;
+}
+.icon-about:hover,.ko-fi:hover,.github:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}

@@ -1,11 +1,11 @@
 html, body {
-	background-color: #FFFFFF;  /*dark color theme 	#4B4A50*/
+	background-color: #FFFFFF; /*darkcolortheme #4B4A50*/
 	min-width: 310px;
-	min-height: 478px;
-	overflow: hidden;
-}
-.hidden-scroll {
-	overflow: hidden;
+	min-height: 338px;
+	max-height: 520px;
+	-ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll; 
 }
 .main-panel {
 	margin-top: 7px;
@@ -303,11 +303,11 @@ fieldset:disabled a.btn {
 }
 .weather-data {
     font-size: 11px;
-		margin-top: -20px;
+		margin-right:4px;
 }
 .weather-data-pos {
     font-size: 11px;
-    margin-left:2px;
+    margin-left:4px;
 }
 .weather-data-forecast {
     font-size: 20px;
@@ -320,7 +320,6 @@ fieldset:disabled a.btn {
 }
 .d-flex-center {
 	display:flex;
-	align-items: center;
 }
 .padding-center-weather-data {
 	padding: 10px;
