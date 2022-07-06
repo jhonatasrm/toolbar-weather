@@ -93,10 +93,13 @@ input[type='radio']:checked:before {
   margin-right:8px;
   height:28px;
 }
-.icon-about:hover,.ko-fi:hover,.github:hover {
+.icon-about:hover,.ko-fi:hover,.github:hover,.preferences-about:hover {
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
+}
+.preferences-about {
+  float: right;
 }
