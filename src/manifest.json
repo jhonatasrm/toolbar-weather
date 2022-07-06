@@ -19,8 +19,8 @@
   "browser_action": {
     "browser_style": true,
     "default_icon": {
-      "16": "../res/icons/loading-16.png",
-      "32": "../res/icons/loading-32.png"
+      "16": "../res/icons/loading-toolbar.gif",
+      "32": "../res/icons/loading-toolbar.gif"
     },
     "default_title": "__MSG_extensionName__",
     "default_popup": "../html/popup.html"
