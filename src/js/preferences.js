@@ -195,7 +195,7 @@ function updateBadgeColorBackgroundDay(val) {
   if (localStorage.getItem("pickerBackgroundNotificationDay") == null) {
     browser.browserAction.setBadgeBackgroundColor({ color: "#5387E8" });
   } else {
-    if(!localStorage.getItem("imageWeather").includes("n")){
+    if(localStorage.getItem("imageWeather").includes("d.png")){
       browser.browserAction.setBadgeBackgroundColor({ color: "#" + val });
     }
   }
@@ -206,7 +206,7 @@ function updateBadgeColorTextDay(val) {
   if (localStorage.getItem("pickerFontNotificationDay") == null) {
     browser.browserAction.setBadgeTextColor({ color: "#FFFFFF" });
   } else {
-    if(!localStorage.getItem("imageWeather").includes("n")){
+    if(localStorage.getItem("imageWeather").includes("d.png")){
       browser.browserAction.setBadgeTextColor({ color: "#" + val });
     }
   }
@@ -217,7 +217,7 @@ function updateBadgeColorBackgroundNight(val){
   if (localStorage.getItem("pickerBackgroundNotificationNight") == null) {
     browser.browserAction.setBadgeBackgroundColor({ color: "#722C80" });
   } else {
-    if(localStorage.getItem("imageWeather").includes("n")){
+    if(localStorage.getItem("imageWeather").includes("n.png")){
       browser.browserAction.setBadgeBackgroundColor({ color: "#" + val });
     }
   }
@@ -228,7 +228,7 @@ function updateBadgeColorTextNight(val){
   if (localStorage.getItem("pickerFontNotificationNight") == null) {
     browser.browserAction.setBadgeTextColor({ color: "#FFFFFF" });
   } else {
-    if(localStorage.getItem("imageWeather").includes("n")){
+    if(localStorage.getItem("imageWeather").includes("n.png")){
       browser.browserAction.setBadgeTextColor({ color: "#" + val });
     }
   }
