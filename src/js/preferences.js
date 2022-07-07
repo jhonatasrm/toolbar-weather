@@ -1,6 +1,5 @@
 // temperature radio
 var backgroundPage = browser.extension.getBackgroundPage();
-
 // version
 var version = document.getElementById("version");
 version.textContent = browser.runtime.getManifest().name + " (v"+ browser.runtime.getManifest().version + ")";
@@ -19,6 +18,7 @@ $(document).ready(function(){
   });
  });
 
+ // C or F
 $(document).ready(function(){
   var radios = document.getElementsByName("temperature");
   var val = localStorage.getItem('temperatureRadio');
@@ -29,7 +29,7 @@ $(document).ready(function(){
   }
 $('input[name="temperature"]').on('change', function(){
     localStorage.setItem('temperatureRadio', $(this).val());
-    backgroundPage.request.onload();
+    showNotificationWeatherDegrees();
   });
 });
 
@@ -45,7 +45,6 @@ $(document).ready(function(){
   }
 $('input[name="speed"]').on('change', function(){
     localStorage.setItem('speedRadio', $(this).val());
-    backgroundPage.request.onload();
    });
 });
 
@@ -75,7 +74,7 @@ $(document).ready(function(){
   }
 $('input[name="showTemperature"]').on('change', function(){
     localStorage.setItem('showTemperature', $(this).val());
-    backgroundPage.request.onload();
+    showNotificationWeather();
   });
 });
 
@@ -90,7 +89,7 @@ $(document).ready(function(){
   }
 $('input[name="showWeatherIcon"]').on('change', function(){
     localStorage.setItem('showWeatherIcon', $(this).val());
-    backgroundPage.request.onload();
+    showWeatherIcon(localStorage.getItem("badgeWeatherIcon"));
   });
 });
 
@@ -105,7 +104,7 @@ $(document).ready(function(){
   }
   $('input[name="background_notification_day"]').on('change', function(){
     localStorage.setItem('pickerBackgroundNotificationDay', $(this).val());
-    backgroundPage.request.onload();
+    updateBadgeColorBackgroundDay($(this).val());
   });
  });
 
@@ -120,7 +119,7 @@ $(document).ready(function(){
   }
   $('input[name="color_font_notification_day"]').on('change', function(){
     localStorage.setItem('pickerFontNotificationDay', $(this).val());
-    backgroundPage.request.onload();
+    updateBadgeColorTextDay($(this).val());
   });
  });
 
@@ -135,7 +134,7 @@ $(document).ready(function(){
   }
   $('input[name="background_notification_night"]').on('change', function(){
     localStorage.setItem('pickerBackgroundNotificationNight', $(this).val());
-    backgroundPage.request.onload();
+    updateBadgeColorBackgroundNight($(this).val());
   });
  });
 
@@ -150,6 +149,87 @@ $(document).ready(function(){
   }
   $('input[name="color_font_notification_night"]').on('change', function(){
     localStorage.setItem('pickerFontNotificationNight', $(this).val());
-    backgroundPage.request.onload();
+    updateBadgeColorTextNight($(this).val());
   });
  });
+
+ // functions to set properties inside preferencesPanel (to improve)
+ function showWeatherIcon(value) {
+  if (localStorage.getItem("showWeatherIcon") == null) {
+    browser.browserAction.setIcon({ path: value });
+  } else if (localStorage.getItem("showWeatherIcon") == "True") {
+    browser.browserAction.setIcon({ path: value });
+  } else if (localStorage.getItem("showWeatherIcon") == "undefined") {
+    browser.browserAction.setIcon({ path: value });
+  } else {
+    browser.browserAction.setIcon({ path: "../res/icons/icon.png" });
+  }
+}
+function showNotificationWeather() {
+  if (localStorage.getItem("showTemperature") == null) {
+    updateNotification = localStorage.getItem("temperature");
+  } else if (localStorage.getItem("showTemperature") == "True") {
+    updateNotification = localStorage.getItem("temperature");
+  } else if (localStorage.getItem("showTemperature") == "undefined") {
+    updateNotification = localStorage.getItem("temperature");
+  } else {
+    updateNotification = "";
+  }
+  // removes the C or F in the badge text notification
+  browser.browserAction.setBadgeText({ text: updateNotification.toString().replace("C", "").replace("F", "")});
+}
+
+function showNotificationWeatherDegrees() {
+  var updateNotification;
+  if(localStorage.getItem("temperatureRadio") == "F"){
+    updateNotification = parseInt((localStorage.getItem("temperature").toString().replace("°F", "").replace("°C","") * 9) / 5 + 32);
+  } else {
+    updateNotification = parseInt(localStorage.getItem("temperature").toString().replace("°F", "").replace("°C",""));
+  }
+  // removes the C or F in the badge text notification
+  browser.browserAction.setBadgeText({ text: updateNotification.toString() + "°"});
+}
+
+function updateBadgeColorBackgroundDay(val) {
+  // set background notification color day
+  if (localStorage.getItem("pickerBackgroundNotificationDay") == null) {
+    browser.browserAction.setBadgeBackgroundColor({ color: "#5387E8" });
+  } else {
+    if(!localStorage.getItem("imageWeather").includes("n")){
+      browser.browserAction.setBadgeBackgroundColor({ color: "#" + val });
+    }
+  }
+}
+
+function updateBadgeColorTextDay(val) {
+  // set text color font day
+  if (localStorage.getItem("pickerFontNotificationDay") == null) {
+    browser.browserAction.setBadgeTextColor({ color: "#FFFFFF" });
+  } else {
+    if(!localStorage.getItem("imageWeather").includes("n")){
+      browser.browserAction.setBadgeTextColor({ color: "#" + val });
+    }
+  }
+}
+
+function updateBadgeColorBackgroundNight(val){
+  // set background notification color night
+  if (localStorage.getItem("pickerBackgroundNotificationNight") == null) {
+    browser.browserAction.setBadgeBackgroundColor({ color: "#722C80" });
+  } else {
+    if(localStorage.getItem("imageWeather").includes("n")){
+      browser.browserAction.setBadgeBackgroundColor({ color: "#" + val });
+    }
+  }
+}
+
+function updateBadgeColorTextNight(val){
+  // set text color font night
+  if (localStorage.getItem("pickerFontNotificationNight") == null) {
+    browser.browserAction.setBadgeTextColor({ color: "#FFFFFF" });
+  } else {
+    if(localStorage.getItem("imageWeather").includes("n")){
+      browser.browserAction.setBadgeTextColor({ color: "#" + val });
+    }
+  }
+}
