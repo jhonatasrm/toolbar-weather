@@ -36,6 +36,7 @@ function callback(position) {
 
 function error() {
   console.log("Error API!");
+  navigator.geolocation.getCurrentPosition(callback, error, optionsAccuracy);
 }
 
 // time refresh and also set interval to refresh the weather
@@ -46,7 +47,6 @@ function timeRefresh() {
   } else {
     reloadMinutes = localStorage.getItem("timer");
   }
-  console.log(reloadMinutes);
 
   setInterval(() => {
     saveLatitude = localStorage.getItem("latitude");
@@ -95,98 +95,79 @@ var tempMaxAfterTomorrow = document.getElementById("tempMaxAfterTomorrow");
 var weatherTomorrow = document.getElementById("weatherTomorrow");
 var weatherAfterTomorrow = document.getElementById("weatherAfterTomorrow");
 var imageWeatherTomorrow = document.getElementById("imageWeatherTomorrow");
-var imageWeatherAfterTomorrow = document.getElementById(
-  "imageWeatherAfterTomorrow"
-);
+var imageWeatherAfterTomorrow = document.getElementById("imageWeatherAfterTomorrow");
 
 // getting preferences elements by id
 var preferences = document.getElementById("preferences");
-var forecast = document.getElementById("forecast");
 var preferencesPanel = document.getElementById("preferencesPanel");
 var forecastPanel = document.getElementById("forecastPanel");
 var mainPanel = document.getElementById("mainPanel");
-var upArrow = document.getElementById("upArrow");
-var downArrow = document.getElementById("downArrow");
+var loading = document.getElementById("loading");
+// var plus = document.getElementById("plus");
+// var minus = document.getElementById("minus");
 var outPreferences = document.getElementById("outPreferences");
 var save = document.getElementById("save");
 var resultSuccess = document.getElementById("resultSuccess");
 
 // start style display
-forecastPanel.style.display = "none";
-mainPanel.style.display = "inline";
-upArrow.style.display = "none";
+// forecastPanel.style.display = "none";
+// mainPanel.style.display = "inline";
+// minus.style.display = "none";
 
 // forecast
-forecast.addEventListener(
-  "click",
-  function () {
-    if (forecastPanel.style.display == "none") {
-      forecastPanel.style.display = "inline";
-      mainPanel.style.display = "inline";
-      upArrow.style.display = "inline";
-      forecast.style.display = "none";
-    } else {
-      forecastPanel.style.display = "none";
-    }
-  },
-  false
-);
+// plus.addEventListener(
+//   "click",
+//   function () {
+//     if (forecastPanel.style.display == "none") {
+//       forecastPanel.style.display = "inline";
+//       mainPanel.style.display = "inline";
+//       minus.style.display = "inline";
+//       plus.style.display = "none";
+//     } else {
+//       forecastPanel.style.display = "none";
+//     }
+//   },
+//   false
+// );
 
-forecastPanel.addEventListener(
-  "click",
-  function () {
-    if (forecastPanel.style.display == "inline") {
-      forecastPanel.style.display = "none";
-      upArrow.style.display = "inline";
-      forecast.style.display = "none";
-    } else {
-      forecastPanel.style.display = "none";
-      upArrow.style.display = "none";
-      forecast.style.display = "none";
-    }
-  },
-  false
-);
+// minus.addEventListener(
+//   "click",
+//   function () {
+//     if (forecastPanel.style.display == "none") {
+//       forecastPanel.style.display = "none";
+//       mainPanel.style.display = "none";
+//       plus.style.display = "inline";
+//       minus.style.display = "none";
+//     } else {
+//       forecastPanel.style.display = "none";
+//       minus.style.display = "none";
+//       plus.style.display = "block";
+//     }
+//   },
+//   false
+// );
 
-upArrow.addEventListener(
-  "click",
-  function () {
-    if (forecastPanel.style.display == "none") {
-      forecastPanel.style.display = "none";
-      mainPanel.style.display = "none";
-      downArrow.style.display = "inline";
-      upArrow.style.display = "none";
-    } else {
-      forecastPanel.style.display = "none";
-      upArrow.style.display = "none";
-      forecast.style.display = "block";
-    }
-  },
-  false
-);
-
-// get week day (In future Update)
-//
+//Future update -> add history
 //var weekDay = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 //var d = new Date();
 //var dayTomorrowResult = weekDay[d.getDay()+1];
 
-dayTomorrow.textContent = browser.i18n.getMessage("tomorrow"); // can change for week day instead 'Tomorrow'
-dayAfterTomorrow.textContent = browser.i18n.getMessage("next48Hours");
+//dayTomorrow.textContent = browser.i18n.getMessage("tomorrow"); // can change for week day instead 'Tomorrow'
+//dayAfterTomorrow.textContent = browser.i18n.getMessage("next48Hours");
 
 myStorage.setItem("dayTomorrow", browser.i18n.getMessage("tomorrow"));
 myStorage.setItem("dayAfterTomorrow", browser.i18n.getMessage("next48Hours"));
 
 // saved values
-var savedImageWeather = myStorage.getItem("imageWeather");
-var savedDescriptionResult = myStorage.getItem("description");
-var savedCityResult = myStorage.getItem("city");
-var savedTemperatureResult = myStorage.getItem("temperature");
-var savedHumidityResult = myStorage.getItem("humidity");
-var savedWindResult = myStorage.getItem("wind");
-var savedGustResult = myStorage.getItem("gust");
-var savedTemperatureMin = myStorage.getItem("temperatureMin");
-var savedTemperatureMax = myStorage.getItem("temperatureMax");
+var savedImageWeather = myStorage.getItem("forecastWeather") ?  myStorage.getItem("forecastWeather") : '../res/icons/weather_popup/04n.png';
+var savedDescriptionResult = myStorage.getItem("description") ? myStorage.getItem("description") : 'loading';
+var savedCityResult = myStorage.getItem("city") ? myStorage.getItem("city") : 'loading';
+var savedTemperatureResult = myStorage.getItem("temperature") ? myStorage.getItem("temperature") : 'loading';
+var savedHumidityResult = myStorage.getItem("humidity") ? myStorage.getItem("humidity") : 'loading';
+var savedWindResult = myStorage.getItem("wind") ? myStorage.getItem("wind") : 'loading';
+var savedGustResult = myStorage.getItem("gust") ? myStorage.getItem("gust") : 'loading';
+var savedTemperatureMin = myStorage.getItem("temperatureMin") ? myStorage.getItem("temperatureMin") : 'loading';
+var savedTemperatureMax = myStorage.getItem("temperatureMax") ? myStorage.getItem("temperatureMax") : 'loading';
 
 var savedDayTomorrow = myStorage.getItem("dayTomorrow");
 var savedDayAfterTomorrow = myStorage.getItem("dayAfterTomorrow");
@@ -194,9 +175,7 @@ var savedDayAfterTomorrow = myStorage.getItem("dayAfterTomorrow");
 var savedWeatherTomorrow = myStorage.getItem("weatherTomorrow");
 var savedWeatherAfterTomorrow = myStorage.getItem("weatherAfterTomorrow");
 var savedImageWeatherTomorrow = myStorage.getItem("imageWeatherTomorrow");
-var savedImageWeatherAfterTomorrow = myStorage.getItem(
-  "imageWeatherAfterTomorrow"
-);
+var savedImageWeatherAfterTomorrow = myStorage.getItem("imageWeatherAfterTomorrow");
 
 var savedTempMinTomorrow = myStorage.getItem("tempMinTomorrow");
 var savedTempMaxTomorrow = myStorage.getItem("tempMaxTomorrow");
@@ -204,70 +183,80 @@ var savedTempMinAfterTomorrow = myStorage.getItem("tempMinAfterTomorrow");
 var savedTempMaxAfterTomorrow = myStorage.getItem("tempMaxAfterTomorrow");
 
 // recover values
-imageWeather.src = savedImageWeather;
-description.textContent = savedDescriptionResult;
-city.textContent = savedCityResult;
-temperature.textContent = savedTemperatureResult;
-temperatureMin.textContent = savedTemperatureMin;
-temperatureMax.textContent = savedTemperatureMax;
-humidity.textContent = savedHumidityResult;
-wind.textContent = savedWindResult;
-gust.textContent = savedGustResult;
+try {
+  imageWeather.src = savedImageWeather;
+  description.textContent = savedDescriptionResult;
+  city.textContent = savedCityResult;
+  temperature.textContent = savedTemperatureResult;
+  temperatureMin.textContent = savedTemperatureMin;
+  temperatureMax.textContent = savedTemperatureMax;
+  humidity.textContent = savedHumidityResult;
+  wind.textContent = savedWindResult;
+  gust.textContent = savedGustResult;
 
-weatherTomorrow.textContent = savedWeatherTomorrow;
-weatherAfterTomorrow.textContent = savedWeatherAfterTomorrow;
-imageWeatherTomorrow.src = savedImageWeatherTomorrow;
-imageWeatherAfterTomorrow.src = savedImageWeatherAfterTomorrow;
-tempMinTomorrow.textContent = savedTempMinTomorrow;
-tempMinAfterTomorrow.textContent = savedTempMinAfterTomorrow;
-tempMaxTomorrow.textContent = savedTempMaxTomorrow;
-tempMaxAfterTomorrow.textContent = savedTempMaxAfterTomorrow;
-dayTomorrow.textContent = savedDayTomorrow;
-dayAfterTomorrow.textContent = savedDayAfterTomorrow;
+  weatherTomorrow.textContent = savedWeatherTomorrow;
+  weatherAfterTomorrow.textContent = savedWeatherAfterTomorrow;
+  imageWeatherTomorrow.src = savedImageWeatherTomorrow;
+  imageWeatherAfterTomorrow.src = savedImageWeatherAfterTomorrow;
+  tempMinTomorrow.textContent = savedTempMinTomorrow;
+  tempMinAfterTomorrow.textContent = savedTempMinAfterTomorrow;
+  tempMaxTomorrow.textContent = savedTempMaxTomorrow;
+  tempMaxAfterTomorrow.textContent = savedTempMaxAfterTomorrow;
+  dayTomorrow.textContent = savedDayTomorrow;
+  dayAfterTomorrow.textContent = savedDayAfterTomorrow;
+} catch(e){}
 
 request.onload = function () {
-  var toolbarWeather = request.response;
-  city.textContent = toolbarWeather.city.name;
-  humidity.textContent = toolbarWeather.list[0].main.humidity + " %";
+  try {
+    var toolbarWeather = request.response;
+    city.textContent = toolbarWeather.city.name;
+    humidity.textContent = toolbarWeather.list[0].main.humidity + " %";
 
-  //color of separator in popup
-  if (!toolbarWeather.list[0].weather[0].icon.includes('n')) {
-    document.getElementById("imageWeather").style.filter = "grayscale(0%)";
-    document.getElementById("separator1").style.background = "#E1EBF2";
-    document.getElementById("separator2").style.background = "#E1EBF2";
-    document.getElementById("separator3").style.background = "#E1EBF2";
-    document.getElementById("separator4").style.background = "#E1EBF2";
-    document.getElementById("separator5").style.background = "#E1EBF2";
-    document.getElementById("separator6").style.background = "#E1EBF2";
-  } else {
-    document.getElementById("imageWeather").style.filter = "grayscale(0%)";
-    document.getElementById("separator1").style.background = "#DCD5F2";
-    document.getElementById("separator2").style.background = "#DCD5F2";
-    document.getElementById("separator3").style.background = "#DCD5F2";
-    document.getElementById("separator4").style.background = "#DCD5F2";
-    document.getElementById("separator5").style.background = "#DCD5F2";
-    document.getElementById("separator6").style.background = "#DCD5F2";
-  }
+    //color of separator in popup
+    if (!toolbarWeather.list[0].weather[0].icon.includes('n')) {
+      document.getElementById("imageWeather").style.filter = "grayscale(0%)";
+      document.getElementById("separator1").style.background = "#E1EBF2";
+      document.getElementById("separator2").style.background = "#E1EBF2";
+      document.getElementById("separator3").style.background = "#E1EBF2";
+      document.getElementById("separator4").style.background = "#E1EBF2";
+      document.getElementById("separator5").style.background = "#E1EBF2";
+      document.getElementById("separator6").style.background = "#E1EBF2";
+      document.getElementById("imageWeatherTomorrow").style.filter = "grayscale(0%)";
+      document.getElementById("imageWeatherAfterTomorrow").style.filter = "grayscale(0%)";
+      document.getElementById("loading").style.display ="none";
+      setTimeout(function() {
+        forecastPanel.style.display = "inline";
+      },500);
+    } else {
+      document.getElementById("imageWeather").style.filter = "grayscale(0%)";
+      document.getElementById("separator1").style.background = "#DCD5F2";
+      document.getElementById("separator2").style.background = "#DCD5F2";
+      document.getElementById("separator3").style.background = "#DCD5F2";
+      document.getElementById("separator4").style.background = "#DCD5F2";
+      document.getElementById("separator5").style.background = "#DCD5F2";
+      document.getElementById("separator6").style.background = "#DCD5F2";
+      document.getElementById("imageWeatherTomorrow").style.filter = "grayscale(0%)";
+      document.getElementById("imageWeatherAfterTomorrow").style.filter = "grayscale(0%)";
+      document.getElementById("loading").style.display = "none";
+      setTimeout(function() {
+        forecastPanel.style.display = "inline";
+      },500);
+    }
 
-  imageWeather.src =
-    "../res/icons/weather_popup/" +
-    toolbarWeather.list[0].weather[0].icon +
-    ".png";
-  imageWeatherTomorrow.src =
-    "../res/icons/weather_popup/" +
-    toolbarWeather.list[8].weather[0].icon +
-    ".png";
-  imageWeatherAfterTomorrow.src =
-    "../res/icons/weather_popup/" +
-    toolbarWeather.list[16].weather[0].icon +
-    ".png";
-
-  if (localStorage.getItem("speedRadio") == "mph") {
-    wind.textContent = toolbarWeather.list[0].wind.speed.toFixed(2) + " mph";
-  } else {
-    wind.textContent =
-      (toolbarWeather.list[0].wind.speed * 1.60934).toFixed(2) + " km/h";
-  }
+    imageWeather.src = "../res/icons/weather_popup/" + toolbarWeather.list[0].weather[0].icon + ".png";
+    imageWeatherTomorrow.src = "../res/icons/weather_popup/" + toolbarWeather.list[8].weather[0].icon + ".png";
+    imageWeatherAfterTomorrow.src = "../res/icons/weather_popup/" + toolbarWeather.list[16].weather[0].icon + ".png";
+  
+    var speed;
+    if (localStorage.getItem("speedRadio") == "mph") {
+      speed = toolbarWeather.list[0].wind.speed.toFixed(2);
+      wind.textContent = toolbarWeather.list[0].wind.speed.toFixed(2) + " mph";
+      localStorage.setItem("speed", speed);
+    } else {
+      speed = (toolbarWeather.list[0].wind.speed * 1.60934).toFixed(2);
+      wind.textContent = (toolbarWeather.list[0].wind.speed * 1.60934).toFixed(2) + " km/h";
+      localStorage.setItem("speed", speed);
+    }
 
   if (myStorage.getItem("temperatureRadio") == "F") {
     temperature.textContent =
@@ -559,7 +548,6 @@ request.onload = function () {
     );
   }
   myStorage.setItem("gust", currentGust);
-
   if (!toolbarWeather.list[0].weather[0].icon.includes('n')) {
     // set background notification color day
     if (localStorage.getItem("pickerBackgroundNotificationDay") == null) {
@@ -592,18 +580,16 @@ request.onload = function () {
     }
   }
   showNotificationWeather();
-  showWeatherIcon(
-    "../res/icons/weather_popup/" +
-      toolbarWeather.list[0].weather[0].icon +
-      ".png"
-  );
+  showWeatherIcon("../res/icons/weather_popup/" +toolbarWeather.list[0].weather[0].icon +".png");
+  localStorage.setItem("badgeWeatherIcon", "../res/icons/weather_popup/" +toolbarWeather.list[0].weather[0].icon +".png");
+} catch(e){}  
 };
 
 function onCreated() {
   if (browser.runtime.lastError) {
-    console.log(`Error: ${browser.runtime.lastError}`);
+    //console.log(`Error: ${browser.runtime.lastError}`);
   } else {
-    console.log("Context Menu created successfully");
+    //console.log("Context Menu created successfully");
   }
 }
 

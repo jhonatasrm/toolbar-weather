@@ -1,15 +1,14 @@
 html, body {
-	background-color: #FFFFFF;  /*dark color theme 	#4B4A50*/
-	width: 310px;
-	height: 100%;
-	overflow: hidden;
-}
-.hidden-scroll {
-	overflow: hidden;
+	background-color: #FFFFFF; /*darkcolortheme #4B4A50*/
+	min-width: 310px;
+	min-height: 338px;
+	max-height: 520px;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	overflow-y: scroll;
 }
 .main-panel {
 	margin-top: 7px;
-	margin-bottom: 7px;
 	overflow: hidden;
 }
 .preferences-panel {
@@ -42,6 +41,9 @@ html, body {
 }
 .panel-section-distance {
 	padding: 3px;
+}
+.panel-section-distance-days {
+	padding: 8px;
 }
 .imageWeather {
 	margin-left: 115px;
@@ -99,6 +101,31 @@ html, body {
 	float:right;
 	top:16px;
 }
+.loading {
+	position: absolute;
+	left: 8px;
+	width: 24px;
+	height: 24px;
+	float: right;
+	top: 8px;
+	z-index: 200;
+}
+
+.plus,.minus {
+	position: absolute;
+	right: 10px;
+	width: 16px;
+	height: 16px;
+	float:right;
+	top:50px;
+	cursor: pointer;
+}
+.plus:hover {
+	opacity: 1;
+}
+.minus:hover {
+	opacity: 1;
+}
 .preferences:hover {
   opacity: 1;
 }
@@ -142,7 +169,6 @@ html, body {
   	margin-left: 100px;
   	border: 0.5px solid black;
 }
-
 .alert {
   position: relative;
   padding: 0.75rem 1.25rem;
@@ -230,11 +256,16 @@ fieldset:disabled a.btn {
 
 /* New panel forecast */
 .forecast-panel {
-	display: none;
-	margin-top: 7px;
-	margin-bottom: 7px;
-	height: 480px;
-	width: 270px;
+  display: none;
+  margin-top: 7px;
+  width: 270px;
+}
+#forecastPanel{
+	transition: all 3s ease-out;
+	-webkit-transition: all 3s ease-out;
+	-moz-transition: all 3s ease-out;
+	-ms-transition: all 3s ease-out;
+	-o-transition: all 3s ease-out;
 }
 .forecast {
 	position: absolute;
@@ -242,7 +273,6 @@ fieldset:disabled a.btn {
 	margin-top: 7px;
 	width: 12px;
 	height: 8px;
-	display: none;
 }
 .forecast:hover {
   display:block;
@@ -276,44 +306,49 @@ fieldset:disabled a.btn {
 	background: gray;
 }
 .description-forecast-weather {
-	margin-left: 5px;
 	font-size: 11px;
 }
 .forecast-weather-img {
-	position: relative;
 	width: 36px;
 	height: 36px;
-	left: 75%;
-	margin-bottom: -20px;
+	margin-right:10px;
+	margin-top:-12px;
+	filter: grayscale(100%);
 }
 .save {
     right:10px;
 }
 .weather-data {
     font-size: 11px;
-    margin-left:200px;
-		margin-top: -20px;
+		margin-right:4px;
 }
 .weather-data-pos {
     font-size: 11px;
-    margin-left:2px;
+    margin-left:4px;
 }
 .weather-data-forecast {
     font-size: 20px;
     margin-left:10px;
     font-weight: bold;
 }
-#separator5 {
-    padding:3px;
+.d-flex-weather-between {
+	display: flex;
+	justify-content:space-between;
 }
-#separator6 {
-    padding:3px;
+.d-flex-center {
+	display:flex;
 }
-
+.padding-center-weather-data {
+	padding: 10px;
+	display:flex;
+	flex-direction: column;
+	align-content: center;
+}
+.weather-column-center {
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
 /*
-Future update -> add preferences
+Future update -> add history
 */
-
-#preferences {
-    display: none;
-}
