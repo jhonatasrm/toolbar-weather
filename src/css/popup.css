@@ -327,9 +327,9 @@ fieldset:disabled a.btn {
     margin-left:4px;
 }
 .weather-data-forecast {
-    font-size: 20px;
-    margin-left:10px;
-    font-weight: bold;
+	font-size: 16px;
+	font-weight: bold;
+	max-width: 200px;
 }
 .d-flex-weather-between {
 	display: flex;
