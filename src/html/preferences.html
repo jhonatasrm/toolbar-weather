@@ -21,7 +21,7 @@
         <div>
           <img src="../res/icons/icon@2x.png" class="icon-addon"><h4><strong id="version"></strong></h4>
         </div>
-        <li style="display:flex;align-items:center;">
+        <li class="align-center">
           <a href="https://github.com/jhonatasrm/toolbar-weather/" title="Github" target="_blank"><img src="../res/icons/github.svg" class="github"></a>
           <a href="https://github.com/sponsors/jhonatasrm" target='_blank' title="Github Sponsor"><img src="../res/icons/github-sponsor.svg" alt="" class="github"></a>
           <a href='https://ko-fi.com/jhonatasrm' target='_blank' title="Ko-fi"><img class="ko-fi" src='../res/icons/ko-fi.svg'  alt='Buy Me a Coffee at ko-fi.com'/></a>
@@ -36,61 +36,61 @@
       </div>
       <div class="col-md-12 col-sm-12">
         <label class="preferences-temperature" data-i18n="temperature"></label>
-        <label class="btn btn-outline-primary " style="width:150px;float:right;">
+        <label class="btn btn-outline-primary float-right">
           <input type="radio" name="temperature" value="C" checked="checked">°C</label>
-        <label class="btn btn-outline-primary " style="width:150px;float:right;">
+        <label class="btn btn-outline-primary float-right">
           <input type="radio" name="temperature" value="F">°F</label>
       </div>
       <div class="col-md-12 col-sm-12"><br>
         <label class="preferences-speed" data-i18n="speed"></label>
-        <label class="btn btn-outline-primary " style="width:150px;float:right;">
+        <label class="btn btn-outline-primary float-right">
           <input type="radio" name="speed" value="km" checked="checked"> km/h</label>
-        <label class="btn btn-outline-primary " style="width:150px;float:right;">
+        <label class="btn btn-outline-primary float-right">
           <input type="radio" name="speed" value="mph"> mph</label>
       </div></br>
       <div class="col-md-12 col-sm-12">
         <label data-i18n="contextMenu"></label>
-        <label class="btn btn-outline-primary " style="width:150px;float:right;">
+        <label class="btn btn-outline-primary float-right">
           <input type="radio" name="contextMenu" value="False" checked="checked">Off</label>
-        <label class="btn btn-outline-primary " style="width:150px;float:right;">
+        <label class="btn btn-outline-primary float-right">
           <input type="radio" name="contextMenu" value="True">On</label>
       </div>
       </br>
       <div class="col-md-12 col-sm-12">
         <label data-i18n="show_temperature"></label>
-        <label class="btn btn-outline-primary " style="width:150px;float:right;">
+        <label class="btn btn-outline-primary float-right">
           <input type="radio" name="showTemperature" value="False">Off</label>
-        <label class="btn btn-outline-primary " style="width:150px;float:right;">
+        <label class="btn btn-outline-primary float-right">
           <input type="radio" name="showTemperature" value="True" checked="checked">On</label>
       </div>
       </br>
       <div class="col-md-12 col-sm-12">
         <label data-i18n="show_weather_icon"></label>
-        <label class="btn btn-outline-primary " style="width:150px;float:right;">
+        <label class="btn btn-outline-primary float-right">
           <input type="radio" name="showWeatherIcon" value="False">Off</label>
-        <label class="btn btn-outline-primary " style="width:150px;float:right;">
+        <label class="btn btn-outline-primary float-right">
           <input type="radio" name="showWeatherIcon" value="True" checked="checked">On</label>
       </div><br/>
       <!-- Define time to refresh the weather -->
       <div class="col-md-12 col-sm-12">
         <label data-i18n="time_to_refresh"></label>
-        <input class="btn btn-outline-primary" id="timer" type="number" name="timer" value="15" min="1" max="60" style="width:320px;float:right;margin-right:14px;margin-top:-2px;">
+        <input class="btn btn-outline-primary time-refresh" id="timer" type="number" name="timer" value="15" min="1" max="60">
       </div>
   </fieldset>
   <fieldset class="col-md-12">
     <div>
-        <h4><strong data-i18n="colors" style="margin-bottom:5px;"></strong>
+        <h4><strong data-i18n="colors" class="bottom-distance-colors"></strong>
         </h4>
     </div>
       <div class="col-md-12 col-sm-12">
          <h5><strong data-i18n="day"></strong></h5>
-        <label data-i18n="background_notification"></label><input name="background_notification_day" id="background_notification_day" class="jscolor btn btn-outline-primary" value="5387E8" style="width:150px;height:30px;float:right;"><br>
-        <label data-i18n="color_font_notification"></label><input name="color_font_notification_day" id="color_font_notification_day" class="jscolor btn btn-outline-primary" value="FFFFFF" style="width:150px;height:30px;float:right;">
+        <label data-i18n="background_notification"></label><input name="background_notification_day" id="background_notification_day" class="jscolor btn btn-outline-primary float-right-height-width" value="5387E8"><br>
+        <label data-i18n="color_font_notification"></label><input name="color_font_notification_day" id="color_font_notification_day" class="jscolor btn btn-outline-primary float-right-height-width" value="FFFFFF">
       </div>
         <div class="col-md-12 col-sm-12">
         <h5><strong data-i18n="night"></strong></h5>
-        <label data-i18n="background_notification"></label><input id="background_notification_night" name="background_notification_night" class="jscolor btn btn-outline-primary" value="722C80" style="width:150px;height:30px;float:right;"><br>
-        <label data-i18n="color_font_notification"></label><input id="color_font_notification_night" name="color_font_notification_night" class="jscolor btn btn-outline-primary" value="FFFFFF" style="width:150px;height:30px;float:right;">
+        <label data-i18n="background_notification"></label><input id="background_notification_night" name="background_notification_night" class="jscolor btn btn-outline-primary float-right-height-width" value="722C80"><br>
+        <label data-i18n="color_font_notification"></label><input id="color_font_notification_night" name="color_font_notification_night" class="jscolor btn btn-outline-primary float-right-height-width" value="FFFFFF">
       </div>
   </fieldset>
 </main>

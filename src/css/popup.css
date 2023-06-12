@@ -7,6 +7,9 @@ html, body {
 	scrollbar-width: none;
 	overflow-y: scroll;
 }
+.full-width {
+	width:100%
+}
 .main-panel {
 	margin-top: 7px;
 	overflow: hidden;
