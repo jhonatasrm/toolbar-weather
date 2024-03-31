@@ -109,52 +109,6 @@ var outPreferences = document.getElementById("outPreferences");
 var save = document.getElementById("save");
 var resultSuccess = document.getElementById("resultSuccess");
 
-// start style display
-// forecastPanel.style.display = "none";
-// mainPanel.style.display = "inline";
-// minus.style.display = "none";
-
-// forecast
-// plus.addEventListener(
-//   "click",
-//   function () {
-//     if (forecastPanel.style.display == "none") {
-//       forecastPanel.style.display = "inline";
-//       mainPanel.style.display = "inline";
-//       minus.style.display = "inline";
-//       plus.style.display = "none";
-//     } else {
-//       forecastPanel.style.display = "none";
-//     }
-//   },
-//   false
-// );
-
-// minus.addEventListener(
-//   "click",
-//   function () {
-//     if (forecastPanel.style.display == "none") {
-//       forecastPanel.style.display = "none";
-//       mainPanel.style.display = "none";
-//       plus.style.display = "inline";
-//       minus.style.display = "none";
-//     } else {
-//       forecastPanel.style.display = "none";
-//       minus.style.display = "none";
-//       plus.style.display = "block";
-//     }
-//   },
-//   false
-// );
-
-//Future update -> add history
-//var weekDay = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-//var d = new Date();
-//var dayTomorrowResult = weekDay[d.getDay()+1];
-
-//dayTomorrow.textContent = browser.i18n.getMessage("tomorrow"); // can change for week day instead 'Tomorrow'
-//dayAfterTomorrow.textContent = browser.i18n.getMessage("next48Hours");
-
 myStorage.setItem("dayTomorrow", browser.i18n.getMessage("tomorrow"));
 myStorage.setItem("dayAfterTomorrow", browser.i18n.getMessage("next48Hours"));
 
