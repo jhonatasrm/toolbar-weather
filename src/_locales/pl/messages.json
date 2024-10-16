@@ -221,5 +221,14 @@
   },
   "time_to_refresh": {
     "message": "Czas na odświeżenie danych (minuty)"
+  },
+  "geolocation": {
+    "message": "Geolokacja"
+  },
+  "enterLocation": {
+    "message": "Wpisz lokalizację"
+  },
+  "noResults": {
+    "message": "Brak wyników"
   }
 }

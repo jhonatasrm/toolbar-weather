@@ -221,5 +221,14 @@
   },
   "time_to_refresh": {
     "message": "Time to refresh the weather data (minutes)"
+  },
+  "geolocation": {
+    "message": "Geolocation"
+  },
+  "enterLocation": {
+    "message": "Enter the location"
+  },
+  "noResults": {
+    "message": "No results"
   }
 }
