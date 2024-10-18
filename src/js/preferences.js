@@ -1,373 +1,401 @@
-// temperature radio
+// Access the background page to refresh data when preferences are updated
 var backgroundPage = browser.extension.getBackgroundPage();
-// version
+
+// Version information
 var version = document.getElementById("version");
 version.textContent = browser.runtime.getManifest().name + " (v" + browser.runtime.getManifest().version + ")";
 const openCageApiKey = '';
 
+function getCoordinatesAndFetchWeather() {
+    const savedLocation = localStorage.getItem('savedLocation');
+    let latitude, longitude;
+
+    if (savedLocation) {
+        const locationData = JSON.parse(savedLocation);
+        if (locationData.lat && locationData.lng) {
+            latitude = locationData.lat;
+            longitude = locationData.lng;
+        }
+    }
+
+    if (!latitude || !longitude) {
+        getGeolocationAndFetchWeather();
+    } else {
+        if (backgroundPage && typeof backgroundPage.fetchWeatherData === 'function') {
+            backgroundPage.fetchWeatherData(latitude, longitude);
+        } else {
+            console.error("fetchWeatherData is not defined in background page.");
+        }
+    }
+}
+
+function getGeolocationAndFetchWeather() {
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            localStorage.setItem('savedLocation', JSON.stringify({ lat: latitude, lng: longitude }));
+            if (backgroundPage && typeof backgroundPage.fetchWeatherData === 'function') {
+                backgroundPage.fetchWeatherData(latitude, longitude);
+            } else {
+                console.error("fetchWeatherData is not defined in backgr    ound page.");
+            }
+        },
+        function () {
+            console.error("Error getting geolocation!");
+        },
+        {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0,
+        }
+    );
+}
+
 $(document).ready(function () {
     var timer = document.getElementById("timer");
     var val = localStorage.getItem('timer');
-    if (typeof val !== 'undefined' && val !== null) {
-        timer.value = localStorage.getItem('timer');
-    } else {
-        timer.value = 15;
-    }
+    timer.value = val ? val : 15;
+
     $('input[name="timer"]').on('change', function () {
         localStorage.setItem('timer', $(this).val());
-        backgroundPage.timeRefresh();
+        if (backgroundPage && typeof backgroundPage.timeRefresh === 'function') {
+            backgroundPage.timeRefresh();
+        }
     });
 });
 
-// C or F
 $(document).ready(function () {
     var radios = document.getElementsByName("temperature");
-    var val = localStorage.getItem('temperatureRadio');
+    var val = localStorage.getItem('temperatureRadio') || 'C';
     for (var i = 0; i < radios.length; i++) {
-        if (radios[i].value == val) {
+        if (radios[i].value === val) {
             radios[i].checked = true;
         }
     }
+
     $('input[name="temperature"]').on('change', function () {
-        localStorage.setItem('temperatureRadio', $(this).val());
+        let selectedUnit = $(this).val();
+        localStorage.setItem('temperatureRadio', selectedUnit);
         showNotificationWeatherDegrees();
+        getCoordinatesAndFetchWeather();
+    });
+});
+
+$(document).ready(function () {
+    $('#background_notification_day').on('change', function () {
+        const color = validateHexColor($(this).val());
+        localStorage.setItem('pickerBackgroundNotificationDay', color);
+        updateBadgeColorBackgroundDay(color);
+    });
+
+    $('#color_font_notification_day').on('change', function () {
+        const color = validateHexColor($(this).val());
+        localStorage.setItem('pickerFontNotificationDay', color);
+        updateBadgeColorTextDay(color);
+    });
+
+    $('#background_notification_night').on('change', function () {
+        const color = validateHexColor($(this).val());
+        localStorage.setItem('pickerBackgroundNotificationNight', color);
+        updateBadgeColorBackgroundNight(color);
+    });
+
+    $('#color_font_notification_night').on('change', function () {
+        const color = validateHexColor($(this).val());
+        localStorage.setItem('pickerFontNotificationNight', color);
+        updateBadgeColorTextNight(color);
     });
 });
 
 
-// speed radio
 $(document).ready(function () {
     var radios = document.getElementsByName("speed");
-    var val = localStorage.getItem('speedRadio');
+    var val = localStorage.getItem('speedRadio') || 'km/h';
     for (var i = 0; i < radios.length; i++) {
-        if (radios[i].value == val) {
+        if (radios[i].value === val) {
             radios[i].checked = true;
         }
     }
+
     $('input[name="speed"]').on('change', function () {
         localStorage.setItem('speedRadio', $(this).val());
+        getCoordinatesAndFetchWeather();
     });
 });
 
-// context menu
 $(document).ready(function () {
     var radios = document.getElementsByName("contextMenu");
-    var val = localStorage.getItem('contextMenu');
+    var val = localStorage.getItem('contextMenu') || 'True';
     for (var i = 0; i < radios.length; i++) {
-        if (radios[i].value == val) {
+        if (radios[i].value === val) {
             radios[i].checked = true;
         }
     }
+
     $('input[name="contextMenu"]').on('change', function () {
         localStorage.setItem('contextMenu', $(this).val());
-        backgroundPage.contextMenuFunction();
+        if (backgroundPage && typeof backgroundPage.contextMenuFunction === 'function') {
+            backgroundPage.contextMenuFunction();
+        }
     });
 });
 
-// temperature toolbar
 $(document).ready(function () {
     var radios = document.getElementsByName("showTemperature");
-    var val = localStorage.getItem('showTemperature');
+    var val = localStorage.getItem('showTemperature') || 'True';
     for (var i = 0; i < radios.length; i++) {
-        if (radios[i].value == val) {
+        if (radios[i].value === val) {
             radios[i].checked = true;
         }
     }
+
     $('input[name="showTemperature"]').on('change', function () {
         localStorage.setItem('showTemperature', $(this).val());
         showNotificationWeather();
     });
 });
 
-// icon weather
 $(document).ready(function () {
     var radios = document.getElementsByName("showWeatherIcon");
-    var val = localStorage.getItem('showWeatherIcon');
+    var val = localStorage.getItem('showWeatherIcon') || 'True';
     for (var i = 0; i < radios.length; i++) {
-        if (radios[i].value == val) {
+        if (radios[i].value === val) {
             radios[i].checked = true;
         }
     }
+
     $('input[name="showWeatherIcon"]').on('change', function () {
         localStorage.setItem('showWeatherIcon', $(this).val());
         showWeatherIcon(localStorage.getItem("badgeWeatherIcon"));
     });
 });
 
-// color picker day > background color
-$(document).ready(function () {
-    var background_color_day = document.getElementById("background_notification_day");
-    var val = localStorage.getItem("pickerBackgroundNotificationDay");
-    if (typeof val !== 'undefined' && val !== null) {
-        background_color_day.value = localStorage.getItem('pickerBackgroundNotificationDay');
-    } else {
-        background_color_day.value = "5387E8";
-    }
-    $('input[name="background_notification_day"]').on('change', function () {
-        localStorage.setItem('pickerBackgroundNotificationDay', $(this).val());
-        updateBadgeColorBackgroundDay($(this).val());
-    });
-});
-
-// color picker day > font color
-$(document).ready(function () {
-    var background_color_day = document.getElementById("color_font_notification_day");
-    var val = localStorage.getItem("pickerFontNotificationDay");
-    if (typeof val !== 'undefined' && val !== null) {
-        background_color_day.value = localStorage.getItem('pickerFontNotificationDay');
-    } else {
-        background_color_day.value = "FFFFFF";
-    }
-    $('input[name="color_font_notification_day"]').on('change', function () {
-        localStorage.setItem('pickerFontNotificationDay', $(this).val());
-        updateBadgeColorTextDay($(this).val());
-    });
-});
-
-// color picker night > background color
-$(document).ready(function () {
-    var background_color_night = document.getElementById("background_notification_night");
-    var val = localStorage.getItem("pickerBackgroundNotificationNight");
-    if (typeof val !== 'undefined' && val !== null) {
-        background_color_night.value = localStorage.getItem('pickerBackgroundNotificationNight');
-    } else {
-        background_color_night.value = "722C80";
-    }
-    $('input[name="background_notification_night"]').on('change', function () {
-        localStorage.setItem('pickerBackgroundNotificationNight', $(this).val());
-        updateBadgeColorBackgroundNight($(this).val());
-    });
-});
-
-// color picker night > font color
-$(document).ready(function () {
-    var background_color_night = document.getElementById("color_font_notification_night");
-    var val = localStorage.getItem("pickerFontNotificationNight");
-    if (typeof val !== 'undefined' && val !== null) {
-        background_color_night.value = localStorage.getItem('pickerFontNotificationNight');
-    } else {
-        background_color_night.value = "FFFFFF";
-    }
-    $('input[name="color_font_notification_night"]').on('change', function () {
-        localStorage.setItem('pickerFontNotificationNight', $(this).val());
-        updateBadgeColorTextNight($(this).val());
-    });
-});
-
-$(document).ready(function () {
-    browserLanguage = browser.i18n.getUILanguage().split("-")[0];
-
-    function debounce(func, delay) {
-        let timeout;
-        return function (...args) {
-            const context = this;
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(context, args), delay);
-        };
+function validateHexColor(color) {
+    color = color.trim();
+    if (!color.startsWith('#')) {
+        color = `#${color}`;
     }
 
-    const savedLocation = localStorage.getItem('savedLocation');
-    if (savedLocation) {
-        const locationData = JSON.parse(savedLocation);
-        $('#coordinatesResult').text(`Latitude: ${locationData.lat}, Longitude: ${locationData.lng}`);
-        $('#locationInput').val(locationData.name);
+    if (color.startsWith('##')) {
+        color = color.replace('##', '#');
     }
-
-    const fetchSuggestions = (query) => {
-        if (query.length > 3) {
-            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(query)}&key=${openCageApiKey}&language=${browserLanguage}`)
-                .then(response => response.json())
-                .then(data => {
-                    const suggestions = data.results;
-                    const suggestionsList = $('#suggestions');
-                    suggestionsList.empty();
-
-                    if (suggestions.length > 0) {
-                        suggestionsList.css('border', '1px solid #d1d5db');
-                        suggestions.forEach(result => {
-                            const suggestionItem = `<li data-lat="${result.geometry.lat}" data-lng="${result.geometry.lng}">${result.formatted}</li>`;
-                            suggestionsList.append(suggestionItem);
-                        });
-                    } else {
-                        suggestionsList.css('border', '1px solid #d1d5db');
-                        suggestionsList.append('<li>Sem resultados</li>');
-                    }
-                })
-                .catch(error => {
-                    $('#suggestions').css('border', 'none');
-                    console.error('Erro ao buscar sugestões:', error);
-                });
-        } else {
-            $('#suggestions').empty();
-            $('#suggestions').css('border', 'none');
-        }
-    };
-
-    $('#locationInput').on('input', debounce(function () {
-        const query = $(this).val();
-        fetchSuggestions(query);
-    }, 600));
-
-    $('#suggestions').on('click', 'li', function () {
-        const latitude = $(this).data('lat');
-        const longitude = $(this).data('lng');
-        const locationName = $(this).text();
-        $('#suggestions').css('border', 'none');
-
-        $('#locationInput').val(locationName);
-        $('#coordinatesResult').text(`Latitude: ${latitude}, Longitude: ${longitude}`);
-
-        const locationData = {
-            name: locationName,
-            lat: latitude,
-            lng: longitude
-        };
-        localStorage.setItem('savedLocation', JSON.stringify(locationData));
-        backgroundPage.fetchWeatherData(latitude, longitude);
-
-        $('#suggestions').empty();
-    });
-
-    $('#geocodeButton').on('click', function () {
-        const location = $('#locationInput').val();
-
-        if (location) {
-            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(location)}&key=${openCageApiKey}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.results.length > 0) {
-                        const coordinates = data.results[0].geometry;
-                        const latitude = coordinates.lat;
-                        const longitude = coordinates.lng;
-
-                        $('#coordinatesResult').text(`Latitude: ${latitude}, Longitude: ${longitude}`);
-
-                        const locationData = {
-                            name: location,
-                            lat: latitude,
-                            lng: longitude
-                        };
-                        localStorage.setItem('savedLocation', JSON.stringify(locationData));
-                    } else {
-                        $('#coordinatesResult').text('Local não encontrado.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao buscar coordenadas:', error);
-                    $('#coordinatesResult').text('Erro ao buscar coordenadas.');
-                });
-        } else {
-            $('#coordinatesResult').text('Por favor, digite um local.');
-        }
-    });
-});
-
-// functions to set properties inside preferencesPanel (to improve)
-function showWeatherIcon(value) {
-    if (localStorage.getItem("showWeatherIcon") == null) {
-        browser.browserAction.setIcon({
-            path: value
-        });
-    } else if (localStorage.getItem("showWeatherIcon") == "True") {
-        browser.browserAction.setIcon({
-            path: value
-        });
-    } else if (localStorage.getItem("showWeatherIcon") == "undefined") {
-        browser.browserAction.setIcon({
-            path: value
-        });
-    } else {
-        browser.browserAction.setIcon({
-            path: "../res/icons/icon.png"
-        });
-    }
-}
-
-function showNotificationWeather() {
-    if (localStorage.getItem("showTemperature") == null) {
-        updateNotification = localStorage.getItem("temperature");
-    } else if (localStorage.getItem("showTemperature") == "True") {
-        updateNotification = localStorage.getItem("temperature");
-    } else if (localStorage.getItem("showTemperature") == "undefined") {
-        updateNotification = localStorage.getItem("temperature");
-    } else {
-        updateNotification = "";
-    }
-    // removes the C or F in the badge text notification
-    browser.browserAction.setBadgeText({
-        text: updateNotification.toString().replace("C", "").replace("F", "")
-    });
+    return color;
 }
 
 function showNotificationWeatherDegrees() {
-    var updateNotification;
-    if (localStorage.getItem("temperatureRadio") == "F") {
-        updateNotification = parseInt((localStorage.getItem("temperature").toString().replace("°F", "").replace("°C", "") * 9) / 5 + 32);
+    let temperature = localStorage.getItem('temperature');
+    let unit = localStorage.getItem('temperatureRadio') || 'C';
+    let temperatureValue = parseFloat(temperature);
+    let degreeSymbol = 'º';
+
+    if (!isNaN(temperatureValue)) {
+        if (unit === 'F') {
+            temperatureValue = (temperatureValue * 9 / 5) + 32;
+        }
+
+        const currentBadgeText = `${Math.round(temperatureValue)}${degreeSymbol}`;
+        
+        browser.browserAction.getBadgeText({}, function (currentText) {
+            if (currentText !== currentBadgeText) {
+                browser.browserAction.setBadgeText({ text: currentBadgeText });
+            }
+        });
     } else {
-        updateNotification = parseInt(localStorage.getItem("temperature").toString().replace("°F", "").replace("°C", ""));
+        browser.browserAction.setBadgeText({ text: '' });
     }
-    // removes the C or F in the badge text notification
-    browser.browserAction.setBadgeText({
-        text: updateNotification.toString() + "°"
-    });
+}
+
+
+function showNotificationWeather() {
+    if (localStorage.getItem('showTemperature') === 'False') {
+        browser.browserAction.setBadgeText({ text: '' });
+    } else {
+        showNotificationWeatherDegrees();
+    }
+}
+browserLanguage = browser.i18n.getUILanguage().split("-")[0];
+
+function debounce(func, delay) {
+    let timeout;
+    return function (...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
+const savedLocation = localStorage.getItem('savedLocation');
+if (savedLocation) {
+    const locationData = JSON.parse(savedLocation);
+    $('#coordinatesResult').text(`Latitude: ${locationData.lat}, Longitude: ${locationData.lng}`);
+    $('#locationInput').val(locationData.name);
+}
+
+const fetchSuggestions = (query) => {
+    if (query.length > 3) {
+        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(query)}&key=${openCageApiKey}&language=${browserLanguage}`)
+            .then(response => response.json())
+            .then(data => {
+                const suggestions = data.results;
+                const suggestionsList = $('#suggestions');
+                suggestionsList.empty();
+
+                if (suggestions.length > 0) {
+                    suggestionsList.css('border', '1px solid #d1d5db');
+                    suggestions.forEach(result => {
+                        const suggestionItem = `<li data-lat="${result.geometry.lat}" data-lng="${result.geometry.lng}">${result.formatted}</li>`;
+                        suggestionsList.append(suggestionItem);
+                    });
+                } else {
+                    suggestionsList.css('border', '1px solid #d1d5db');
+                    suggestionsList.append('<li>' + browser.i18n.getMessage("noResults") + '</li>');
+                }
+            })
+            .catch(error => {
+                $('#suggestions').css('border', 'none');
+                console.error('Error fetching suggestions: ', error);
+            });
+    } else {
+        $('#suggestions').empty();
+        $('#suggestions').css('border', 'none');
+    }
+};
+
+$('#locationInput').on('input', debounce(function () {
+    const query = $(this).val();
+    fetchSuggestions(query);
+}, 600));
+
+$('#suggestions').on('click', 'li', function () {
+    const latitude = $(this).data('lat');
+    const longitude = $(this).data('lng');
+    const locationName = $(this).text();
+    $('#suggestions').css('border', 'none');
+    $('#suggestions').empty();
+
+    $('#locationInput').val(locationName);
+
+    const locationData = {
+        name: locationName,
+        lat: latitude,
+        lng: longitude
+    };
+    localStorage.setItem('savedLocation', JSON.stringify(locationData));
+    const clearButton = document.getElementById("clearLocation");
+    clearButton.style.display = 'inline-block';
+    backgroundPage.fetchWeatherData(latitude, longitude);
+});
+
+$('#geocodeButton').on('click', function () {
+    const location = $('#locationInput').val();
+
+    if (location) {
+        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(location)}&key=${openCageApiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.results.length > 0) {
+                    const coordinates = data.results[0].geometry;
+                    const latitude = coordinates.lat;
+                    const longitude = coordinates.lng;
+
+                    const locationData = {
+                        name: location,
+                        lat: latitude,
+                        lng: longitude
+                    };
+                    localStorage.setItem('savedLocation', JSON.stringify(locationData));
+                } else {
+                }
+            })
+            .catch(error => {
+                console.error('Error getting coords:', error);
+            });
+    } else {
+    }
+});
+
+function showWeatherIcon(value) {
+    if (localStorage.getItem('showWeatherIcon') === 'False') {
+        browser.browserAction.setIcon({ path: "../res/icons/icon.png" });
+    } else {
+        browser.browserAction.setIcon({ path: value });
+    }
 }
 
 function updateBadgeColorBackgroundDay(val) {
-    // set background notification color day
-    if (localStorage.getItem("pickerBackgroundNotificationDay") == null) {
-        browser.browserAction.setBadgeBackgroundColor({
-            color: "#5387E8"
-        });
-    } else {
-        if (localStorage.getItem("imageWeather").includes("d.png")) {
-            browser.browserAction.setBadgeBackgroundColor({
-                color: "#" + val
-            });
-        }
+    if (!val.startsWith('#')) {
+        val = `#${val}`;
+    }
+    if (localStorage.getItem("imageWeather").includes("d.png")) {
+        browser.browserAction.setBadgeBackgroundColor({ color: val });
     }
 }
 
 function updateBadgeColorTextDay(val) {
-    // set text color font day
-    if (localStorage.getItem("pickerFontNotificationDay") == null) {
-        browser.browserAction.setBadgeTextColor({
-            color: "#FFFFFF"
-        });
-    } else {
-        if (localStorage.getItem("imageWeather").includes("d.png")) {
-            browser.browserAction.setBadgeTextColor({
-                color: "#" + val
-            });
-        }
+    if (!val.startsWith('#')) {
+        val = `#${val}`;
+    }
+    if (localStorage.getItem("imageWeather").includes("d.png")) {
+        browser.browserAction.setBadgeTextColor({ color: val });
     }
 }
 
 function updateBadgeColorBackgroundNight(val) {
-    // set background notification color night
-    if (localStorage.getItem("pickerBackgroundNotificationNight") == null) {
-        browser.browserAction.setBadgeBackgroundColor({
-            color: "#722C80"
-        });
-    } else {
-        if (localStorage.getItem("imageWeather").includes("n.png")) {
-            browser.browserAction.setBadgeBackgroundColor({
-                color: "#" + val
-            });
-        }
+    if (!val.startsWith('#')) {
+        val = `#${val}`;
+    }
+    if (localStorage.getItem("imageWeather").includes("n.png")) {
+        browser.browserAction.setBadgeBackgroundColor({ color: val });
     }
 }
 
 function updateBadgeColorTextNight(val) {
-    // set text color font night
-    if (localStorage.getItem("pickerFontNotificationNight") == null) {
-        browser.browserAction.setBadgeTextColor({
-            color: "#FFFFFF"
-        });
-    } else {
-        if (localStorage.getItem("imageWeather").includes("n.png")) {
-            browser.browserAction.setBadgeTextColor({
-                color: "#" + val
-            });
-        }
+    if (!val.startsWith('#')) {
+        val = `#${val}`;
+    }
+    if (localStorage.getItem("imageWeather").includes("n.png")) {
+        browser.browserAction.setBadgeTextColor({ color: val });
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const clearButton = document.getElementById("clearLocation");
+    const locationInput = document.getElementById("locationInput");
+
+    function checkSavedLocation() {
+        const savedLocation = localStorage.getItem("savedLocation");
+
+        if (savedLocation) {
+            const locationData = JSON.parse(savedLocation);
+
+            if (locationData && locationData.name) {
+                locationInput.value = locationData.name;
+                clearButton.style.display = 'inline-block';
+            } else {
+                clearButton.style.display = 'none';
+            }
+        } else {
+            clearButton.style.display = 'none';
+        }
+    }
+
+    clearButton.addEventListener("click", function () {
+        localStorage.removeItem("savedLocation");
+        $('#suggestions').empty();
+        $('#suggestions').css('border', 'none');
+        locationInput.value = '';
+        clearButton.style.display = 'none';
+        backgroundPage.getLatitudeLongitudeAndFetchWeather();
+    });
+
+    locationInput.addEventListener('input', function () {
+        if (locationInput.value.trim() !== '') {
+            clearButton.style.display = 'inline-block';
+        } else {
+            clearButton.style.display = 'none';
+        }
+    });
+
+    checkSavedLocation();
+});

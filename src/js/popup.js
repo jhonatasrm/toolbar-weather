@@ -1,23 +1,154 @@
-browser.runtime.onMessage.addListener((message) => {
-        updateWeatherUI(message);
+let currentBadgeState = '';
+browser.runtime.sendMessage({ action: 'getWeatherData' }).then((weatherData) => {
+    if (weatherData) {
+        updateWeatherUI(weatherData);
+    }
+}).catch((error) => {
+    console.error("Error getting weather data: ", error);
 });
 
-function updateWeatherUI(weatherData) {
-    // Lógica de atualização do UI com base nos dados fornecidos
-    document.getElementById("city").textContent = weatherData.city;
-    document.getElementById("description").textContent = weatherData.description;
-    document.getElementById("temperature").textContent = weatherData.temperature;
-    document.getElementById("temperatureMin").textContent = weatherData.tempMin;
-    document.getElementById("temperatureMax").textContent = weatherData.tempMax;
-    document.getElementById("humidity").textContent = weatherData.humidity;
-    document.getElementById("wind").textContent = weatherData.wind;
-    document.getElementById("gust").textContent = weatherData.gust;
-    document.getElementById("tempMinTomorrow").textContent = weatherData.tempMinTomorrow;
-    document.getElementById("tempMaxTomorrow").textContent = weatherData.tempMaxTomorrow;
-    document.getElementById("weatherTomorrow").textContent = weatherData.weatherTomorrow;
-    document.getElementById("imageWeatherTomorrow").src = weatherData.imageWeatherTomorrow;
-    document.getElementById("tempMinAfterTomorrow").textContent = weatherData.tempMinAfterTomorrow;
-    document.getElementById("tempMaxAfterTomorrow").textContent = weatherData.tempMaxAfterTomorrow;
-    document.getElementById("weatherAfterTomorrow").textContent = weatherData.weatherAfterTomorrow;
-    document.getElementById("imageWeatherAfterTomorrow").src = weatherData.imageWeatherAfterTomorrow;
+function updateBadgeTemperature(temperature) {
+    let unit = localStorage.getItem('temperatureRadio') || 'C';
+    let degreeSymbol = 'º';
+
+    if (unit === 'F') {
+        temperature = (temperature * 9 / 5) + 32;
+    }
+
+    const newBadgeText = `${Math.round(temperature)}${degreeSymbol}`;
+
+    if (currentBadgeState !== newBadgeText) {
+        browser.browserAction.setBadgeText({ text: newBadgeText });
+        currentBadgeState = newBadgeText;
+    }
 }
+
+function updateWeatherUI(weatherData) {
+    const temperatureElement = document.getElementById("temperature");
+    if (temperatureElement) {
+        temperatureElement.textContent = `${convertTemp(weatherData.temperature || 0)}`;
+        updateBadgeTemperature(weatherData.temperature || 0);
+    }
+    const cityElement = document.getElementById("city");
+    const descriptionElement = document.getElementById("description");
+    const tempMinElement = document.getElementById("temperatureMin");
+    const tempMaxElement = document.getElementById("temperatureMax");
+    const humidityElement = document.getElementById("humidity");
+    const windElement = document.getElementById("wind");
+    const gustElement = document.getElementById("gust");
+    const imageWeather = document.getElementById("imageWeather");
+    const dayTomorrow = document.getElementById("tomorrow");
+    const dayAfterTomorrow = document.getElementById("afterTomorrow");
+
+    dayTomorrow.textContent = browser.i18n.getMessage("tomorrow");
+    dayAfterTomorrow.textContent = browser.i18n.getMessage("next48Hours");
+
+    if (cityElement) cityElement.textContent = weatherData.city || 'N/A';
+    if (descriptionElement) descriptionElement.textContent = weatherData.description || 'N/A';
+    if (temperatureElement) temperatureElement.textContent = `${convertTemp(weatherData.temperature || 0)}`;
+    if (tempMinElement) tempMinElement.textContent = `${convertTemp(weatherData.tempMin || 0)}`;
+    if (tempMaxElement) tempMaxElement.textContent = `${convertTemp(weatherData.tempMax || 0)}`;
+    if (humidityElement) humidityElement.textContent = `${weatherData.humidity || 'N/A'} %`;
+    if (windElement) windElement.textContent = `${convertSpeed(weatherData.wind || 0)}`;
+    if (gustElement) gustElement.textContent = `${convertSpeed(weatherData.gust || 0)}`;
+
+    if (imageWeather) imageWeather.src = weatherData.imageWeather || '';
+
+    const tempMinTomorrowElement = document.getElementById("tempMinTomorrow");
+    const tempMaxTomorrowElement = document.getElementById("tempMaxTomorrow");
+    const weatherTomorrowElement = document.getElementById("weatherTomorrow");
+    const imageWeatherTomorrowElement = document.getElementById("imageWeatherTomorrow");
+
+    if (tempMinTomorrowElement) tempMinTomorrowElement.textContent = `${convertTemp(weatherData.tempMinTomorrow || 0)}`;
+    if (tempMaxTomorrowElement) tempMaxTomorrowElement.textContent = `${convertTemp(weatherData.tempMaxTomorrow || 0)}`;
+    if (weatherTomorrowElement) weatherTomorrowElement.textContent = weatherData.weatherTomorrow || 'N/A';
+    if (imageWeatherTomorrowElement) imageWeatherTomorrowElement.src = weatherData.imageWeatherTomorrow || '';
+
+    const tempMinAfterTomorrowElement = document.getElementById("tempMinAfterTomorrow");
+    const tempMaxAfterTomorrowElement = document.getElementById("tempMaxAfterTomorrow");
+    const weatherAfterTomorrowElement = document.getElementById("weatherAfterTomorrow");
+    const imageWeatherAfterTomorrowElement = document.getElementById("imageWeatherAfterTomorrow");
+
+    if (tempMinAfterTomorrowElement) tempMinAfterTomorrowElement.textContent = `${convertTemp(weatherData.tempMinAfterTomorrow || 0)}`;
+    if (tempMaxAfterTomorrowElement) tempMaxAfterTomorrowElement.textContent = `${convertTemp(weatherData.tempMaxAfterTomorrow || 0)}`;
+    if (weatherAfterTomorrowElement) weatherAfterTomorrowElement.textContent = weatherData.weatherAfterTomorrow || 'N/A';
+    if (imageWeatherAfterTomorrowElement) imageWeatherAfterTomorrowElement.src = weatherData.imageWeatherAfterTomorrow || '';
+
+    localStorage.setItem("badgeWeatherIcon", weatherData.imageWeather);
+    if (!weatherData.imageWeather.includes('n.png')) {
+        document.getElementById("imageWeather").style.filter = "grayscale(0%)";
+        document.getElementById("imageWeatherTomorrow").style.filter = "grayscale(0%)";
+        document.getElementById("imageWeatherAfterTomorrow").style.filter = "grayscale(0%)";
+
+        document.getElementById("separator1").style.background = "#E1EBF2";
+        document.getElementById("separator2").style.background = "#E1EBF2";
+        document.getElementById("separator3").style.background = "#E1EBF2";
+        document.getElementById("separator4").style.background = "#E1EBF2";
+        document.getElementById("separator5").style.background = "#E1EBF2";
+        document.getElementById("separator6").style.background = "#E1EBF2";
+    } else {
+        document.getElementById("imageWeather").style.filter = "grayscale(0%)";
+        document.getElementById("imageWeatherTomorrow").style.filter = "grayscale(0%)";
+        document.getElementById("imageWeatherAfterTomorrow").style.filter = "grayscale(0%)";
+
+        document.getElementById("separator1").style.background = "#DCD5F2";
+        document.getElementById("separator2").style.background = "#DCD5F2";
+        document.getElementById("separator3").style.background = "#DCD5F2";
+        document.getElementById("separator4").style.background = "#DCD5F2";
+        document.getElementById("separator5").style.background = "#DCD5F2";
+        document.getElementById("separator6").style.background = "#DCD5F2";
+    }
+
+    document.getElementById("loading").style.display = "none";
+    setTimeout(function () {
+        document.getElementById("forecastPanel").style.display = "inline";
+    }, 500);
+}
+
+function applyPreferences() {
+    let temperatureUnit = localStorage.getItem('temperatureRadio') || 'C';
+    const tempUnitElement = document.getElementById("tempUnit");
+
+    if (tempUnitElement) {
+        tempUnitElement.textContent = (temperatureUnit === 'F') ? '°F' : '°C';
+    }
+
+    let showWeatherIcon = localStorage.getItem('showWeatherIcon') || 'True';
+    const imageWeatherTomorrowElement = document.getElementById("imageWeatherTomorrow");
+    const imageWeatherAfterTomorrowElement = document.getElementById("imageWeatherAfterTomorrow");
+
+    if (showWeatherIcon === 'False') {
+        if (imageWeatherTomorrowElement) imageWeatherTomorrowElement.style.display = 'none';
+        if (imageWeatherAfterTomorrowElement) imageWeatherAfterTomorrowElement.style.display = 'none';
+    } else {
+        if (imageWeatherTomorrowElement) imageWeatherTomorrowElement.style.display = 'block';
+        if (imageWeatherAfterTomorrowElement) imageWeatherAfterTomorrowElement.style.display = 'block';
+    }
+}
+
+function convertTemp(temp) {
+    if (isNaN(temp) || temp === null || temp === undefined) {
+        return 'N/A';
+    }
+
+    let unit = localStorage.getItem('temperatureRadio') || 'C';
+    if (unit === 'F') {
+        return `${((temp * 9 / 5) + 32).toFixed(1)}°F`;
+    } else {
+        return `${parseFloat(temp).toFixed(1)}°C`;
+    }
+}
+
+function convertSpeed(speed) {
+    if (isNaN(speed) || speed === null || speed === undefined) {
+        return 'N/A';
+    }
+
+    let unit = localStorage.getItem('speedRadio') || 'km';
+    if (unit === 'mph') {
+        return `${(speed / 1.609).toFixed(1)} mph`;
+    } else {
+        return `${parseFloat(speed).toFixed(1)} km/h`;
+    }
+}
+
