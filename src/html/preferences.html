@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +14,7 @@
   <script src="../js/background.js"></script>
   <script src="../js/jscolor.js"></script>
 </head>
+
 <body class="col-md-12">
   <main>
     <header>
@@ -41,13 +43,15 @@
         <li class="col-md-12 col-sm-12 d-flex-space no-hover-effect">
           <label data-i18n="enterLocation"></label>
           <div class="d-flex-center">
-              <input type="text" id="locationInput" data-i18n-placeholder="enterLocation" class="form-control">
-              <svg class="clear" id="clearLocation" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" fill="#722C80">
-                  <path d="M0 0h24v24H0V0z" fill="none"/>
-                  <path d="M18.3 5.71a.996.996 0 00-1.41 0L12 10.59 7.11 5.7a.996.996 0 10-1.41 1.41L10.59 12l-4.9 4.88a.996.996 0 101.41 1.41L12 13.41l4.89 4.89a.996.996 0 101.41-1.41L13.41 12l4.89-4.88a.996.996 0 000-1.41z"/>
-              </svg>
+            <input type="text" id="locationInput" data-i18n-placeholder="enterLocation" class="form-control">
+            <svg class="clear" id="clearLocation" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24"
+              fill="#722C80">
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M18.3 5.71a.996.996 0 00-1.41 0L12 10.59 7.11 5.7a.996.996 0 10-1.41 1.41L10.59 12l-4.9 4.88a.996.996 0 101.41 1.41L12 13.41l4.89 4.89a.996.996 0 101.41-1.41L13.41 12l4.89-4.88a.996.996 0 000-1.41z" />
+            </svg>
           </div>
-      </li>    
+        </li>
         <ul id="suggestions" class="autocomplete-suggestions"></ul>
       </ul>
     </fieldset>
@@ -121,16 +125,12 @@
           <h5><strong data-i18n="day"></strong></h5>
           <div>
             <label data-i18n="background_notification"></label>
-            <input name="background_notification_day"
-              id="background_notification_day" 
-              class="jscolor btn btn-outline-primary float-right-height-width"
-              value="5387E8"
+            <input name="background_notification_day" id="background_notification_day"
+              class="jscolor btn btn-outline-primary float-right-height-width" value="5387E8"
               data-jscolor="{format:'hex'}"><br>
             <label data-i18n="color_font_notification"></label>
-            <input name="color_font_notification_day"
-              id="color_font_notification_day" 
-              class="jscolor btn btn-outline-primary float-right-height-width"
-              value="FFFFFF"
+            <input name="color_font_notification_day" id="color_font_notification_day"
+              class="jscolor btn btn-outline-primary float-right-height-width" value="FFFFFF"
               data-jscolor="{format:'hex'}">
           </div>
         </li>
@@ -138,16 +138,12 @@
           <h5><strong data-i18n="night"></strong></h5>
           <div>
             <label data-i18n="background_notification"></label>
-            <input id="background_notification_night"
-              name="background_notification_night" 
-              class="jscolor btn btn-outline-primary float-right-height-width"
-              value="722C80"
+            <input id="background_notification_night" name="background_notification_night"
+              class="jscolor btn btn-outline-primary float-right-height-width" value="722C80"
               data-jscolor="{format:'hex'}"><br>
             <label data-i18n="color_font_notification"></label>
-            <input id="color_font_notification_night"
-              name="color_font_notification_night"
-              class="jscolor btn btn-outline-primary float-right-height-width"
-              value="FFFFFF"
+            <input id="color_font_notification_night" name="color_font_notification_night"
+              class="jscolor btn btn-outline-primary float-right-height-width" value="FFFFFF"
               data-jscolor="{format:'hex'}">
           </div>
         </li>
@@ -157,4 +153,5 @@
   <script src="../js/language.js"></script>
   <script src="../js/preferences.js"></script>
 </body>
+
 </html>

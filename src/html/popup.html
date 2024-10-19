@@ -1,80 +1,89 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="refresh" content="1800">
-  <link rel="stylesheet" href="../css/popup.css"/>
+  <link rel="stylesheet" href="../css/popup.css" />
 </head>
-<body>
-<div class="main-panel" id="mainPanel">
-  <img src="../res/icons/loading.gif" class="loading" id="loading">
-  <a href="../html/preferences.html" target="_blank" ><img id="preferences" src="../res/icons/preferences.png" class="preferences" width="16" height="16"></a>
-  <img id="forecastWeather" class="imageWeather">
 
-  <div class="panel-section-body full-width">
-    <img id="imageWeather" class="imageWeather">
-  </div>
-  <div class="panel-section-distance">
-    <label class="description-weather" data-i18n="description"></label>
-    <label id="description" class="description"></label><br>
-  </div>
-  <div class="panel-section-separator" id="separator1">
-    <label class= "description-weather" data-i18n="city"></label><label id="city" class="city"></label><br>
-  </div>
-  <div class="panel-section-distance">
-    <label class="description-weather" data-i18n="temperature"></label><label id="temperature" class="temperature"></label>
-    <br>
-  </div>
-  <div class="panel-section-separator" id="separator2">
-    <label class="description-weather" data-i18n="temperatureMin"></label><label id="temperatureMin" class="temperature"></label><br>
-  </div>
-  <div class="panel-section-distance">
-    <label class="description-weather" data-i18n="temperatureMax"></label><label id="temperatureMax" class="temperature"></label><br>
-  </div>
-  <div class="panel-section-separator" id="separator3">
-    <label class="description-weather" data-i18n="humidity"></label><label id="humidity" class="humidity"></label>
-    <br>
-  </div>
-  <div class="panel-section-distance">
-    <label class="description-weather" data-i18n="wind"></label><label id="wind" class="wind"></label><br>
-  </div>
-  <div class="panel-section-separator" id="separator4">
-    <label class="description-weather" data-i18n="gust"></label><label id="gust" class="gust"></label>
-  </div>
-  <br>
-  <div class="forecast-panel" id='forecastPanel'>
-    <div class="padding-center-weather-data" id="separator5">
-      <label class="description-forecast-weather" id="tomorrow" data-i18n="tomorrow"></label>
-      <br>
-      <div class="d-flex-weather-between">
-      <label class="weather-data-forecast" id="weatherTomorrow"></label>
-      <br>
-      <div class="d-flex-center">
-        <img class="forecast-weather-img" id="imageWeatherTomorrow">
-        <div class="d-flex-center">
-          <label class="weather-data" id="tempMinTomorrow"></label> - <label class="weather-data-pos" id="tempMaxTomorrow"></label>
-        </div>
+<body>
+  <div class="main-panel" id="mainPanel">
+    <img src="../res/icons/loading.gif" class="loading" id="loading">
+    <a href="../html/preferences.html" target="_blank"><img id="preferences" src="../res/icons/preferences.png"
+        class="preferences" width="16" height="16"></a>
+    <img id="forecastWeather" class="imageWeather">
+
+    <div class="panel-section-body full-width">
+      <img id="imageWeather" class="imageWeather">
     </div>
+    <div class="panel-section-distance">
+      <label class="description-weather" data-i18n="description"></label>
+      <label id="description" class="description"></label><br>
     </div>
+    <div class="panel-section-separator" id="separator1">
+      <label class="description-weather" data-i18n="city"></label><label id="city" class="city"></label><br>
+    </div>
+    <div class="panel-section-distance">
+      <label class="description-weather" data-i18n="temperature"></label><label id="temperature"
+        class="temperature"></label>
+      <br>
+    </div>
+    <div class="panel-section-separator" id="separator2">
+      <label class="description-weather" data-i18n="temperatureMin"></label><label id="temperatureMin"
+        class="temperature"></label><br>
+    </div>
+    <div class="panel-section-distance">
+      <label class="description-weather" data-i18n="temperatureMax"></label><label id="temperatureMax"
+        class="temperature"></label><br>
+    </div>
+    <div class="panel-section-separator" id="separator3">
+      <label class="description-weather" data-i18n="humidity"></label><label id="humidity" class="humidity"></label>
+      <br>
+    </div>
+    <div class="panel-section-distance">
+      <label class="description-weather" data-i18n="wind"></label><label id="wind" class="wind"></label><br>
+    </div>
+    <div class="panel-section-separator" id="separator4">
+      <label class="description-weather" data-i18n="gust"></label><label id="gust" class="gust"></label>
     </div>
     <br>
-    <div class="padding-center-weather-data" id="separator6">
-      <label  class="description-forecast-weather" id="afterTomorrow"></label>
-      <br>
-      <div class="d-flex-weather-between">
-      <label class="weather-data-forecast" id="weatherAfterTomorrow"></label>
-      <br>
-      <div class="d-flex-center">
-        <img class="forecast-weather-img" id="imageWeatherAfterTomorrow">
-        <div class="d-flex-center">
-          <label class="weather-data" id="tempMinAfterTomorrow"></label> - <label class="weather-data-pos" id="tempMaxAfterTomorrow"></label>
+    <div class="forecast-panel" id='forecastPanel'>
+      <div class="padding-center-weather-data" id="separator5">
+        <label class="description-forecast-weather" id="tomorrow" data-i18n="tomorrow"></label>
+        <br>
+        <div class="d-flex-weather-between">
+          <label class="weather-data-forecast" id="weatherTomorrow"></label>
+          <br>
+          <div class="d-flex-center">
+            <img class="forecast-weather-img" id="imageWeatherTomorrow">
+            <div class="d-flex-center">
+              <label class="weather-data" id="tempMinTomorrow"></label> - <label class="weather-data-pos"
+                id="tempMaxTomorrow"></label>
+            </div>
+          </div>
         </div>
       </div>
+      <br>
+      <div class="padding-center-weather-data" id="separator6">
+        <label class="description-forecast-weather" id="afterTomorrow"></label>
+        <br>
+        <div class="d-flex-weather-between">
+          <label class="weather-data-forecast" id="weatherAfterTomorrow"></label>
+          <br>
+          <div class="d-flex-center">
+            <img class="forecast-weather-img" id="imageWeatherAfterTomorrow">
+            <div class="d-flex-center">
+              <label class="weather-data" id="tempMinAfterTomorrow"></label> - <label class="weather-data-pos"
+                id="tempMaxAfterTomorrow"></label>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<script src="../js/popup.js"></script>
-<script src="../js/language.js"></script>
+  <script src="../js/popup.js"></script>
+  <script src="../js/language.js"></script>
 </body>
+
 </html>

@@ -1,14 +1,19 @@
-let api = "";
+
+// Define OpenWeatherMap API key and initialize local storage object
+const openMapWeatherMapApiKey = '';
 let myStorage = window.localStorage || {};
 
+// Fetch weather data when the extension is installed
 browser.runtime.onInstalled.addListener(() => {
     getLatitudeLongitudeAndFetchWeather();
 });
 
+// Fetch weather data when the browser starts up
 browser.runtime.onStartup.addListener(() => {
     getLatitudeLongitudeAndFetchWeather();
 });
 
+// Handle incoming messages, such as requests for weather data
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'getWeatherData') {
         const savedWeather = loadSavedWeatherData();
@@ -17,15 +22,45 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true;
 });
 
+// Initialize localStorage defaults when the extension is installed
 browser.runtime.onInstalled.addListener(() => {
     initializeLocalStorageDefaults();
     getLatitudeLongitudeAndFetchWeather();
 });
 
+// Fetch weather data when the browser starts
 browser.runtime.onStartup.addListener(() => {
     getLatitudeLongitudeAndFetchWeather();
 });
 
+// Handle temperature unit update messages and refresh the weather badge
+browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === 'updateTemperatureUnit') {
+        browser.runtime.sendMessage({ action: 'getWeatherData' }).then((weatherData) => {
+            if (weatherData) {
+                updateBadgeTemperature(weatherData.temperature || 0, message.unit);
+            }
+        }).catch((error) => {
+            console.error("Error getting weather data: ", error);
+        });
+    }
+});
+
+// Update the badge temperature and convert to Fahrenheit if necessary
+function updateBadgeTemperature(temperature, unit = null) {
+    let degreeSymbol = 'º';
+    unit = unit || localStorage.getItem('temperatureRadio') || 'C';
+
+    if (unit === 'F') {
+        temperature = (temperature * 9 / 5) + 32;
+    }
+
+    const newBadgeText = `${Math.round(temperature)}${degreeSymbol}`;
+
+    browser.browserAction.setBadgeText({ text: newBadgeText });
+}
+
+// Retrieve latitude and longitude from local storage or fetch them using geolocation
 function getLatitudeLongitudeAndFetchWeather(providedLatitude, providedLongitude) {
     if (providedLatitude && providedLongitude) {
         fetchWeatherData(providedLatitude, providedLongitude);
@@ -44,6 +79,7 @@ function getLatitudeLongitudeAndFetchWeather(providedLatitude, providedLongitude
     }
 }
 
+// Fetch the user's geolocation and store it for future use
 function getGeolocation() {
     navigator.geolocation.getCurrentPosition(
         function (position) {
@@ -63,13 +99,14 @@ function getGeolocation() {
     );
 }
 
+// Fetch weather data from the OpenWeatherMap API using the provided coordinates
 function fetchWeatherData(latitude, longitude) {
     if (!latitude || !longitude) {
         return;
     }
 
     let browserLanguage = browser.i18n.getUILanguage().split("-")[0];
-    let requestAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&type=accurate&appid=${api}&lang=${browserLanguage}`;
+    let requestAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&type=accurate&appid=${openMapWeatherMapApiKey}&lang=${browserLanguage}`;
 
     fetch(requestAPI)
         .then(response => response.json())
@@ -84,9 +121,9 @@ function fetchWeatherData(latitude, longitude) {
         })
         .catch(error => console.error("Error fetching  weather data: ", error));
 }
-
 window.fetchWeatherData = fetchWeatherData;
 
+// Save the fetched weather data in localStorage for future use
 function saveWeatherData(toolbarWeather, weatherNow, weatherTomorrow, weatherAfterTomorrow) {
     myStorage.setItem("city", toolbarWeather.city.name);
     myStorage.setItem("temperature", weatherNow.main.temp);
@@ -163,9 +200,10 @@ function saveWeatherData(toolbarWeather, weatherNow, weatherTomorrow, weatherAft
     setBadgeColors();
 }
 
+// Update the badge with the current temperature    
 function updateBadge(temperature) {
-    browser.storage.local.get(['temperatureRadio', 'speedRadio'], function(result) {
-        let temperatureUnit = result.temperatureRadio || 'C';
+    browser.storage.local.get(['temperatureRadio', 'speedRadio'], function() {
+        let temperatureUnit = localStorage.getItem('temperatureRadio');
         let degreeSymbol = 'º';
             
         let temperatureValue = parseFloat(temperature);
@@ -180,20 +218,25 @@ function updateBadge(temperature) {
     });
 }
 
+// Show weather notifications if the user has enabled them  
 function showNotificationWeather() {
-    if (localStorage.getItem("showTemperature") == null) {
-        updateNotification = localStorage.getItem("temperature");
-    } else if (localStorage.getItem("showTemperature") == "True") {
-        updateNotification = localStorage.getItem("temperature");
-    } else if (localStorage.getItem("showTemperature") == "undefined") {
-        updateNotification = localStorage.getItem("temperature");
-    } else {
+    if (localStorage.getItem("showTemperature") == null || 
+        localStorage.getItem("showTemperature") === "undefined" || 
+        localStorage.getItem("showTemperature") === "False") {
         updateNotification = "";
+    } else {
+        updateNotification = localStorage.getItem("temperature");
     }
 
-    let unit = "º";         
+    let unit = "º";
     let temperatureValue = parseFloat(updateNotification);
-    
+
+    const temperatureUnit = localStorage.getItem("temperatureRadio");
+    if (temperatureUnit === "F") {
+        unit = "º";
+        temperatureValue = (temperatureValue * 9/5) + 32;
+    }
+
     if (!isNaN(temperatureValue)) { 
         let roundedTemp = Math.round(temperatureValue); 
         browser.browserAction.setBadgeText({
@@ -204,29 +247,28 @@ function showNotificationWeather() {
             text: ""
         });
     }
-}    
+}   
 
+// Show or hide the weather icon based on user preferences
 function showWeatherIcon(value) {
     const showIconSetting = localStorage.getItem("showWeatherIcon");
 
-    // Check if localStorage value is null or not properly set
     if (showIconSetting === null || showIconSetting === "True") {
         browser.browserAction.setIcon({
             path: value
         });
     } else if (showIconSetting === "False") {
-        // If explicitly set to "False", don't show the weather icon
         browser.browserAction.setIcon({
             path: "../res/icons/icon.png"
         });
     } else {
-        // Fallback to a default icon if any issues
         browser.browserAction.setIcon({
             path: "../res/icons/icon.png"
         });
     }
 }
 
+// Set badge colors based on the time of day and weather icon
 function setBadgeColors() {
     const isDayTime = !localStorage.getItem("imageWeather").includes('n.png');
 
@@ -245,11 +287,14 @@ function setBadgeColors() {
     }
 } 
 
+// Waits for the DOM to be fully loaded before executing initialization and weather data fetching functions.
 document.addEventListener("DOMContentLoaded", function () {
     initializeLocalStorageDefaults();
     getLatitudeLongitudeAndFetchWeather();
 });
 
+// Function to load previously saved weather data from localStorage.
+// Returns an object with all relevant weather data that was previously stored.
 function loadSavedWeatherData() {
     const savedWeather = {
         city: localStorage.getItem("city"),
@@ -274,6 +319,7 @@ function loadSavedWeatherData() {
     return savedWeather;
 }
 
+// Initialize localStorage with default values
 function initializeLocalStorageDefaults() {
     if (localStorage.getItem("speedRadio") === null) localStorage.setItem("speedRadio", "km");
     if (localStorage.getItem("temperatureRadio") === null) localStorage.setItem("temperatureRadio", "C");
@@ -287,6 +333,7 @@ function initializeLocalStorageDefaults() {
     if (localStorage.getItem("showWeatherIcon") === null) localStorage.setItem("showWeatherIcon", "True");
 }
 
+// Reload weather data at regular intervals based on the user's preferences
 function timeRefresh() {
     reloadMinutes = localStorage.getItem("timer") || 15;
     reloadMinutes = parseInt(reloadMinutes, 10);
@@ -302,6 +349,7 @@ function timeRefresh() {
     }, reloadMinutes * 60 * 1000);
 }
 
+// Create the context menu based on the user's preferences
 function contextMenuFunction() {
     if (localStorage.getItem("contextMenu") === "True") {
         browser.menus.create({
@@ -397,8 +445,9 @@ function contextMenuFunction() {
         }
     } else {
         browser.menus.removeAll();
-    }
+    }   
 }
 
+// Start the interval-based refresh and initialize the context menu
 timeRefresh();
 contextMenuFunction();

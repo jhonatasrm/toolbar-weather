@@ -393,7 +393,7 @@ fieldset:disabled a.btn {
 
 .weather-data {
 	font-size: 11px;
-	margin-right: 4px;		
+	margin-right: 4px;
 	text-transform: capitalize;
 }
 
@@ -432,16 +432,16 @@ fieldset:disabled a.btn {
 }
 
 input {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
+	width: 100%;
+	padding: 10px;
+	font-size: 14px;
 }
 
 #clearInput {
-    color: gray;
-    cursor: pointer;
+	color: gray;
+	cursor: pointer;
 }
 
 #clearInput:hover {
-    color: red;
+	color: red;
 }
