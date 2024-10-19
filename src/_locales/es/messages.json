@@ -1,225 +1,234 @@
 {
-    "extensionName": {
-      "message": "Toolbar Weather",
-      "description": "Toolbar Weather"
-    },
-    "extensionDescription": {
-      "message": "Este complemento muestra en su barra de herramientas el tiempo actual y el grado en Celsius, cuando hace clic es posible ver más detalles sobre el tiempo en su ciudad.",
-      "description": "This add-on shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city."
-    },
-    "clearSky":{
-      "message": "Cielo despejado",
-      "description": "Clear sky"
-    },
-    "fewClouds":{
-      "message": "Pocas nubes",
-      "description": "Few clouds"
-    },
-    "scatteredClouds":{
-      "message": "Nubes dispersas",
-      "description": "Scattered clouds"
-    },
-    "brokenClouds":{
-      "message": "Nubes rotas",
-      "description": "Broken clouds"
-    },
-    "showerRain":{
-      "message": "Lluvia de ducha",
-      "description": "Shower rain"
-    },
-    "rain":{
-      "message": "Lluvia",
-      "description": "Rain"
-    },
-    "thunderstorm":{
-      "message": "Tormenta",
-      "description": "Thunderstorm"
-    },
-    "snow":{
-      "message": "Nieve",
-      "description": "Snow"
-    },
-    "mist":{
-      "message": "niebla",
-      "description": "Mist"
-    },
-    "description": {
-      "message": "Descripción ",
-      "description": "Description "
-    },
-    "city": {
-      "message": "Ciudad ",
-      "description": "City "
-    },
-    "temperature": {
-      "message": "Temperatura ",
-      "description": "Temperature "
-    },
-    "humidity": {
-      "message": "Humedad ",
-      "description": "Humidity "
-    },
-    "wind": {
-      "message": "Viento ",
-      "description": "Wind "
-    },
-    "gust": {
-      "message": "Ráfaga ",
-      "description": "Gust "
-    },
-    "temperatureMin": {
-      "message": "Temperatura Mín ",
-      "description": "Temperature Min "
-    },
-    "temperatureMax": {
-      "message": "Temperatura Máx ",
-      "description": "Temperature Max "
-    },
-    "speed": {
-      "message": "Velocidad",
-      "description": "Speed"
-    },
-    "preferences": {
-      "message": "Preferencias",
-      "description": "Preferences"
-    },
-    "save": {
-      "message": "Salvar",
-      "description": "Save"
-    },
-    "success": {
-      "message": "¡Guardado con éxito!",
-      "description": "Saved successfully!"
-    },
-    "tomorrow": {
-      "message": "Mañana",
-      "description": "Tomorrow"
-    },
-    "monday": {
-      "message": "Lunes",
-      "description": "Monday"
-    },
-    "tuesday": {
-      "message": "Martes",
-      "description": "Tuesday"
-    },
-    "wednesday": {
-      "message": "Miércoles",
-      "description": "Wednesday"
-    },
-    "thursday": {
-      "message": "Jueves",
-      "description": "Thursday"
-    },
-    "friday": {
-      "message": "Viernes",
-      "description": "Friday"
-    },
-    "saturday": {
-      "message": "Sábado",
-      "description": "Saturday"
-    },
-    "sunday": {
-      "message": "Domingo",
-      "description": "Sunday"
-    },
-    "next48Hours": {
-      "message": "Las próximas 48 horas"
-    },
-    "about":{
-      "message": "Acerca de Toolbar Weather"
-    },
-    "about_title": {
-      "message": "Acerca"
-    },
-    "note": {
-      "message": "Nota: ¡Este complemento es completamente gratuito! Por favor considere hacer una pequeña donación o escribir una opinión en addons.mozilla.org. ¡Gracias!"
-    },
-    "works": {
-      "message": "Este complemento muestra en su barra de herramientas el tiempo actual y el grado en Celsius o Fahrenheit, cuando haga clic es posible ver más detalles sobre el tiempo en su ciudad, puede ajustar las preferencias de visualización. Puede editar sus preferencias directamente en la ventana emergente, pero para obtener más opciones vaya a las preferencias del complemento en about:addons. Actualmente, el complemento tiene las siguientes características:"
-    },
-    "aboutItem1": {
-      "message": "1. Geolocalización"
-    },
-    "aboutItem2": {
-      "message": "2. Grados Celsius o Fahrenheit"
-    },
-    "aboutItem3": {
-      "message": "3. Descripción del tiempo"
-    },
-    "aboutItem4": {
-      "message": "4. Temperatura corriente (°C or °F)"
-    },
-    "aboutItem5": {
-      "message": "5. Temperatura min and máx (°C or °F)"
-    },
-    "aboutItem6": {
-      "message": "6. Humedad (%)"
-    },
-    "aboutItem7": {
-      "message": "7. Velocidad del viento (km/h or mph)"
-    },
-    "aboutItem8": {
-      "message": "8. Ráfaga (km/h or mph)"
-    },
-    "aboutItem9": {
-      "message": "9. Pronóstico para los próximos 2 días"
-    },
-    "aboutItem10": {
-      "message": "10. Menú contextual"
-    },
-    "aboutItem11": {
-      "message": "11. Preferencias en la ventana emergente"
-    },
-    "aboutItem12": {
-      "message": "12. Color del selector para cambiar el fondo y la fuente de la notificación"
-    },
-    "aboutItem13": {
-      "message": "13. Muestra la temperatura en la barra de herramientas"
-    },
-    "aboutItem14": {
-      "message": "14. Muestra el icono según el clima"
-    },
-    "aboutItem15": {
-      "message": "15. Definir el tiempo para actualizar los datos meteorológicos"
-    },
-    "settings": {
-      "message": "Configuración"
-    },
-    "bugs": {
-      "message": "Si encuentra algún error, tenga alguna sugerencia o algunas ideas para este complemento: Por favor, cree un nuevo problema."
-    },
-    "contextMenu": {
-      "message": "Menú contextual"
-    },
-    "degree": {
-      "message": "Grado"
-    },
-    "colors": {
-      "message": "Colores"
-    },
-    "day": {
-      "message": "Día"
-    },
-    "show_temperature": {
-      "message": "Mostrar la temperatura en la barra de herramientas"
-    },
-    "show_weather_icon": {
-      "message": "Mostrar icono según el clima"
-    },
-    "night": {
-      "message": "Noche"
-    },
-    "background_notification": {
-      "message": "Background de Notificación"
-    },
-    "color_font_notification": {
-      "message": "Notificación color de fuente"
-    },
-    "more": {
-      "message": "Más..."
-    },
-    "time_to_refresh": {
-      "message": "Tiempo para actualizar los datos meteorológicos (minutos)"
-    }
+  "extensionName": {
+    "message": "Toolbar Weather",
+    "description": "Toolbar Weather"
+  },
+  "extensionDescription": {
+    "message": "Este complemento muestra en su barra de herramientas el tiempo actual y el grado en Celsius, cuando hace clic es posible ver más detalles sobre el tiempo en su ciudad.",
+    "description": "This add-on shows in your toolbar the current weather and the degree in Celsius, when you click is possible see more details about the weather on your city."
+  },
+  "clearSky": {
+    "message": "Cielo despejado",
+    "description": "Clear sky"
+  },
+  "fewClouds": {
+    "message": "Pocas nubes",
+    "description": "Few clouds"
+  },
+  "scatteredClouds": {
+    "message": "Nubes dispersas",
+    "description": "Scattered clouds"
+  },
+  "brokenClouds": {
+    "message": "Nubes rotas",
+    "description": "Broken clouds"
+  },
+  "showerRain": {
+    "message": "Lluvia de ducha",
+    "description": "Shower rain"
+  },
+  "rain": {
+    "message": "Lluvia",
+    "description": "Rain"
+  },
+  "thunderstorm": {
+    "message": "Tormenta",
+    "description": "Thunderstorm"
+  },
+  "snow": {
+    "message": "Nieve",
+    "description": "Snow"
+  },
+  "mist": {
+    "message": "niebla",
+    "description": "Mist"
+  },
+  "description": {
+    "message": "Descripción ",
+    "description": "Description "
+  },
+  "city": {
+    "message": "Ciudad ",
+    "description": "City "
+  },
+  "temperature": {
+    "message": "Temperatura ",
+    "description": "Temperature "
+  },
+  "humidity": {
+    "message": "Humedad ",
+    "description": "Humidity "
+  },
+  "wind": {
+    "message": "Viento ",
+    "description": "Wind "
+  },
+  "gust": {
+    "message": "Ráfaga ",
+    "description": "Gust "
+  },
+  "temperatureMin": {
+    "message": "Temperatura Mín ",
+    "description": "Temperature Min "
+  },
+  "temperatureMax": {
+    "message": "Temperatura Máx ",
+    "description": "Temperature Max "
+  },
+  "speed": {
+    "message": "Velocidad",
+    "description": "Speed"
+  },
+  "preferences": {
+    "message": "Preferencias",
+    "description": "Preferences"
+  },
+  "save": {
+    "message": "Salvar",
+    "description": "Save"
+  },
+  "success": {
+    "message": "¡Guardado con éxito!",
+    "description": "Saved successfully!"
+  },
+  "tomorrow": {
+    "message": "Mañana",
+    "description": "Tomorrow"
+  },
+  "monday": {
+    "message": "Lunes",
+    "description": "Monday"
+  },
+  "tuesday": {
+    "message": "Martes",
+    "description": "Tuesday"
+  },
+  "wednesday": {
+    "message": "Miércoles",
+    "description": "Wednesday"
+  },
+  "thursday": {
+    "message": "Jueves",
+    "description": "Thursday"
+  },
+  "friday": {
+    "message": "Viernes",
+    "description": "Friday"
+  },
+  "saturday": {
+    "message": "Sábado",
+    "description": "Saturday"
+  },
+  "sunday": {
+    "message": "Domingo",
+    "description": "Sunday"
+  },
+  "next48Hours": {
+    "message": "Las próximas 48 horas"
+  },
+  "about": {
+    "message": "Acerca de Toolbar Weather"
+  },
+  "about_title": {
+    "message": "Acerca"
+  },
+  "note": {
+    "message": "Nota: ¡Este complemento es completamente gratuito! Por favor considere hacer una pequeña donación o escribir una opinión en addons.mozilla.org. ¡Gracias!"
+  },
+  "works": {
+    "message": "Este complemento muestra en su barra de herramientas el tiempo actual y el grado en Celsius o Fahrenheit, cuando haga clic es posible ver más detalles sobre el tiempo en su ciudad, puede ajustar las preferencias de visualización. Puede editar sus preferencias directamente en la ventana emergente, pero para obtener más opciones vaya a las preferencias del complemento en about:addons. Actualmente, el complemento tiene las siguientes características:"
+  },
+  "aboutItem1": {
+    "message": "1. Geolocalización"
+  },
+  "aboutItem2": {
+    "message": "2. Grados Celsius o Fahrenheit"
+  },
+  "aboutItem3": {
+    "message": "3. Descripción del tiempo"
+  },
+  "aboutItem4": {
+    "message": "4. Temperatura corriente (°C or °F)"
+  },
+  "aboutItem5": {
+    "message": "5. Temperatura min and máx (°C or °F)"
+  },
+  "aboutItem6": {
+    "message": "6. Humedad (%)"
+  },
+  "aboutItem7": {
+    "message": "7. Velocidad del viento (km/h or mph)"
+  },
+  "aboutItem8": {
+    "message": "8. Ráfaga (km/h or mph)"
+  },
+  "aboutItem9": {
+    "message": "9. Pronóstico para los próximos 2 días"
+  },
+  "aboutItem10": {
+    "message": "10. Menú contextual"
+  },
+  "aboutItem11": {
+    "message": "11. Preferencias en la ventana emergente"
+  },
+  "aboutItem12": {
+    "message": "12. Color del selector para cambiar el fondo y la fuente de la notificación"
+  },
+  "aboutItem13": {
+    "message": "13. Muestra la temperatura en la barra de herramientas"
+  },
+  "aboutItem14": {
+    "message": "14. Muestra el icono según el clima"
+  },
+  "aboutItem15": {
+    "message": "15. Definir el tiempo para actualizar los datos meteorológicos"
+  },
+  "settings": {
+    "message": "Configuración"
+  },
+  "bugs": {
+    "message": "Si encuentra algún error, tenga alguna sugerencia o algunas ideas para este complemento: Por favor, cree un nuevo problema."
+  },
+  "contextMenu": {
+    "message": "Menú contextual"
+  },
+  "degree": {
+    "message": "Grado"
+  },
+  "colors": {
+    "message": "Colores"
+  },
+  "day": {
+    "message": "Día"
+  },
+  "show_temperature": {
+    "message": "Mostrar la temperatura en la barra de herramientas"
+  },
+  "show_weather_icon": {
+    "message": "Mostrar icono según el clima"
+  },
+  "night": {
+    "message": "Noche"
+  },
+  "background_notification": {
+    "message": "Background de Notificación"
+  },
+  "color_font_notification": {
+    "message": "Notificación color de fuente"
+  },
+  "more": {
+    "message": "Más..."
+  },
+  "time_to_refresh": {
+    "message": "Tiempo para actualizar los datos meteorológicos (minutos)"
+  },
+  "geolocation": {
+    "message": "Geolocalización"
+  },
+  "enterLocation": {
+    "message": "Ingrese la ubicación"
+  },
+  "noResults": {
+    "message": "Sin resultados"
   }
+}

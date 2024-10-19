@@ -1,115 +1,157 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title id="preferencesTitle" data-i18n="preferences"></title>
-  <link rel="shortcut icon" href="../res/icons/favicon.ico" type="image/x-icon"/>
-  <link rel="icon" href="../res/icons/favicon.ico" type="image/x-icon"/>
-  <link href="../css/bootstrap.css" rel="stylesheet"/>
-  <link href="../css/style.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="shortcut icon" href="../res/icons/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="../res/icons/favicon.ico" type="image/x-icon" />
+  <link href="../css/bootstrap.css" rel="stylesheet" />
+  <link href="../css/style.css" rel="stylesheet" />
   <script src="../js/jquery-3.3.1.js"></script>
   <script src="../js/background.js"></script>
   <script src="../js/jscolor.js"></script>
 </head>
 
 <body class="col-md-12">
-<main>
-  <header>
-    <nav class="icons">
-      <ul>
-        <div>
-          <img src="../res/icons/icon@2x.png" class="icon-addon"><h4><strong id="version"></strong></h4>
-        </div>
-        <li class="align-center">
-          <a href="https://github.com/jhonatasrm/toolbar-weather/" title="Github" target="_blank"><img src="../res/icons/github.svg" class="github"></a>
-          <a href="https://github.com/sponsors/jhonatasrm" target='_blank' title="Github Sponsor"><img src="../res/icons/github-sponsor.svg" alt="" class="github"></a>
-          <a href='https://ko-fi.com/jhonatasrm' target='_blank' title="Ko-fi"><img class="ko-fi" src='../res/icons/ko-fi.svg'  alt='Buy Me a Coffee at ko-fi.com'/></a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <main>
+    <header>
+      <nav class="icons">
+        <ul>
+          <div>
+            <img src="../res/icons/icon@2x.png" class="icon-addon">
+            <h4><strong id="version"></strong></h4>
+          </div>
+          <li class="align-center">
+            <a href="https://github.com/jhonatasrm/toolbar-weather/" title="Github" target="_blank"><img
+                src="../res/icons/github.svg" class="github"></a>
+            <a href="https://github.com/sponsors/jhonatasrm" target='_blank' title="Github Sponsor"><img
+                src="../res/icons/github-sponsor.svg" alt="" class="github"></a>
+            <a href='https://ko-fi.com/jhonatasrm' target='_blank' title="Ko-fi"><img class="ko-fi"
+                src='../res/icons/ko-fi.svg' alt='Buy Me a Coffee at ko-fi.com' /></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <fieldset class="col-md-12">
       <div>
-        <h4><strong id="settings" data-i18n="settings"></strong>
-          <a href="../html/about.html"><img src="../res/icons/about.png" class="icon-about"></a></h4>
+        <h4><strong data-i18n="geolocation"></strong></h4>
+      </div>
+      <ul>
+        <li class="col-md-12 col-sm-12 d-flex-space no-hover-effect">
+          <label data-i18n="enterLocation"></label>
+          <div class="d-flex-center">
+            <input type="text" id="locationInput" data-i18n-placeholder="enterLocation" class="form-control">
+            <svg class="clear" id="clearLocation" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24"
+              fill="#722C80">
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M18.3 5.71a.996.996 0 00-1.41 0L12 10.59 7.11 5.7a.996.996 0 10-1.41 1.41L10.59 12l-4.9 4.88a.996.996 0 101.41 1.41L12 13.41l4.89 4.89a.996.996 0 101.41-1.41L13.41 12l4.89-4.88a.996.996 0 000-1.41z" />
+            </svg>
+          </div>
+        </li>
+        <ul id="suggestions" class="autocomplete-suggestions"></ul>
+      </ul>
+    </fieldset>
+
+    <fieldset class="col-md-12">
+      <div>
+        <h4><strong data-i18n="settings" class="bottom-distance-colors"></strong>
+        </h4>
+      </div>
+      <ul>
+        <ul>
+          <li class="col-md-12 col-sm-12">
+            <label class="preferences-temperature" data-i18n="temperature"></label>
+            <div>
+              <label class="btn btn-outline-primary float-right">
+                <input type="radio" name="temperature" value="C" checked="checked">°C</label>
+              <label class="btn btn-outline-primary float-right">
+                <input type="radio" name="temperature" value="F">°F</label>
+            </div>
+          </li>
+          <li class="col-md-12 col-sm-12">
+            <label class="preferences-speed" data-i18n="speed"></label>
+            <div>
+              <label class="btn btn-outline-primary float-right">
+                <input type="radio" name="speed" value="km" checked="checked"> km/h</label>
+              <label class="btn btn-outline-primary float-right">
+                <input type="radio" name="speed" value="mph"> mph</label>
+            </div>
+          </li>
+          <li class="col-md-12 col-sm-12">
+            <label data-i18n="contextMenu"></label>
+            <div>
+              <label class="btn btn-outline-primary float-right">
+                <input type="radio" name="contextMenu" value="False" checked="checked">Off</label>
+              <label class="btn btn-outline-primary float-right">
+                <input type="radio" name="contextMenu" value="True">On</label>
+            </div>
+          </li>
+          <li class="col-md-12 col-sm-12">
+            <label data-i18n="show_temperature"></label>
+            <div>
+              <label class="btn btn-outline-primary float-right">
+                <input type="radio" name="showTemperature" value="False">Off</label>
+              <label class="btn btn-outline-primary float-right">
+                <input type="radio" name="showTemperature" value="True" checked="checked">On</label>
+            </div>
+          </li>
+          <li class="col-md-12 col-sm-12">
+            <label data-i18n="show_weather_icon"></label>
+            <div>
+              <label class="btn btn-outline-primary float-right">
+                <input type="radio" name="showWeatherIcon" value="False">Off</label>
+              <label class="btn btn-outline-primary float-right">
+                <input type="radio" name="showWeatherIcon" value="True" checked="checked">On</label>
+            </div>
+          </li>
+          <li class="col-md-12 col-sm-12">
+            <label data-i18n="time_to_refresh"></label>
+            <input class="btn btn-outline-primary time-refresh" id="timer" type="number" name="timer" value="15" min="1"
+              max="60">
+          </li>
+        </ul>
+    </fieldset>
+
+    <fieldset class="col-md-12">
+      <div>
+        <h4><strong data-i18n="colors" class="bottom-distance-colors"></strong></h4>
       </div>
       <ul>
         <li class="col-md-12 col-sm-12">
-          <label class="preferences-temperature" data-i18n="temperature"></label>
+          <h5><strong data-i18n="day"></strong></h5>
           <div>
-            <label class="btn btn-outline-primary float-right">
-              <input type="radio" name="temperature" value="C" checked="checked">°C</label>
-            <label class="btn btn-outline-primary float-right">
-              <input type="radio" name="temperature" value="F">°F</label>
+            <label data-i18n="background_notification"></label>
+            <input name="background_notification_day" id="background_notification_day"
+              class="jscolor btn btn-outline-primary float-right-height-width" value="5387E8"
+              data-jscolor="{format:'hex'}"><br>
+            <label data-i18n="color_font_notification"></label>
+            <input name="color_font_notification_day" id="color_font_notification_day"
+              class="jscolor btn btn-outline-primary float-right-height-width" value="FFFFFF"
+              data-jscolor="{format:'hex'}">
           </div>
         </li>
         <li class="col-md-12 col-sm-12">
-          <label class="preferences-speed" data-i18n="speed"></label>
+          <h5><strong data-i18n="night"></strong></h5>
           <div>
-            <label class="btn btn-outline-primary float-right">
-              <input type="radio" name="speed" value="km" checked="checked"> km/h</label>
-            <label class="btn btn-outline-primary float-right">
-              <input type="radio" name="speed" value="mph"> mph</label>
+            <label data-i18n="background_notification"></label>
+            <input id="background_notification_night" name="background_notification_night"
+              class="jscolor btn btn-outline-primary float-right-height-width" value="722C80"
+              data-jscolor="{format:'hex'}"><br>
+            <label data-i18n="color_font_notification"></label>
+            <input id="color_font_notification_night" name="color_font_notification_night"
+              class="jscolor btn btn-outline-primary float-right-height-width" value="FFFFFF"
+              data-jscolor="{format:'hex'}">
           </div>
-        </li>
-        <li class="col-md-12 col-sm-12">
-          <label data-i18n="contextMenu"></label>
-          <div>
-            <label class="btn btn-outline-primary float-right">
-              <input type="radio" name="contextMenu" value="False" checked="checked">Off</label>
-            <label class="btn btn-outline-primary float-right">
-              <input type="radio" name="contextMenu" value="True">On</label>
-          </div>
-        </li>
-        <li class="col-md-12 col-sm-12">
-          <label data-i18n="show_temperature"></label>
-          <div>
-            <label class="btn btn-outline-primary float-right">
-              <input type="radio" name="showTemperature" value="False">Off</label>
-            <label class="btn btn-outline-primary float-right">
-              <input type="radio" name="showTemperature" value="True" checked="checked">On</label>
-          </div>
-        </li>
-        <li class="col-md-12 col-sm-12">
-          <label data-i18n="show_weather_icon"></label>
-          <div>
-            <label class="btn btn-outline-primary float-right">
-              <input type="radio" name="showWeatherIcon" value="False">Off</label>
-            <label class="btn btn-outline-primary float-right">
-              <input type="radio" name="showWeatherIcon" value="True" checked="checked">On</label>
-          </div>
-        </li>
-        <!-- Define time to refresh the weather -->
-        <li class="col-md-12 col-sm-12">
-          <label data-i18n="time_to_refresh"></label>
-          <input class="btn btn-outline-primary time-refresh" id="timer" type="number" name="timer" value="15" min="1" max="60">
         </li>
       </ul>
-  </fieldset>
-  <fieldset class="col-md-12">
-    <div>
-        <h4><strong data-i18n="colors" class="bottom-distance-colors"></strong>
-        </h4>
-    </div>
-    <ul>
-      <li class="col-md-12 col-sm-12">
-        <h5><strong data-i18n="day"></strong></h5>
-        <div>
-          <label data-i18n="background_notification"></label><input name="background_notification_day" id="background_notification_day" class="jscolor btn btn-outline-primary float-right-height-width" value="5387E8"><br>
-          <label data-i18n="color_font_notification"></label><input name="color_font_notification_day" id="color_font_notification_day" class="jscolor btn btn-outline-primary float-right-height-width" value="FFFFFF">
-        </div>
-      </li>
-      <li class="col-md-12 col-sm-12">
-        <h5><strong data-i18n="night"></strong></h5>
-        <div>
-          <label data-i18n="background_notification"></label><input id="background_notification_night" name="background_notification_night" class="jscolor btn btn-outline-primary float-right-height-width" value="722C80"><br>
-          <label data-i18n="color_font_notification"></label><input id="color_font_notification_night" name="color_font_notification_night" class="jscolor btn btn-outline-primary float-right-height-width" value="FFFFFF">
-        </div>
-      </li>
-    </ul>
-  </fieldset>
-</main>
-<script src="../js/language.js"></script>
-<script src="../js/preferences.js"></script>
-</body
+    </fieldset>
+  </main>
+  <script src="../js/language.js"></script>
+  <script src="../js/preferences.js"></script>
+</body>
+
+</html>

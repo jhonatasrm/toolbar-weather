@@ -22,12 +22,19 @@
     "default_popup": "../html/popup.html"
   },
   "background": {
-    "page": "/html/popup.html"
+    "scripts": ["js/background.js"],
+    "persistent": true
   },
   "options_ui": {
     "browser_style": false,
     "open_in_tab": true,
     "page": "html/preferences.html"
   },
-  "permissions": ["tabs", "geolocation", "storage", "contextMenus", "menus"]
+  "permissions": [
+    "tabs",
+    "geolocation",
+    "storage",
+    "contextMenus",
+    "menus"
+  ]
 }
